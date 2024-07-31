@@ -1,13 +1,13 @@
 ---
 # Display name
-title: 吳健雄
+title: Ivan Ovinnikov
 
 # Name pronunciation (optional)
-name_pronunciation: Chien Shiung Wu
+<!--name_pronunciation: Chien Shiung Wu-->
 
 # Full name (for SEO)
-first_name: Shiung Wu
-last_name: Chien
+first_name: Ivan    
+last_name: Ovinnikov
 
 # Status emoji
 status:
@@ -20,25 +20,25 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Chief Scientist
+role: Researcher
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
-  - name: OpenAI
+  - name: ETH Zürich
     url: https://openai.com/
 
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
 profiles:
   - icon: at-symbol
-    url: 'mailto:your-email@example.com'
+    url: 'mailto:ivan.ovinnikov@gmail.com'
     label: E-mail Me
   - icon: brands/x
     url: https://twitter.com/GetResearchDev
   - icon: brands/instagram
-    url: https://www.instagram.com/
+    url: https://www.instagram.com/iov9000
   - icon: brands/github
-    url: https://github.com/gcushen
+    url: https://github.com/iov9000
   - icon: brands/linkedin
     url: https://www.linkedin.com/
   - icon: academicons/google-scholar
@@ -48,64 +48,60 @@ profiles:
 
 interests:
   - Artificial Intelligence
-  - Computational Linguistics
-  - Information Retrieval
+  - Reinforcement Learning
+  - Generatie Modeling
 
 education:
-  - area: PhD Artificial Intelligence
-    institution: Stanford University
-    date_start: 2016-01-01
-    date_end: 2020-12-31
+  - area: PhD Machine Leaning
+    institution: ETH Zürich Department of Computer Science
+    date_start: 2019-02-01
+    date_end: 2024-06-24
     summary: |
-      Thesis on _Why LLMs are awesome_. Supervised by [Prof Joe Smith](https://example.com). Presented papers at 5 IEEE conferences with the contributions being published in 2 Springer journals.
+      Thesis on RL in digital twins. Supervised by [Prof Joachim Buhmann]. 
     button:
       text: 'Read Thesis'
       url: 'https://example.com'
-  - area: MEng Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    date_start: 2016-01-01
-    date_end: 2020-12-31
+  - area: MSc Intelligent Systems
+    institution: ETH Zürich Department of Electical Engineering
+    date_start: 2013-09-01
+    date_end: 2015-09-01
     summary: |
-      GPA: 3.8/4.0
+      GPA: 5.45/6.0,
 
       Courses included:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - area: BSc Artificial Intelligence
-    institution: Massachusetts Institute of Technology
-    date_start: 2016-01-01
-    date_end: 2020-12-31
+      - Machine Learning 
+      - Statistical Learning Theory
+      - Probabilistic Artificial Intelligence
+  - area: BSc Electrical Engineering
+    institution: ETH Zürich Department of Electical Engineering
+    date_start: 2009-09-01
+    date_end: 2012-09-01
     summary: |
-      GPA: 3.4/4.0
+      GPA: 5.1/6.0
       
       Courses included:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
+      - Control Theory
+      - Analog Devices 
+      - Quantum Electronics
 work:
-  - position: Director of Cloud Infrastructure
-    company_name: GenCoin
+  - position: Research Assistance
+    company_name: Disney Research 
     company_url: ''
     company_logo: ''
-    date_start: 2021-01-01
-    date_end: ''
+    date_start: 2016-11-01
+    date_end: 2018-12-31
     summary: |2-
       Responsibilities include:
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-  - position: Backend Software Engineer
-    company_name: X
+      - 
+  - position: Electrical Engineer 
+    company_name: Quartzteq GmbH
     company_url: ''
     company_logo: ''
-    date_start: 2016-01-01
-    date_end: 2020-12-31
+    date_start: 2010-05-01
+    date_end: 2025-12-31
     summary: |
       Responsibilities include:
-      - Migrated infrastructure to a new data center
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
-      - lorem ipsum dolor sit amet, consectetur adipiscing elit
+      - Development of an energy-harvesting wireless sensor network for health monitoring of large electrical machines
 
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
@@ -128,26 +124,36 @@ skills:
     color: '#eeac02'
     color_border: '#f0bf23'
     items:
-      - name: Hiking
-        description: ''
+      - name: Music
+        description: 'Guitarist (15+ years exp.) playing Gypsy Jazz and Progressive Metal'
         percent: 60
         icon: person-simple-walk
-      - name: Cats
-        description: ''
+      - name: Sports
+        description: 'Mountain Biking and Kite surfing'
         percent: 100
         icon: cat
-      - name: Photography
-        description: ''
+      - name: Dance
+        description: 'Lindy Hp '
         percent: 80
         icon: camera
 
 languages:
   - name: English
     percent: 100
+  - name: German
+    percent: 100
+  - name: French
+    percent: 100
+  - name: Russian
+    percent: 100
+  - name: Italian
+    percent: 80
+  - name: Spanish
+    percent: 50
+  - name: Swedish
+    percent: 40
   - name: Chinese
-    percent: 75
-  - name: Portuguese
-    percent: 25
+    percent: 20
 
 # Awards.
 #   Add/remove as many awards below as you like.
@@ -183,4 +189,5 @@ awards:
 
 ## About Me
 
-Chien Shiung Wu is a professor of artificial intelligence at the Stanford AI Lab. Her research interests include distributed robotics, mobile computing and programmable matter. She leads the Robotic Neurobiology group, which develops self-reconfiguring robots, systems of self-organizing robots, and mobile sensor networks.
+Ivan Ovinnikov is a researcher in reinforcement learning and generative modeling recently graduated with a doctoral degree from ETH Zürich.
+
