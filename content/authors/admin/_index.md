@@ -11,7 +11,7 @@ last_name: Ovinnikov
 
 # Status emoji
 status:
-  icon: ☕️
+  <!--icon: ☕️-->
 
 # Is this the primary user of the site?
 superuser: true
@@ -35,8 +35,8 @@ profiles:
     label: E-mail Me
   - icon: brands/x
     url: https://x.com/iov9000
-  - icon: brands/instagram
-    url: https://www.instagram.com/iov9000
+  <!--- icon: brands/instagram-->
+    <!--url: https://www.instagram.com/iov9000-->
   - icon: brands/github
     url: https://github.com/iov9000
   - icon: brands/linkedin
