@@ -3,7 +3,7 @@
 title: Ivan Ovinnikov
 
 # Name pronunciation (optional)
-<!--name_pronunciation: Chien Shiung Wu-->
+# <!--name_pronunciation: Chien Shiung Wu-->
 
 # Full name (for SEO)
 first_name: Ivan    
@@ -25,7 +25,7 @@ role: Researcher
 # Organizations/Affiliations to display in Biography blox
 organizations:
   - name: ETH Zürich
-    url: https://openai.com/
+    url: https://ise.ethz.ch
 
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
@@ -34,17 +34,17 @@ profiles:
     url: 'mailto:ivan.ovinnikov@gmail.com'
     label: E-mail Me
   - icon: brands/x
-    url: https://twitter.com/GetResearchDev
+    url: https://x.com/iov9000
   - icon: brands/instagram
     url: https://www.instagram.com/iov9000
   - icon: brands/github
     url: https://github.com/iov9000
   - icon: brands/linkedin
-    url: https://www.linkedin.com/
+    url: https://www.linkedin.com/in/ivan-ovinnikov-0b227593/
   - icon: academicons/google-scholar
-    url: https://scholar.google.com/
-  - icon: academicons/orcid
-    url: https://orcid.org/
+    url: https://scholar.google.ch/citations?user=m8UKFekAAAAJ&hl=en
+#  - icon: academicons/orcid
+#    url: https://orcid.org/
 
 interests:
   - Artificial Intelligence
