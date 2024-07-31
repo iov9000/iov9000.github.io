@@ -100,7 +100,7 @@ work:
     company_url: ''
     company_logo: ''
     date_start: 2010-05-01
-    date_end: 2025-12-31
+    date_end: 2015-12-31
     summary: |
       Responsibilities include:
       - Development of an energy-harvesting wireless sensor network for health monitoring of large electrical machines
