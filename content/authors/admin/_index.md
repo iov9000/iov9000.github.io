@@ -49,19 +49,19 @@ profiles:
 interests:
   - Artificial Intelligence
   - Reinforcement Learning
-  - Generatie Modeling
+  - Generative Modeling
 
 education:
-  - area: PhD Machine Leaning
+  - area: PhD Computer Science (ML/AI)
     institution: ETH Zürich Department of Computer Science
     date_start: 2019-02-01
     date_end: 2024-06-24
     summary: |
-      Thesis on RL in digital twins. Supervised by [Prof Joachim Buhmann]. 
+      Thesis on reinforcement learning from demonstrations in (surgical) digital twins. Supervised by Prof. Joachim Buhmann and Prof. Andreas Krause.
     button:
       text: 'Read Thesis'
       url: 'https://example.com'
-  - area: MSc Intelligent Systems
+  - area: MSc Electrical Engineering (Intelligent Systems)
     institution: ETH Zürich Department of Electical Engineering
     date_start: 2013-09-01
     date_end: 2015-09-01
@@ -92,7 +92,9 @@ work:
     date_end: 2018-12-31
     summary: |2-
       Responsibilities include:
-      - 
+      - Applied seq2seq models with structured memory for story generation.
+      - Developed novel autoencoder architecture based on non-Euclidean latent space geometry.
+
   - position: Electrical Engineer 
     company_name: Quartzteq GmbH
     company_url: ''
@@ -112,14 +114,31 @@ skills:
         description: ''
         percent: 80
         icon: code-bracket
-      - name: Data Science
+      - name: Reinforcement Learning
         description: ''
         percent: 100
         icon: chart-bar
-      - name: SQL
+      - name: Machine Learning
         description: ''
-        percent: 40
+        percent: 90
+        icon: chart-bar
+      - name: C 
+        description: ''
+        percent: 60
         icon: circle-stack
+      - name: C++ 
+        description: ''
+        percent: 70
+        icon: circle-stack
+      - name: C# 
+        description: ''
+        percent: 70
+        icon: circle-stack
+      - name: Java 
+        description: ''
+        percent: 60
+        icon: circle-stack
+
   - name: Hobbies
     color: '#eeac02'
     color_border: '#f0bf23'

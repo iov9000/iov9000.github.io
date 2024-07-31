@@ -35,7 +35,6 @@ sections:
       title: '📚 My Research'
       subtitle: ''
       text: |-
-        Use this area to speak to your mission. 
         I'm an independent researcher working in the intersection of reinforcement learning and generative modeling. 
 
         I'm broadly interested in mathematically rich problems applied to this domain. 
