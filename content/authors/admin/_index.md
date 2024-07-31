@@ -35,14 +35,14 @@ profiles:
     label: E-mail Me
   - icon: brands/x
     url: https://x.com/iov9000
-  <!--- icon: brands/instagram-->
-    <!--url: https://www.instagram.com/iov9000-->
   - icon: brands/github
     url: https://github.com/iov9000
   - icon: brands/linkedin
     url: https://www.linkedin.com/in/ivan-ovinnikov-0b227593/
   - icon: academicons/google-scholar
     url: https://scholar.google.ch/citations?user=m8UKFekAAAAJ&hl=en
+#  - icon: brands/instagram
+#    url: https://www.instagram.com/iov9000
 #  - icon: academicons/orcid
 #    url: https://orcid.org/
 
