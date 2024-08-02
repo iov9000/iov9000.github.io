@@ -1,7 +1,7 @@
 ---
 title: PhD examination 
 summary: Successfully passed my PhD examination
-date: 
+date: 2024-06-24
 authors:
   - admin
 tags:
