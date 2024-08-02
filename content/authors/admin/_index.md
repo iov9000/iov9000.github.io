@@ -150,11 +150,11 @@ skills:
       - name: Sports
         description: 'Mountain Biking and Kite surfing'
         percent: 100
-        icon: cat
+        icon: person-snowboarding
       - name: Dance
-        description: 'Lindy Hp '
+        description: 'Lindy Hop '
         percent: 80
-        icon: camera
+        icon: dance-ballroom
 
 languages:
   - name: English
@@ -208,5 +208,5 @@ awards:
 
 ## About Me
 
-Ivan Ovinnikov is a researcher in reinforcement learning and generative modeling recently graduated with a doctoral degree from ETH Zürich.
+I am a researcher in reinforcement learning and generative modeling recently graduated with a doctoral degree from ETH Zürich.
 
