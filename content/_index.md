@@ -56,6 +56,7 @@ sections:
   - block: collection
     content:
       title: Recent Publications
+      id: papers
       text: ""
       filters:
         folders:
