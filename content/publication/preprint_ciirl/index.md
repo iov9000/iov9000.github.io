@@ -17,17 +17,7 @@ publication_types: ["article"]
 publication: ""
 publication_short: ""
 
-abstract: Inverse reinforcement learning methods aim to retrieve the reward function of a Markov
-decision process based on a dataset of expert demonstrations. The commonplace scarcity
-and heterogeneous sources of such demonstrations can lead to the absorption of spurious
-correlations in the data by the learned reward function. Consequently, this adaptation
-often exhibits behavioural overfitting to the expert data set when a policy is trained on the
-obtained reward function under distribution shift of the environment dynamics. In this work,
-we explore a novel regularization approach for inverse reinforcement learning methods based
-on the causal invariance principle with the goal of improved reward function generalization.
-By applying this regularization to both exact and approximate formulations of the learning
-task, we demonstrate superior policy performance when trained using the recovered reward
-functions in a transfer setting.
+abstract: Inverse reinforcement learning methods aim to retrieve the reward function of a Markov decision process based on a dataset of expert demonstrations. The commonplace scarcity and heterogeneous sources of such demonstrations can lead to the absorption of spurious correlations in the data by the learned reward function. Consequently, this adaptation often exhibits behavioural overfitting to the expert data set when a policy is trained on the obtained reward function under distribution shift of the environment dynamics. In this work, we explore a novel regularization approach for inverse reinforcement learning methods based on the causal invariance principle with the goal of improved reward function generalization. By applying this regularization to both exact and approximate formulations of the learning task, we demonstrate superior policy performance when trained using the recovered reward functions in a transfer setting.
 
 # Summary. An optional shortened abstract.
 TLDR: We apply the principle of causal invariance to learn generalizable reward functions. 
