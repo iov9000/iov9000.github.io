@@ -6,7 +6,7 @@ type: landing
 
 design:
   # Default section spacing
-  spacing: "6rem"
+  spacing: "5rem"
 
 sections:
   - block: resume-biography-3
@@ -54,9 +54,9 @@ sections:
 #      view: article-grid
 #      columns: 2
   - block: collection
+    id: papers
     content:
       title: Recent Publications
-      id: papers
       text: ""
       filters:
         folders:
