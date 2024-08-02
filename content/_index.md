@@ -28,7 +28,7 @@ sections:
           filename: endless-constellation.svg
           filters:
             brightness: 1.0
-          size: contain
+          size: cover
           position: center
           parallax: true
   - block: markdown
