@@ -61,6 +61,7 @@ education:
     button:
       text: 'Read Thesis'
       url: 'https://example.com'
+
   - area: MSc Electrical Engineering (Intelligent Systems)
     institution: ETH Zürich Department of Electical Engineering
     date_start: 2013-09-01
@@ -72,6 +73,7 @@ education:
       - Machine Learning 
       - Statistical Learning Theory
       - Probabilistic Artificial Intelligence
+
   - area: BSc Electrical Engineering
     institution: ETH Zürich Department of Electical Engineering
     date_start: 2009-09-01
@@ -84,7 +86,7 @@ education:
       - Analog Devices 
       - Quantum Electronics
 work:
-  - position: Research Assistance
+  - position: Research Assistant
     company_name: Disney Research 
     company_url: ''
     company_logo: ''
