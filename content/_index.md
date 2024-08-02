@@ -28,9 +28,9 @@ sections:
           filename: endless-constellation.svg
           filters:
             brightness: 1.0
-          size: cover
+          size: contain
           position: center
-          parallax: false
+          parallax: true
   - block: markdown
     content:
       title: '📚 My Research'
