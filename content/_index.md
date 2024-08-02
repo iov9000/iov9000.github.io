@@ -111,11 +111,12 @@ sections:
         I have part of a number of courses over the years as a teaching assistant:
 
 
-        Advanced Machine Learning (ETH Zürich, 2020, 2021, 2023)
-        Statistical Learning Theory (ETH Zürich, 2020, 2021, 2024)
-        Algorithmic Game Theory (ETH Zürich, 2019)
-        Linear Algebra (ETH Zürich, 2017)
-        Informatik I (ETH Zürich, 2017)
+        - Advanced Machine Learning (ETH Zürich, 2020, 2021, 2023)
+        - Statistical Learning Theory (ETH Zürich, 2020, 2021, 2024)
+        - Algorithmic Game Theory (ETH Zürich, 2019)
+        - Linear Algebra (ETH Zürich, 2017)
+        - Informatik I (ETH Zürich, 2017)
+
         
   - block: cta-card
     demo: true # Only display this section in the Hugo Blox Builder demo site
