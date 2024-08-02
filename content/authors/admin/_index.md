@@ -87,6 +87,19 @@ education:
       - Quantum Electronics
 work:
   - position: Research Assistant
+    company_name: ETH Zürich, ISE Group, Institute of Machine Learning
+    company_url: ''
+    company_logo: ''
+    date_start: 2019-02-01
+    date_end: 2024-07-31
+    summary: |2-
+      Responsibilities include:
+      - Spearheaded Innosuisse project titled "Data-driven optimization of surgical skills" in collaboration with an industry partner
+      - Developed novel algorithms in the domains of imitation learning and inverse reinforcement learning
+      - Applied these algorithms in the context of a surgical teaching assistance algorithmic pipeline.
+      - Teaching duties: Advanced Machine Learning and Statistical Learning Theory
+
+  - position: Research Assistant
     company_name: Disney Research 
     company_url: ''
     company_logo: ''
