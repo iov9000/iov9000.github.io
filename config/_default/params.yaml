@@ -5,7 +5,7 @@
 
 # Appearance
 appearance:
-  mode: minimal
+  mode: system
   color: emerald
 
 # SEO
