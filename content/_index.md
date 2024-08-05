@@ -118,6 +118,15 @@ sections:
         - Linear Algebra (ETH Zürich, 2017)
         - Informatik I (ETH Zürich, 2017)
 
+        I have also supervised a number of student theses:
+
+        - Ege Karaismaloglu (Bachelor Thesis): Abstract Reasoning in Neural Networks
+        - Riccardo De Santi (Research in CS Project): Non-Markovian Policies for Unsupervised Reinforcement Learning in Multiple Environments
+        - Marcus Vierneisel (Master Thesis): Exploration of Latent Space in Adversarial Imitation Learning
+        - Daniel Garellick (Semester Thesis): Reducing Spurious Correlations in Better-than-Demonstrator Imitation Learning
+        - Vitaly Dmitriev (MAS): Applications of Regularized Classification Methods to Surgical Skill Assessment
+        - Shengdi Chen: An Empirical Study of Primal Wasserstein Imitation Learning in Goal-Conditioned RL
+
         
   - block: cta-card
     demo: true # Only display this section in the Hugo Blox Builder demo site
