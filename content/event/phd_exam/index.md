@@ -4,15 +4,15 @@ title: PhD Examination
 event: ETH Zürich
 #event_url: https://example.org
 
-location: Hugo Blox Builder HQ
-address:
-  street: 450 Serra Mall
-  city: Stanford
-  region: CA
-  postcode: '94305'
-  country: United States
+#location: Hugo Blox Builder HQ
+#address:
+#  street: 450 Serra Mall
+#  city: Stanford
+#  region: CA
+#  postcode: '94305'
+#  country: United States
 
-summary: PhD Examination on the topic of "Reinforcement Learning from Demonstrations: methods and applications in digital twin simulaions".
+summary: 'PhD Examination on the topic of "Reinforcement Learning from Demonstrations: methods and applications in digital twin simulations"'
 #abstract: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellusac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pu'
 
 # Talk start and end times.
