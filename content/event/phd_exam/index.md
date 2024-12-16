@@ -30,12 +30,13 @@ authors:
 tags: []
 
 # Is this a featured talk? (true/false)
-featured: false
+featured: true
 
-image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/bzdhc5b3Bxs)'
-  focal_point: Right
+<!--image:-->
+  <!--caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/bzdhc5b3Bxs)'-->
+  <!--focal_point: Right-->
 
+[link](https://www.research-collection.ethz.ch/handle/20.500.11850/708755)
 #links:
 #  - icon: twitter
 #    icon_pack: fab
@@ -49,7 +50,7 @@ url_pdf: 'uploads/PhD_Exam_IO.pdf'
 #   Simply enter your slide deck's filename without extension.
 #   E.g. `slides = "example-slides"` references `content/slides/example-slides.md`.
 #   Otherwise, set `slides = ""`.
-slides: ""
+slides: "uploads/PhD_Exam_IO"
 
 # Projects (optional).
 #   Associate this post with one or more of your projects.
