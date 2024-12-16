@@ -33,7 +33,7 @@ tags: []
 featured: true
 
 links:
-   - [link](https://www.research-collection.ethz.ch/handle/20.500.11850/708755)
+   [link](https://www.research-collection.ethz.ch/handle/20.500.11850/708755)
 #links:
 #  - icon: twitter
 #    icon_pack: fab
