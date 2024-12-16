@@ -32,7 +32,8 @@ tags: []
 # Is this a featured talk? (true/false)
 featured: true
 
-[link](https://www.research-collection.ethz.ch/handle/20.500.11850/708755)
+links:
+   - [link](https://www.research-collection.ethz.ch/handle/20.500.11850/708755)
 #links:
 #  - icon: twitter
 #    icon_pack: fab
