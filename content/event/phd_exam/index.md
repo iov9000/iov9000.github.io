@@ -32,10 +32,6 @@ tags: []
 # Is this a featured talk? (true/false)
 featured: true
 
-<!--image:-->
-  <!--caption: 'Image credit: [**Unsplash**](https://unsplash.com/photos/bzdhc5b3Bxs)'-->
-  <!--focal_point: Right-->
-
 [link](https://www.research-collection.ethz.ch/handle/20.500.11850/708755)
 #links:
 #  - icon: twitter

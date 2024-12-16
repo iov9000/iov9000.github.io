@@ -109,7 +109,7 @@ sections:
       title: 'Teaching'
       subtitle: ''
       text: |-
-        I have part of a number of courses over the years as a teaching assistant:
+        I have been part of a number of courses over the years as a teaching assistant:
 
 
         - Advanced Machine Learning (ETH Zürich, 2020, 2021, 2023)
@@ -125,7 +125,7 @@ sections:
         - Marcus Vierneisel (Master Thesis): Exploration of Latent Space in Adversarial Imitation Learning
         - Daniel Garellick (Semester Thesis): Reducing Spurious Correlations in Better-than-Demonstrator Imitation Learning
         - Vitaly Dmitriev (MAS): Applications of Regularized Classification Methods to Surgical Skill Assessment
-        - Shengdi Chen: An Empirical Study of Primal Wasserstein Imitation Learning in Goal-Conditioned RL
+        - Shengdi Chen (Semester Thesis): An Empirical Study of Primal Wasserstein Imitation Learning in Goal-Conditioned RL
 
         
   - block: cta-card
