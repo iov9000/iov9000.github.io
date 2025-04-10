@@ -27,7 +27,7 @@ sections:
           #filename: stacked-peaks.svg
           filename: endless-constellation.svg
           filters:
-            brightness: 1.0
+            brightness: 0.5
           size: cover
           position: center
           parallax: true

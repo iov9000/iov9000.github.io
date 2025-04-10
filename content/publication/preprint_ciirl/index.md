@@ -30,7 +30,7 @@ featured: true
 
 links:
 - name: TMLR Review
-  url: 'https:/openreview.net/forum?id=1lW6xdQQ3r'
+#url: 'https:/openreview.net/forum?id=1lW6xdQQ3r'
 #url_pdf: http://arxiv.org/pdf/1512.04133v1
 #url_code: 'https://github.com/HugoBlox/hugo-blox-builder'
 #url_dataset: '#'
