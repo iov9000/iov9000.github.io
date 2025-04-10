@@ -31,18 +31,18 @@ sections:
           size: cover
           position: center
           parallax: true
-  - block: markdown
-    content:
-      title: '📚 My Research'
-      subtitle: ''
-      text: |-
-        I'm an independent researcher working in the intersection of reinforcement learning and generative modeling. 
+  # - block: markdown
+  #   content:
+  #     title: '📚 My Research'
+  #     subtitle: ''
+  #     text: |-
+  #       I'm an independent researcher working in the intersection of reinforcement learning and generative modeling. 
 
-        I'm broadly interested in mathematically rich problems applied to this domain. 
+  #       I'm broadly interested in mathematically rich problems applied to this domain. 
         
-        Please reach out to collaborate 😃
-    design:
-      columns: '1'
+  #       Please reach out to collaborate 😃
+  #   design:
+  #     columns: '1'
 #  - block: collection
 #    id: papers
 #    content:
