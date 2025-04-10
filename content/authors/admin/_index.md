@@ -60,7 +60,7 @@ education:
       Thesis on reinforcement learning from demonstrations in (surgical) digital twins. Supervised by Prof. Joachim Buhmann and Prof. Andreas Krause.
     button:
       text: 'Read Thesis'
-      url: 'https://example.com'
+      url: 'https://www.research-collection.ethz.ch/handle/20.500.11850/708755'
 
   - area: MSc Electrical Engineering (Intelligent Systems)
     institution: ETH Zürich Department of Electical Engineering
