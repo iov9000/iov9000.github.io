@@ -7,7 +7,7 @@
 appearance:
   mode: system
   color: purple
-  font_size: S
+  font_size: s
 
 # SEO
 marketing:
