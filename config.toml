@@ -1,5 +1,2 @@
-baseURL = “http://example.com/”
-theme = “introduction”
-
 [params]
 favicon = “img/favicon.ico” # Path to favicon file
