@@ -2,4 +2,4 @@ baseURL = “http://example.com/”
 theme = “introduction”
 
 [params]
-favicon = “static/favicon.ico” # Path to favicon file
+favicon = “img/favicon.ico” # Path to favicon file
