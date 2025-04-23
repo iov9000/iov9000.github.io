@@ -63,7 +63,7 @@ education:
       url: 'https://www.research-collection.ethz.ch/handle/20.500.11850/708755'
 
   - area: MSc Electrical Engineering (Intelligent Systems)
-    institution: ETH Zürich Department of Electical Engineering
+    institution: ETH Zürich Department of Electrical Engineering
     date_start: 2013-09-01
     date_end: 2015-09-01
     summary: |
@@ -75,7 +75,7 @@ education:
       - Probabilistic Artificial Intelligence
 
   - area: BSc Electrical Engineering
-    institution: ETH Zürich Department of Electical Engineering
+    institution: ETH Zürich Department of Electrical Engineering
     date_start: 2009-09-01
     date_end: 2012-09-01
     summary: |
