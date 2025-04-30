@@ -111,7 +111,6 @@ sections:
       text: |-
         I have been part of a number of courses over the years as a teaching assistant:
 
-
         - Advanced Machine Learning (ETH Zürich, 2020, 2021, 2023)
         - Statistical Learning Theory (ETH Zürich, 2020, 2021, 2024)
         - Algorithmic Game Theory (ETH Zürich, 2019)
