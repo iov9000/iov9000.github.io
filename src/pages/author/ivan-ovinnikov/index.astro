@@ -1,0 +1,24 @@
+---
+import { Image } from 'astro:assets';
+import avatar from '../../../assets/avatar.jpg';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import Icon from '../../../components/Icon.astro';
+import { profile } from '../../../data/profile';
+---
+
+<BaseLayout title={profile.name} description={profile.summary}>
+  <section class="page-hero container">
+    <div class="hero-grid">
+      <Image class="portrait" src={avatar} alt={profile.name} width={360} height={360} />
+      <div>
+        <p class="eyebrow">Author</p>
+        <h1 class="page-title">{profile.name}</h1>
+        <p class="hero-role">{profile.role}</p>
+        <p class="page-lead">{profile.about.join(' ')}</p>
+        <div class="social-links">
+          {profile.socials.map((social) => <a href={social.url} aria-label={social.label}><Icon name={social.icon} /></a>)}
+        </div>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

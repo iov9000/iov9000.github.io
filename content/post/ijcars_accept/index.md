@@ -3,13 +3,11 @@ title: FASTRL paper published in IJCARS
 summary: Our paper on surgical assistance agents in simulation was published in the 
 date: 2024-04-29
 authors:
-  - admin
+  - Ivan Ovinnikov
 tags:
   - Surgical RL
   - IJCARS
   - Publication
-image:
-  caption: 'Image credit: [**Unsplash**](https://unsplash.com)'
 ---
 
 The paper titled "Fundamentals of arthroscopic skills training and beyond: a reinforcement learning exploration and benchmark" has been accepted 

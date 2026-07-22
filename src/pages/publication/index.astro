@@ -1,0 +1,21 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import PublicationRow from '../../components/PublicationRow.astro';
+import { sortNewest } from '../../lib/content';
+
+const publications = sortNewest(await getCollection('publications'));
+---
+
+<BaseLayout title="Publications" description="Publications and preprints by Ivan Ovinnikov.">
+  <section class="page-hero container">
+    <p class="eyebrow">Research record</p>
+    <h1 class="page-title">Publications</h1>
+    <p class="page-lead">Peer-reviewed articles, preprints, and manuscripts in reinforcement learning, imitation learning, and generative modeling.</p>
+  </section>
+  <section class="container">
+    <div class="publication-list">
+      {publications.map((publication) => <PublicationRow entry={publication} />)}
+    </div>
+  </section>
+</BaseLayout>

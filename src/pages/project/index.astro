@@ -1,0 +1,17 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectCard from '../../components/ProjectCard.astro';
+import { sortNewest } from '../../lib/content';
+
+const projects = sortNewest((await getCollection('projects')).filter((entry) => !entry.data.draft));
+---
+
+<BaseLayout title="Selected work" description="Selected research and applied machine-learning work by Ivan Ovinnikov.">
+  <section class="page-hero container">
+    <p class="eyebrow">Research and deployment</p>
+    <h1 class="page-title">Selected work</h1>
+    <p class="page-lead">Projects spanning deployed robot locomotion, simulation infrastructure, reward learning, and optimal transport.</p>
+  </section>
+  <section class="container"><div class="card-grid">{projects.map((project) => <ProjectCard entry={project} />)}</div></section>
+</BaseLayout>

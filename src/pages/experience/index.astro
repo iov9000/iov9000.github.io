@@ -1,0 +1,63 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { profile } from '../../data/profile';
+import { formatMonth } from '../../lib/content';
+
+const date = (value: string) => formatMonth(new Date(`${value}T00:00:00`));
+---
+
+<BaseLayout title="Experience" description="Professional experience, education, and technical skills of Ivan Ovinnikov.">
+  <section class="page-hero container">
+    <p class="eyebrow">Background</p>
+    <h1 class="page-title">Experience</h1>
+    <p class="page-lead">Research and engineering across reinforcement learning, robotics, simulation, and generative modeling.</p>
+  </section>
+
+  <section class="container experience-grid">
+    <aside>
+      <div class="sidebar-block">
+        <h2>Skills</h2>
+        {profile.skills.map((skill) => (
+          <div style="margin-top: 1.2rem">
+            <strong>{skill.group}</strong>
+            <ul class="plain-list" style="margin-top: .5rem">{skill.items.map((item) => <li>{item}</li>)}</ul>
+          </div>
+        ))}
+      </div>
+      <div class="sidebar-block">
+        <h2>Languages</h2>
+        <ul class="plain-list">{profile.languages.map((language) => <li>{language}</li>)}</ul>
+      </div>
+    </aside>
+
+    <div>
+      <div class="timeline">
+        {profile.work.map((item) => (
+          <article class="timeline-item">
+            <h2>{item.position}</h2>
+            <div class="timeline-company">
+              {item.url ? <a href={item.url} target="_blank" rel="noreferrer">{item.company}</a> : item.company}
+            </div>
+            <div class="timeline-date">{date(item.start)} — {item.end ? date(item.end) : 'Present'}</div>
+            <ul>{item.points.map((point) => <li>{point}</li>)}</ul>
+          </article>
+        ))}
+      </div>
+
+      <header class="section-header" style="margin-top: 5rem">
+        <p class="eyebrow">Education</p>
+        <h2 class="section-title" style="font-size: 2rem">Academic training</h2>
+      </header>
+      <div class="timeline">
+        {profile.education.map((item) => (
+          <article class="timeline-item">
+            <h2>{item.url ? <a href={item.url} target="_blank" rel="noreferrer">{item.degree}</a> : item.degree}</h2>
+            <div class="timeline-company">{item.institution}</div>
+            <div class="timeline-date">{date(item.start)} — {date(item.end)}</div>
+            <p style="color: var(--muted)">{item.summary}</p>
+          </article>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

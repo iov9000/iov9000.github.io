@@ -1,0 +1,60 @@
+---
+import Icon from './Icon.astro';
+
+const { pathname = '/' } = Astro.props;
+const links = [
+  { label: 'Home', href: '/' },
+  { label: 'Work', href: '/#projects' },
+  { label: 'Publications', href: '/publication/' },
+  { label: 'Notes', href: '/post/' },
+  { label: 'Experience', href: '/experience/' },
+];
+
+const isActive = (href: string) => {
+  if (href === '/') return pathname === '/';
+  if (href === '/#projects') return pathname.startsWith('/project/');
+  return pathname.startsWith(href);
+};
+---
+
+<header class="site-header" data-pagefind-ignore>
+  <div class="header-inner">
+    <a class="wordmark" href="/" aria-label="IOV, Ivan Ovinnikov home">IOV</a>
+
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      {links.map((link) => (
+        <a class:list={{ active: isActive(link.href) }} href={link.href}>
+          {link.label}
+        </a>
+      ))}
+    </nav>
+
+    <div class="header-actions">
+      <a class="icon-button" href="/search/" aria-label="Search"><Icon name="search" /></a>
+      <button class="icon-button theme-toggle" type="button" aria-label="Toggle color theme">
+        <span class="theme-sun"><Icon name="sun" /></span>
+        <span class="theme-moon"><Icon name="moon" /></span>
+      </button>
+      <a class="button button-small desktop-cv" href="/uploads/resume.pdf">CV</a>
+
+      <details class="mobile-menu">
+        <summary class="icon-button" aria-label="Open navigation"><Icon name="menu" /></summary>
+        <nav aria-label="Mobile navigation">
+          {links.map((link) => <a href={link.href}>{link.label}</a>)}
+          <a href="/uploads/resume.pdf">Download CV</a>
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<script is:inline>
+  document.querySelectorAll('.theme-toggle').forEach((button) => {
+    button.addEventListener('click', () => {
+      const root = document.documentElement;
+      const next = root.dataset.theme === 'dark' ? 'light' : 'dark';
+      root.dataset.theme = next;
+      localStorage.setItem('theme', next);
+    });
+  });
+</script>

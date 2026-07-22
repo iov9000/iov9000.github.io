@@ -1,0 +1,97 @@
+---
+import { getCollection } from 'astro:content';
+import { Image } from 'astro:assets';
+import avatar from '../assets/avatar.jpg';
+import BaseLayout from '../layouts/BaseLayout.astro';
+import Icon from '../components/Icon.astro';
+import ProjectCard from '../components/ProjectCard.astro';
+import PostCard from '../components/PostCard.astro';
+import PublicationRow from '../components/PublicationRow.astro';
+import { profile } from '../data/profile';
+import { sortNewest } from '../lib/content';
+
+const projects = sortNewest((await getCollection('projects')).filter((entry) => !entry.data.draft));
+const publications = sortNewest(await getCollection('publications'));
+const featuredPublications = publications.filter((entry) => entry.data.featured);
+const posts = sortNewest((await getCollection('posts')).filter((entry) => !entry.data.draft));
+
+const personJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name: profile.name,
+  jobTitle: profile.role,
+  worksFor: { '@type': 'Organization', name: profile.company },
+  url: 'https://ovinnikov.com/',
+  sameAs: profile.socials.filter((social) => social.url.startsWith('http')).map((social) => social.url),
+};
+---
+
+<BaseLayout description={profile.summary}>
+  <script is:inline slot="head" type="application/ld+json" set:html={JSON.stringify(personJsonLd)} />
+
+  <section class="hero">
+    <div class="container hero-grid">
+      <div class="portrait-wrap">
+        <Image class="portrait" src={avatar} alt={profile.name} width={440} height={440} priority />
+      </div>
+      <div>
+        <p class="eyebrow">Applied machine learning</p>
+        <h1>{profile.name}</h1>
+        <p class="hero-role">{profile.role}</p>
+        <p class="hero-affiliation">{profile.company} · {profile.location}</p>
+        <p class="hero-copy">{profile.about[0]}</p>
+        <p class="hero-copy">{profile.about[1]}</p>
+        <div class="hero-actions">
+          <a class="button" href="#projects">Selected work <Icon name="arrow-right" size={17} /></a>
+          <a class="button button-secondary" href="/uploads/resume.pdf"><Icon name="download" size={17} /> Download CV</a>
+        </div>
+        <div class="social-links" aria-label="Profiles">
+          {profile.socials.map((social) => (
+            <a href={social.url} aria-label={social.label} target={social.url.startsWith('http') ? '_blank' : undefined} rel={social.url.startsWith('http') ? 'noreferrer' : undefined}>
+              <Icon name={social.icon} />
+            </a>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="projects">
+    <div class="container">
+      <header class="section-header">
+        <p class="eyebrow">Selected work</p>
+        <h2 class="section-title">Research that reaches real systems.</h2>
+        <p class="section-intro">Deployed locomotion, simulation infrastructure, robust reward learning, and distributional objectives.</p>
+      </header>
+      <div class="card-grid">
+        {projects.slice(0, 6).map((project) => <ProjectCard entry={project} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section" id="papers">
+    <div class="container">
+      <header class="section-header">
+        <p class="eyebrow">Selected publications</p>
+        <h2 class="section-title">Papers and preprints.</h2>
+        <p class="section-intro">Work spanning reinforcement learning, imitation learning, causal invariance, and optimal transport.</p>
+      </header>
+      <div class="publication-list">
+        {featuredPublications.slice(0, 5).map((publication) => <PublicationRow entry={publication} />)}
+      </div>
+      <p style="margin-top: 1.5rem"><a class="button button-secondary" href="/publication/">All publications</a></p>
+    </div>
+  </section>
+
+  <section class="section" id="notes">
+    <div class="container">
+      <header class="section-header">
+        <p class="eyebrow">Writing</p>
+        <h2 class="section-title">Research notes and updates.</h2>
+      </header>
+      <div class="card-grid">
+        {posts.slice(0, 3).map((post) => <PostCard entry={post} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { slugify } from '../../lib/content';
+
+const posts = (await getCollection('posts')).filter((entry) => !entry.data.draft);
+const projects = (await getCollection('projects')).filter((entry) => !entry.data.draft);
+const tags = new Map<string, { label: string; count: number }>();
+for (const entry of [...posts, ...projects]) {
+  for (const tag of entry.data.tags) {
+    const key = slugify(tag);
+    const current = tags.get(key) ?? { label: tag, count: 0 };
+    current.count += 1;
+    tags.set(key, current);
+  }
+}
+const sortedTags = [...tags].sort((a, b) => a[1].label.localeCompare(b[1].label));
+---
+
+<BaseLayout title="Topics" description="Research topics across projects and notes.">
+  <section class="page-hero container"><p class="eyebrow">Browse</p><h1 class="page-title">Topics</h1></section>
+  <section class="container"><div class="article-taxonomy">{sortedTags.map(([slug, tag]) => <a class="tag" href={`/tags/${slug}/`}>{tag.label} · {tag.count}</a>)}</div></section>
+</BaseLayout>

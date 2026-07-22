@@ -1,0 +1,44 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PostCard from '../../../components/PostCard.astro';
+import ProjectCard from '../../../components/ProjectCard.astro';
+import { slugify, sortNewest } from '../../../lib/content';
+
+export async function getStaticPaths() {
+  const posts = (await getCollection('posts')).filter((entry) => !entry.data.draft);
+  const projects = (await getCollection('projects')).filter((entry) => !entry.data.draft);
+  const tags = new Map<string, { label: string; posts: typeof posts; projects: typeof projects }>();
+
+  for (const post of posts) {
+    for (const tag of post.data.tags) {
+      const key = slugify(tag);
+      const bucket = tags.get(key) ?? { label: tag, posts: [], projects: [] };
+      bucket.posts.push(post);
+      tags.set(key, bucket);
+    }
+  }
+  for (const project of projects) {
+    for (const tag of project.data.tags) {
+      const key = slugify(tag);
+      const bucket = tags.get(key) ?? { label: tag, posts: [], projects: [] };
+      bucket.projects.push(project);
+      tags.set(key, bucket);
+    }
+  }
+
+  return [...tags].map(([tag, entries]) => ({ params: { tag }, props: entries }));
+}
+
+const { label, posts, projects } = Astro.props;
+---
+
+<BaseLayout title={label} description={`Research related to ${label}.`}>
+  <section class="page-hero container"><p class="eyebrow">Topic</p><h1 class="page-title">{label}</h1></section>
+  <section class="container">
+    <div class="card-grid">
+      {sortNewest(projects).map((project) => <ProjectCard entry={project} />)}
+      {sortNewest(posts).map((post) => <PostCard entry={post} />)}
+    </div>
+  </section>
+</BaseLayout>

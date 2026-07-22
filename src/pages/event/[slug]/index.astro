@@ -1,0 +1,30 @@
+---
+import { getCollection, render } from 'astro:content';
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import { slugFromId } from '../../../lib/content';
+
+export async function getStaticPaths() {
+  const events = await getCollection('events');
+  return events.map((event) => ({ params: { slug: slugFromId(event.id) }, props: { event } }));
+}
+
+const { event } = Astro.props;
+const { Content } = await render(event);
+const links = [
+  ...(event.data.url_pdf ? [{ name: 'PDF', url: `/${event.data.url_pdf.replace(/^\//, '')}` }] : []),
+  ...(event.data.content?.button ? [{ name: event.data.content.button.text, url: event.data.content.button.url }] : []),
+];
+---
+
+<ArticleLayout
+  title={event.data.title}
+  summary={event.data.summary}
+  date={event.data.date}
+  authors={['Ivan Ovinnikov']}
+  links={links}
+  facts={event.data.event ? [{ label: 'Host', value: event.data.event }] : []}
+  backUrl="/event/"
+  backLabel="All talks"
+>
+  <Content />
+</ArticleLayout>

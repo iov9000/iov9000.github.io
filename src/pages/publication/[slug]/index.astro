@@ -1,0 +1,37 @@
+---
+import { getCollection, render } from 'astro:content';
+import ArticleLayout from '../../../layouts/ArticleLayout.astro';
+import { publicationType, slugFromId } from '../../../lib/content';
+
+export async function getStaticPaths() {
+  const publications = await getCollection('publications');
+  return publications.map((publication) => ({
+    params: { slug: slugFromId(publication.id) },
+    props: { publication },
+  }));
+}
+
+const { publication } = Astro.props;
+const { Content } = await render(publication);
+const slug = slugFromId(publication.id);
+const venue = (publication.data.publication || 'Independent preprint').replaceAll('*', '');
+const facts = [
+  { label: 'Type', value: publicationType(publication.data.publication_types[0]) },
+  { label: 'Venue / status', value: venue },
+];
+---
+
+<ArticleLayout
+  title={publication.data.title}
+  summary={publication.data.summary}
+  date={publication.data.date}
+  authors={publication.data.authors}
+  links={publication.data.links}
+  facts={facts}
+  citeUrl={`/publication/${slug}/cite.bib`}
+  backUrl="/publication/"
+  backLabel="All publications"
+  displaySummary={false}
+>
+  <Content />
+</ArticleLayout>

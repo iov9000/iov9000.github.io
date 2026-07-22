@@ -1,0 +1,15 @@
+---
+import { formatDate, publicationType, slugFromId } from '../lib/content';
+
+const { entry } = Astro.props;
+const slug = slugFromId(entry.id);
+---
+
+<article class="publication-row">
+  <time datetime={entry.data.date.toISOString()}>{formatDate(entry.data.date, { day: undefined })}</time>
+  <div>
+    <h3><a href={`/publication/${slug}/`}>{entry.data.title}</a></h3>
+    <p>{entry.data.publication || publicationType(entry.data.publication_types[0])} · {entry.data.authors.join(', ')}</p>
+  </div>
+  <a class="row-link" href={`/publication/${slug}/`}>Details →</a>
+</article>

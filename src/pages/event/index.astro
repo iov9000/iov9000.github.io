@@ -1,0 +1,24 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { formatDate, slugFromId, sortNewest } from '../../lib/content';
+
+const events = sortNewest(await getCollection('events'));
+---
+
+<BaseLayout title="Talks and presentations" description="Talks and presentations by Ivan Ovinnikov.">
+  <section class="page-hero container">
+    <p class="eyebrow">Speaking</p>
+    <h1 class="page-title">Talks and presentations</h1>
+  </section>
+  <section class="container"><div class="card-grid">
+    {events.map((event) => (
+      <a class="card" href={`/event/${slugFromId(event.id)}/`}>
+        <span class="card-meta">{formatDate(event.data.date)}</span>
+        <h3>{event.data.title}</h3>
+        <p>{event.data.summary}</p>
+        <span class="card-footer">View event →</span>
+      </a>
+    ))}
+  </div></section>
+</BaseLayout>

@@ -1,0 +1,19 @@
+---
+import Icon from './Icon.astro';
+import { slugFromId } from '../lib/content';
+
+const { entry } = Astro.props;
+const slug = slugFromId(entry.id);
+---
+
+<a class="card" href={`/project/${slug}/`}>
+  <span class="card-meta">Research artifact</span>
+  <h3>{entry.data.title}</h3>
+  <p>{entry.data.summary}</p>
+  {entry.data.tags.length > 0 && (
+    <div class="tags">
+      {entry.data.tags.slice(0, 3).map((tag: string) => <span class="tag">{tag}</span>)}
+    </div>
+  )}
+  <span class="card-footer">Explore work <Icon name="arrow-right" size={16} /></span>
+</a>

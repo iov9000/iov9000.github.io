@@ -1,0 +1,23 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../../layouts/BaseLayout.astro';
+import PublicationRow from '../../../components/PublicationRow.astro';
+import { publicationType, sortNewest } from '../../../lib/content';
+
+export async function getStaticPaths() {
+  const publications = await getCollection('publications');
+  const types = [...new Set(publications.flatMap((entry) => entry.data.publication_types))];
+  return types.map((type) => ({
+    params: { type },
+    props: { type, publications: publications.filter((entry) => entry.data.publication_types.includes(type)) },
+  }));
+}
+
+const { type, publications } = Astro.props;
+const label = publicationType(type);
+---
+
+<BaseLayout title={label} description={`${label} publications by Ivan Ovinnikov.`}>
+  <section class="page-hero container"><p class="eyebrow">Publication type</p><h1 class="page-title">{label}</h1></section>
+  <section class="container"><div class="publication-list">{sortNewest(publications).map((entry) => <PublicationRow entry={entry} />)}</div></section>
+</BaseLayout>
