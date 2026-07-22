@@ -11,4 +11,15 @@ publishDate: '2024-08-02T11:14:23.598557Z'
 publication_types:
 - article-journal
 publication: '*International Journal of Computer Assisted Radiology and Surgery*'
+featured: true
+summary: Peer-reviewed IJCARS article introducing a reinforcement-learning framework for surgical digital-twin environments and assistance-policy learning.
+links:
+- name: FASTRL
+  url: https://fastrl.ethz.ch/
+- name: DOI
+  url: https://link.springer.com/article/10.1007/s11548-024-03116-z
 ---
+
+**Status:** Peer-reviewed journal article.
+
+**Summary:** Introduces a reinforcement-learning framework for surgical digital-twin environments and assistance-policy learning.

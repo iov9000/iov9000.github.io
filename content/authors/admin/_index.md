@@ -20,12 +20,14 @@ superuser: true
 highlight_name: true
 
 # Role/position/tagline
-role: Researcher
+role: Applied Scientist · RL, Simulation & Physical AI
 
 # Organizations/Affiliations to display in Biography blox
 organizations:
-  - name: ETH Zürich
-    url: https://ise.ethz.ch
+  - name: ANYbotics
+    url: https://www.anybotics.com/
+  - name: PhD, ETH Zürich
+    url: https://ethz.ch/
 
 # Social network links
 # Need to use another icon? Simply download the SVG icon to your `assets/media/icons/` folder.
@@ -47,9 +49,12 @@ profiles:
 #    url: https://orcid.org/
 
 interests:
-  - Artificial Intelligence
-  - Reinforcement Learning
-  - Generative Modeling
+  - Reinforcement learning for robotics
+  - Imitation learning and reward learning
+  - Physical AI and sim-to-real locomotion
+  - Scalable simulation and policy evaluation
+  - Safety-critical evaluation and robustness
+  - Generative modeling and optimal transport
 
 education:
   - area: PhD Computer Science (ML/AI)
@@ -86,6 +91,18 @@ education:
       - Analog Devices 
       - Quantum Electronics
 work:
+  - position: ML Engineer, Reinforcement Learning
+    company_name: ANYbotics AG
+    company_url: 'https://www.anybotics.com/'
+    company_logo: ''
+    date_start: 2024-10-01
+    date_end: ''
+    summary: |2-
+      - Developed RL locomotion controllers in IsaacSim/IsaacLab for quadrupeds deployed in industrial inspection.
+      - Built and improved GPU-accelerated training and evaluation workflows for fast sim-to-real iteration.
+      - Led and secured a EuroHPC grant enabling large-scale RL robustness and scaling experiments.
+      - Designed safety curriculum learning techniques for rare failure modes.
+
   - position: Research Assistant
     company_name: ETH Zürich, ISE Group, Institute of Machine Learning
     company_url: ''
@@ -93,11 +110,11 @@ work:
     date_start: 2019-02-01
     date_end: 2024-07-31
     summary: |2-
-      Responsibilities include:
-      - Spearheaded Innosuisse project titled "Data-driven optimization of surgical skills" in collaboration with an industry partner
-      - Developed novel algorithms in the domains of imitation learning and inverse reinforcement learning
-      - Applied these algorithms in the context of a surgical teaching assistance algorithmic pipeline.
-      - Teaching duties: Advanced Machine Learning and Statistical Learning Theory
+      - Proposed and implemented inverse reinforcement learning methods for surgical trainee evaluation and skill assessment in simulation-based training.
+      - Developed reward-learning methods for robust objectives from diverse demonstrations under dynamics and environment shift.
+      - Studied reward generalization, imitation learning, and Wasserstein/distributional objectives for learning from demonstrations.
+      - Published work on RL benchmarks, causally invariant reward learning, and imitation learning with sliced Wasserstein distances.
+      - Supported teaching in Advanced Machine Learning, Statistical Learning Theory, and Algorithmic Game Theory.
 
   - position: Research Assistant
     company_name: Disney Research 
@@ -106,9 +123,8 @@ work:
     date_start: 2016-11-01
     date_end: 2018-12-31
     summary: |2-
-      Responsibilities include:
-      - Applied seq2seq models with structured memory for story generation.
-      - Developed novel autoencoder architecture based on non-Euclidean latent space geometry.
+      - Extended sequence-to-sequence NLP models with structured variational inference for latent structure and uncertainty modeling.
+      - Investigated hyperbolic geometry for Wasserstein autoencoders to learn hierarchical representations for large-scale NLP.
 
   - position: Electrical Engineer 
     company_name: Quartzteq GmbH
@@ -123,53 +139,64 @@ work:
 # Skills
 # Add your own SVG icons to `assets/media/icons/`
 skills:
-  - name: Technical Skills
+  - name: Machine Learning
     items:
-      - name: Python
-        description: ''
-        percent: 80
-        icon: code-bracket
-      - name: Reinforcement Learning
+      - name: Reinforcement learning
         description: ''
         percent: 100
         icon: chart-bar
-      - name: Machine Learning
+      - name: Imitation and reward learning
+        description: ''
+        percent: 100
+        icon: chart-bar
+      - name: Generative modeling and optimal transport
         description: ''
         percent: 90
         icon: chart-bar
-      - name: C 
+      - name: Distribution shift and evaluation
         description: ''
-        percent: 60
-        icon: circle-stack
-      - name: C++ 
+        percent: 90
+        icon: chart-bar
+      - name: Curriculum design
         description: ''
-        percent: 70
-        icon: circle-stack
-      - name: C# 
-        description: ''
-        percent: 70
-        icon: circle-stack
-      - name: Java 
-        description: ''
-        percent: 60
-        icon: circle-stack
-
-  - name: Hobbies
-    color: '#eeac02'
-    color_border: '#f0bf23'
+        percent: 90
+        icon: chart-bar
+  - name: Robotics / Simulation
     items:
-      - name: Music
-        description: 'Guitarist (15+ years exp.) playing Gypsy Jazz and Progressive Metal'
-        percent: 60
-        icon: person-simple-walk
-      - name: Sports
-        description: 'Mountain Biking and Kite surfing'
+      - name: Quadruped locomotion
+        description: ''
         percent: 100
-        icon: person-snowboarding
-      - name: Dance
-        description: 'Lindy Hop '
+        icon: cog-6-tooth
+      - name: Sim-to-real training
+        description: ''
+        percent: 90
+        icon: cog-6-tooth
+      - name: Digital twins
+        description: ''
+        percent: 90
+        icon: cube-transparent
+      - name: IsaacSim / IsaacLab, MuJoCo, ROS, Unity ML-Agents
+        description: ''
         percent: 80
-        icon: dance-ballroom
+        icon: circle-stack
+  - name: Engineering
+    items:
+      - name: Python, PyTorch, JAX, TensorFlow
+        description: ''
+        percent: 95
+        icon: code-bracket
+      - name: GPU-accelerated training workflows
+        description: ''
+        percent: 85
+        icon: circle-stack
+      - name: Experiment tracking, orchestration, and evaluation pipelines
+        description: ''
+        percent: 90
+        icon: circle-stack
+      - name: C, C++, C#, Java
+        description: ''
+        percent: 70
+        icon: code-bracket
 
 languages:
   - name: English
@@ -223,5 +250,8 @@ awards:
 
 ## About Me
 
-I am a researcher in reinforcement learning and generative modeling recently graduated with a doctoral degree from ETH Zürich.
+Research-grade applied ML for embodied agents.
 
+I am an applied scientist and ML researcher working on reinforcement learning, reward learning, and physical AI. My work connects academic research in inverse RL, imitation learning, and robust objectives with deployed robot locomotion, scalable simulation workflows, and safety-critical policy evaluation.
+
+I completed my PhD at ETH Zürich on reinforcement learning from demonstrations in digital twin simulations and now work on RL locomotion systems for quadruped robots at ANYbotics.

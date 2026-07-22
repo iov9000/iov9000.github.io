@@ -1,23 +1,28 @@
 ---
 title: Teaching
-summary: My courses
+summary: Teaching and student supervision in machine learning, statistical learning theory, reinforcement learning, imitation learning, and robotics.
 type: landing
 
-cascade:
-  - _target:
-      kind: page
-    params:
-      show_breadcrumb: true
-
 sections:
-  - block: collection
+  - block: markdown
     id: teaching
     content:
       title: Teaching
-      filters:
-        folders:
-          - teaching
+      text: |-
+        Ivan has supported teaching in machine learning and statistical learning theory at ETH Zürich, including tutorials, exercise sessions, and student supervision.
+
+        Selected courses:
+
+        - Advanced Machine Learning
+        - Statistical Learning Theory
+
+        Selected student supervision topics:
+
+        - Reinforcement learning and imitation learning
+        - Non-Markovian policies for unsupervised reinforcement learning
+        - Latent-space exploration in adversarial imitation learning
+        - Reducing spurious correlations in better-than-demonstrator imitation learning
+        - Surgical skill assessment with regularized classification methods
     design:
-      view: article-grid
-      columns: 2
+      columns: '1'
 ---

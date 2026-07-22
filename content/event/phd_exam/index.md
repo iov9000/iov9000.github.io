@@ -1,5 +1,5 @@
 ---
-title: PhD Examination 
+title: PhD Examination
 
 event: ETH Zürich
 #event_url: https://example.org
@@ -12,7 +12,7 @@ event: ETH Zürich
 #  postcode: '94305'
 #  country: United States
 
-summary: 'PhD Examination on the topic of "Reinforcement Learning from Demonstrations: methods and applications in digital twin simulations"'
+summary: 'PhD examination on "Reinforcement Learning from Demonstrations: methods and applications in digital twin simulations"'
 #abstract: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Duis posuere tellusac convallis placerat. Proin tincidunt magna sed ex sollicitudin condimentum. Sed ac faucibus dolor, scelerisque sollicitudin nisi. Cras purus urna, suscipit quis sapien eu, pu'
 
 # Talk start and end times.
@@ -35,7 +35,7 @@ featured: false
 content:
   button:
     text: Thesis
-    url: 'https://www.research-collection.ethz.ch/handle/20.500.11850/708755)'
+    url: 'https://www.research-collection.ethz.ch/handle/20.500.11850/708755'
 
 #links: #links:
 #  - icon: twitter

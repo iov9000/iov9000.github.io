@@ -8,9 +8,14 @@ date: '2020-01-01'
 publishDate: '2025-04-10T19:46:42.019382Z'
 publication_types:
 - manuscript
+summary: Preprint studying inverse reinforcement learning through matching optimality profiles instead of directly imitating trajectories.
 links:
 - name: arXiv
   url: https://arxiv.org/abs/2011.09264
 - name: URL
   url: https://arxiv.org/abs/2011.09264
 ---
+
+**Status:** Preprint.
+
+**Summary:** Studies inverse reinforcement learning through matching optimality profiles instead of directly imitating trajectories.
