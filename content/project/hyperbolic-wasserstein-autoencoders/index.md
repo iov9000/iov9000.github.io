@@ -9,11 +9,10 @@ tags:
 links:
   - name: Paper
     url: https://arxiv.org/abs/1901.01427
+math: true
 ---
 
 **Artifact type:** Preprint.
-
-# Learning Hierarchies in Hyperbolic Latent Spaces
 
 Most generative models assume that their latent variables live in ordinary Euclidean space. This is mathematically convenient, but it is not always a neutral choice: the geometry of the latent space determines which relationships a model can represent efficiently.
 
@@ -23,32 +22,30 @@ The **Poincaré Wasserstein Autoencoder** explores a different premise: when the
 
 ## Why hyperbolic geometry?
 
-The model uses the (d)-dimensional Poincaré ball
+The model uses the $d$-dimensional Poincaré ball
 
-[
+$$
 \mathbb{B}^{d}
-==============
-
-\left{
+=
+\left\{
 z\in\mathbb{R}^{d}:\lVert z\rVert_2<1
-\right}.
-]
+\right\}.
+$$
 
 Although the ball is represented using ordinary coordinates, distances are measured using the hyperbolic metric:
 
-[
+$$
 d_{\mathbb H}(x,y)
-==================
-
+=
 \operatorname{arcosh}
 \left(
 1+
 2\frac{\lVert x-y\rVert_2^2}
 {(1-\lVert x\rVert_2^2)(1-\lVert y\rVert_2^2)}
 \right).
-]
+$$
 
-Here, (x,y\in\mathbb B^d), and (\lVert\cdot\rVert_2) denotes the Euclidean norm.
+Here, $x,y\in\mathbb B^d$, and $\lVert\cdot\rVert_2$ denotes the Euclidean norm.
 
 The crucial property is not simply that the space is curved. In hyperbolic space, the available volume grows exponentially with distance from the origin. This resembles the growth of a tree: the number of nodes typically increases exponentially with depth. Consequently, a low-dimensional hyperbolic space can embed branching structures with less distortion than an equivalently sized Euclidean space.
 
@@ -60,44 +57,43 @@ The work reformulates the Wasserstein autoencoder framework using a hyperbolic l
 
 The training objective can be written schematically as
 
-[
+$$
 \mathcal L(\theta,\phi)
-=======================
-
+=
 \mathbb E_{x\sim p_{\mathrm{data}}}
 \mathbb E_{z\sim q_\phi(z\mid x)}
 \left[
-c!\left(x,g_\theta(z)\right)
+c\!\left(x,g_\theta(z)\right)
 \right]
 +
-\beta,
-\operatorname{MMD}*k
+\beta\,
+\operatorname{MMD}_k
 \left(
-q*\phi(z),p(z)
+q_\phi(z),p(z)
 \right).
-]
+$$
 
 Here:
 
-- (q_\phi(z\mid x)) is the encoder distribution;
-- (g_\theta(z)) is the decoder;
-- (c(x,g_\theta(z))) is the reconstruction cost;
-- (q_\phi(z)) is the aggregated posterior;
-- (p(z)) is a hyperbolic prior;
-- (\operatorname{MMD}_k) is the maximum mean discrepancy under a kernel (k);
-- (\beta>0) controls latent-distribution regularization.
+- $q_\phi(z\mid x)$ is the encoder distribution;
+- $g_\theta(z)$ is the decoder;
+- $c(x,g_\theta(z))$ is the reconstruction cost;
+- $q_\phi(z)$ is the aggregated posterior;
+- $p(z)$ is a hyperbolic prior;
+- $\operatorname{MMD}_k$ is the maximum mean discrepancy under a kernel $k$;
+- $\beta>0$ controls latent-distribution regularization.
 
 A geodesic Laplacian kernel,
 
-[
-k(x,y)=\exp!\left[-\lambda d_{\mathbb H}(x,y)\right],
-]
+$$
+k(x,y)=\exp\!\left[-\lambda d_{\mathbb H}(x,y)\right],
+$$
 
 allows the prior and aggregated posterior to be compared using the intrinsic manifold distance. Riemannian optimization, exponential maps and hyperbolic sampling procedures are then used to keep the relevant variables on the manifold.
 
 ## What did it show?
 
-On a synthetic noisy-tree dataset, the two-dimensional hyperbolic model produced an average embedding distortion of (0.49), compared with (0.82) for the Euclidean variational autoencoder and (0.73) for t-SNE. This was the clearest result: when the assumed geometry matched the data-generating structure, the representation became substantially more compact.
+On a synthetic noisy-tree dataset, the two-dimensional hyperbolic model produced an average embedding distortion of $0.49$, compared with $0.82$ for the Euclidean variational autoencoder and $0.73$ for t-SNE. This was the clearest result: when the assumed geometry matched the data-generating structure, the representation became substantially more compact.
 
 On citation-network link prediction, the model improved over the Euclidean graph autoencoder on Cora and Citeseer while using a smaller latent dimension, but did not outperform all alternative geometries or win consistently across datasets.
 
