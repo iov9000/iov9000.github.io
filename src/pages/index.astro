@@ -35,12 +35,11 @@ const personJsonLd = {
         <Image class="portrait" src={avatar} alt={profile.name} width={440} height={440} priority />
       </div>
       <div>
-        <p class="eyebrow"></p>
+        <p class="eyebrow">{profile.eyebrow}</p>
         <h1>{profile.name}</h1>
-        <p class="hero-role">{profile.role}</p>
+        <p class="hero-thesis">{profile.headline}</p>
+        <p class="hero-subtitle">{profile.subtitle}</p>
         <p class="hero-affiliation">{profile.company} · {profile.location}</p>
-        <p class="hero-copy">{profile.about[0]}</p>
-        <p class="hero-copy">{profile.about[1]}</p>
         <div class="hero-actions">
           <a class="button" href="#projects">Selected work <Icon name="arrow-right" size={17} /></a>
           <a class="button button-secondary" href="/uploads/resume.pdf"><Icon name="download" size={17} /> Download CV</a>
@@ -56,12 +55,33 @@ const personJsonLd = {
     </div>
   </section>
 
+  <section class="section" id="about">
+    <div class="container research-overview">
+      <div class="about-copy">
+        <p class="eyebrow">About</p>
+        <h2 class="section-title">Researching how objectives and experience shape learning.</h2>
+        {profile.about.map((paragraph) => <p>{paragraph}</p>)}
+      </div>
+      <div>
+        <p class="eyebrow">Research areas</p>
+        <div class="research-area-grid">
+          {profile.researchAreas.map((area) => (
+            <article class="research-area">
+              <h3>{area.title}</h3>
+              <p>{area.description}</p>
+            </article>
+          ))}
+        </div>
+      </div>
+    </div>
+  </section>
+
   <section class="section" id="projects">
     <div class="container">
       <header class="section-header">
         <p class="eyebrow">Selected work</p>
-        <h2 class="section-title">Sequential decision-making under distribution shift.</h2>
-        <p class="section-intro">Reinforcement learning, reward and imitation learning, simulation infrastructure, and deployment on physical systems.</p>
+        <h2 class="section-title">Methods, systems, and research artifacts.</h2>
+        <p class="section-intro">Adaptive training, learning from demonstrations, reward design, and evaluation in simulated and physical systems.</p>
       </header>
       <div class="card-grid">
         {projects.slice(0, 6).map((project) => <ProjectCard entry={project} />)}
@@ -74,7 +94,7 @@ const personJsonLd = {
       <header class="section-header">
         <p class="eyebrow">Selected publications</p>
         <h2 class="section-title">Papers and preprints.</h2>
-        <p class="section-intro">Work spanning reinforcement learning, imitation learning, causal invariance, and optimal transport.</p>
+        <p class="section-intro">Work spanning reward learning, reinforcement learning, causal invariance, and optimal transport.</p>
       </header>
       <div class="publication-list">
         {featuredPublications.slice(0, 5).map((publication) => <PublicationRow entry={publication} />)}

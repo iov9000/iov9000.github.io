@@ -41,6 +41,7 @@ const isActive = (href: string) => {
         <summary class="icon-button" aria-label="Open navigation"><Icon name="menu" /></summary>
         <nav aria-label="Mobile navigation">
           {links.map((link) => <a href={link.href}>{link.label}</a>)}
+          <a href="/search/">Search</a>
           <a href="/uploads/resume.pdf">Download CV</a>
         </nav>
       </details>

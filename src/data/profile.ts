@@ -2,15 +2,42 @@ export const profile = {
   name: 'Ivan Ovinnikov',
   firstName: 'Ivan',
   lastName: 'Ovinnikov',
-  role: 'Applied Scientist · RL, Simulation & Physical AI',
+  role: 'Machine Learning Researcher',
+  eyebrow: 'Reinforcement Learning · Reward Learning · Adaptive Training',
+  headline: 'Sequential decision-making under distribution shift.',
+  subtitle:
+    'Research on reinforcement learning, learning from demonstrations, and adaptive training distributions for robust, data-efficient decision-making.',
   company: 'ANYbotics',
   location: 'Zürich, Switzerland',
   email: 'mailto:ivan.ovinnikov@gmail.com',
   summary:
-    'Applied scientist working on reinforcement learning, simulation, reward learning, and safety-critical evaluation for embodied systems.',
+    'Research on reinforcement learning, learning from demonstrations, and adaptive training distributions for robust, data-efficient decision-making.',
   about: [
-    'I connect research in inverse reinforcement learning, imitation learning, and robust objectives with deployed robot locomotion and scalable simulation workflows.',
-    'I completed my PhD at ETH Zürich on reinforcement learning from demonstrations in digital-twin simulations and now build RL locomotion systems for industrial quadruped robots at ANYbotics.',
+    'I am a machine learning researcher working on sequential decision-making under distribution shift. My research spans reinforcement learning, imitation and inverse reinforcement learning, reward learning, curriculum design, and risk-sensitive objectives.',
+    'A central theme of my work is that learning performance depends not only on the objective and model architecture, but also on the distribution of experience used for training. In interactive systems, this distribution is shaped by the current policy, the environment, the curriculum, and the failures selected for further learning. I develop methods for controlling these training and visitation distributions to improve robustness, data efficiency, and rare-event performance.',
+    'My work combines methodological research with evaluation in complex simulated and physical systems, including surgical digital twins and deployed quadruped locomotion.',
+  ],
+  researchAreas: [
+    {
+      title: 'Adaptive training distributions',
+      description:
+        'Curriculum, sampling, and replay methods that shape the learner’s experience using capability, uncertainty, learning progress, and failure risk.',
+    },
+    {
+      title: 'Learning from demonstrations',
+      description:
+        'Imitation, inverse reinforcement learning, and reward inference for problems where desired behaviour is easier to demonstrate than to specify directly.',
+    },
+    {
+      title: 'Robust and risk-sensitive learning',
+      description:
+        'Objectives and evaluation methods for distribution shift, reward misspecification, and low-probability but consequential failures.',
+    },
+    {
+      title: 'Interactive model post-training',
+      description:
+        'Applying reinforcement learning, reward learning, and adaptive experience generation to multimodal models and interactive agents.',
+    },
   ],
   socials: [
     { label: 'Email', icon: 'mail', url: 'mailto:ivan.ovinnikov@gmail.com' },
@@ -19,12 +46,12 @@ export const profile = {
     { label: 'Google Scholar', icon: 'scholar', url: 'https://scholar.google.ch/citations?user=m8UKFekAAAAJ&hl=en' },
   ],
   interests: [
-    'Reinforcement learning for robotics',
-    'Imitation and reward learning',
-    'Physical AI and sim-to-real locomotion',
-    'Scalable simulation and policy evaluation',
-    'Safety-critical evaluation and robustness',
-    'Generative modeling and optimal transport',
+    'Adaptive training distributions',
+    'Learning from demonstrations',
+    'Robust and risk-sensitive learning',
+    'Interactive model post-training',
+    'Simulation and policy evaluation',
+    'Physical AI and sim-to-real learning',
   ],
   education: [
     {
@@ -102,7 +129,7 @@ export const profile = {
   skills: [
     {
       group: 'Machine learning',
-      items: ['Reinforcement learning', 'Imitation and reward learning', 'Optimal transport', 'Distribution shift', 'Curriculum design'],
+      items: ['Reinforcement learning', 'Adaptive training', 'Curriculum design', 'Reward learning', 'Imitation learning', 'Risk-sensitive objectives'],
     },
     {
       group: 'Robotics and simulation',

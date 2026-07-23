@@ -3,7 +3,7 @@ title: Regularizing Adversarial Imitation Learning Using Causal Invariance
 authors:
 - Ivan Ovinnikov
 - Joachim M. Buhmann
-date: '2023-01-01'
+date: '2023-08-17'
 publishDate: '2025-04-10T20:50:44.083587Z'
 publication_types:
 - manuscript

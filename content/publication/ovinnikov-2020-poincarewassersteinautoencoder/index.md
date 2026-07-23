@@ -2,7 +2,7 @@
 title: Poincare Wasserstein Autoencoder
 authors:
 - Ivan Ovinnikov
-date: '2020-01-01'
+date: '2019-01-05'
 publishDate: '2025-04-10T20:50:44.074538Z'
 publication_types:
 - manuscript

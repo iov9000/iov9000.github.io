@@ -1,19 +1,19 @@
 ---
 title: Sliced Wasserstein Imitation Learning
 summary: Turning optimal-transport distances between expert and policy behavior into practical reinforcement-learning rewards.
-date: 2024-01-01
+date: 2023-09-23
 tags:
   - Imitation Learning
   - Optimal Transport
   - Generative Modeling
   - Occupancy Matching
 links:
-  - name: Status
-    url: /publication/ovinnikov-2024-gsw/
+  - name: OpenReview
+    url: https://openreview.net/forum?id=8rN439jpkT
 math: true
 ---
 
-**Artifact type:** Under-review manuscript.
+**Artifact type:** Research manuscript.
 
 
 Imitation learning trains a policy from expert demonstrations without requiring a manually specified reward function.

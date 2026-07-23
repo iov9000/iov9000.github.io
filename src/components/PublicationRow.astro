@@ -1,8 +1,12 @@
 ---
+import Icon from './Icon.astro';
 import { formatDate, publicationType, slugFromId } from '../lib/content';
 
 const { entry } = Astro.props;
 const slug = slugFromId(entry.id);
+const preferredLink = entry.data.links.find((link: { name: string; url: string }) =>
+  /^(arxiv|paper|pdf|doi|openreview)$/i.test(link.name),
+) ?? entry.data.links.find((link: { url: string }) => link.url.startsWith('http'));
 ---
 
 <article class="publication-row">
@@ -11,5 +15,12 @@ const slug = slugFromId(entry.id);
     <h3><a href={`/publication/${slug}/`}>{entry.data.title}</a></h3>
     <p>{entry.data.publication || publicationType(entry.data.publication_types[0])} · {entry.data.authors.join(', ')}</p>
   </div>
-  <a class="row-link" href={`/publication/${slug}/`}>Details →</a>
+  <div class="row-actions">
+    {preferredLink && (
+      <a class="row-link" href={preferredLink.url} target="_blank" rel="noreferrer">
+        {preferredLink.name} <Icon name="external" size={13} />
+      </a>
+    )}
+    <a class="row-link row-link-muted" href={`/publication/${slug}/`}>Details →</a>
+  </div>
 </article>

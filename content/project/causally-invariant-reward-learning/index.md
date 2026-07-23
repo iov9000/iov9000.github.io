@@ -1,10 +1,11 @@
 ---
 title: Causally Invariant Reward Learning
-summary: ArXiv preprint on reward learning from diverse demonstrations that remain stable under environment shifts.
-date: 2024-09-01
+summary: Reward-model objective design from diverse demonstrations, with an invariance constraint intended to remain useful when the learned objective is optimized under distribution shift.
+date: 2024-09-12
 tags:
   - Imitation Learning
   - Reward Learning
+  - Objective Design
   - Causal Generalization
   - Distribution Shift
 links:
@@ -16,6 +17,14 @@ math: true
 **Artifact type:** Preprint.
 
 Inverse reinforcement learning aims to recover the objective behind expert behaviour, rather than merely copying the demonstrated actions.
+
+## Why this connects to post-training
+
+Reward learning from demonstrations and reward modeling from preference data share the same central risk: a learned proxy can fit the feedback distribution yet fail when a policy actively optimizes it.
+
+The data modality changes—trajectories here, comparisons or ratings in many post-training systems—but the objective-design questions carry over. Which features reflect intended behavior rather than annotator- or source-specific correlations? What happens when optimization moves the policy away from the feedback distribution? And how should a reward model be evaluated before and during policy optimization?
+
+This work studies those questions in a controlled sequential-decision setting. Its specific contribution is to use variation across demonstration sources as evidence about which parts of a learned reward remain stable. I see that as one route toward reward models that are evaluated not only by held-out prediction accuracy, but by the behavior they induce under optimization and distribution shift.
 
 In principle, this should produce reward functions that remain useful beyond the original demonstrations: under new initial states, changed dynamics, or different policy classes. In practice, learned rewards often capture accidental correlations in the demonstration data. A policy trained against such a reward may reproduce the observed trajectories but fail when the environment changes.
 
