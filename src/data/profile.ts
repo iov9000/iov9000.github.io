@@ -14,7 +14,6 @@ export const profile = {
     'Research on reinforcement learning, learning from demonstrations, and adaptive training distributions for robust, data-efficient decision-making.',
   about: [
     'I am a machine learning researcher working on sequential decision-making under distribution shift. My research spans reinforcement learning, imitation and inverse reinforcement learning, reward learning, curriculum design, and risk-sensitive objectives.',
-    'A central theme of my work is that learning performance depends not only on the objective and model architecture, but also on the distribution of experience used for training. In interactive systems, this distribution is shaped by the current policy, the environment, the curriculum, and the failures selected for further learning. I develop methods for controlling these training and visitation distributions to improve robustness, data efficiency, and rare-event performance.',
     'My work combines methodological research with evaluation in complex simulated and physical systems, including surgical digital twins and deployed quadruped locomotion.',
   ],
   researchAreas: [
