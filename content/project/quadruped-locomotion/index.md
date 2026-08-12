@@ -25,7 +25,7 @@ My work at ANYbotics covers reinforcement-learning-based locomotion controllers 
 
 ## Claim
 
-Failure-oriented evaluation closes the training loop: it identifies weak regions of the deployment distribution, and curricula turn those regions into targeted training scenarios.
+Failure-oriented evaluation can close the training loop by identifying weak regions of the deployment distribution and turning them into targeted evaluation or curriculum scenarios.
 
 ## Method
 

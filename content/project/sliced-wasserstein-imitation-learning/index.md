@@ -41,7 +41,7 @@ $$
 
 Each projected problem is solved by sorting and rank-matching samples, giving approximately $O(KN\log N)$ computation for $N$ samples.
 
-The distinctive step is to turn the global discrepancy into a local learning signal. For a policy transition $x_t$, define
+We convert the global discrepancy into a local learning signal. For a policy transition $x_t$, define
 
 $$
 r(x_t)

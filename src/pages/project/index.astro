@@ -21,11 +21,11 @@ const orderedProjects = [...projects].sort((left, right) => {
 });
 ---
 
-<BaseLayout title="Selected work" description="Selected research and applied machine-learning work by Ivan Ovinnikov.">
+<BaseLayout title="Selected work" description="Research on robust reinforcement learning, learned objectives, imitation, and agent behavior under distribution shift.">
   <section class="page-hero container">
     <p class="eyebrow">Research and deployment</p>
     <h1 class="page-title">Selected work</h1>
-    <p class="page-lead">Deployed, published, and ongoing work on robust reinforcement learning, imperfect objectives, and policy optimization under distribution shift.</p>
+    <p class="page-lead">Research on robust reinforcement learning, learned objectives, imitation, and agent behavior under distribution shift.</p>
   </section>
   <section class="container"><div class="card-grid">{orderedProjects.map((project) => <ProjectCard entry={project} />)}</div></section>
 </BaseLayout>

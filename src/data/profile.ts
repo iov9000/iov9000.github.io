@@ -71,7 +71,7 @@ export const profile = {
   ],
   work: [
     {
-      position: 'Reinforcement Learning Engineer',
+      position: 'ML Engineer — Reinforcement Learning',
       company: 'ANYbotics AG',
       url: 'https://www.anybotics.com/',
       start: '2024-10-01',
