@@ -4,7 +4,7 @@ import ArticleLayout from '../../../layouts/ArticleLayout.astro';
 import { slugFromId } from '../../../lib/content';
 
 export async function getStaticPaths() {
-  const events = await getCollection('events');
+  const events = (await getCollection('events')).filter((entry) => !entry.data.draft);
   return events.map((event) => ({ params: { slug: slugFromId(event.id) }, props: { event } }));
 }
 

@@ -2,40 +2,31 @@ export const profile = {
   name: 'Ivan Ovinnikov',
   firstName: 'Ivan',
   lastName: 'Ovinnikov',
-  role: 'Machine Learning Researcher',
-  eyebrow: 'Reinforcement Learning · Reward Learning · Adaptive Training',
-  headline: 'Sequential decision-making under distribution shift.',
+  role: 'Reinforcement Learning Engineer',
+  headline: 'Reinforcement learning for reliable agents',
   subtitle:
-    'Research on reinforcement learning, learning from demonstrations, and adaptive training distributions for robust, data-efficient decision-making.',
+    'I develop reinforcement-learning methods for robust behavior under imperfect objectives and distribution shift—from deployed robotics to foundation-model post-training.',
+  credentials: 'Reinforcement Learning Engineer, ANYbotics · ETH Zürich PhD',
   company: 'ANYbotics',
   location: 'Zürich, Switzerland',
   email: 'mailto:ivan.ovinnikov@gmail.com',
   summary:
-    'Research on reinforcement learning, learning from demonstrations, and adaptive training distributions for robust, data-efficient decision-making.',
+    'Research on reinforcement learning, robust policy learning, reward and imitation learning, distribution shift, robotics, and model post-training.',
   about: [
-    'I am a machine learning researcher working on sequential decision-making under distribution shift. My research spans reinforcement learning, imitation and inverse reinforcement learning, reward learning, curriculum design, and risk-sensitive objectives.',
-    'My work combines methodological research with evaluation in complex simulated and physical systems, including surgical digital twins and deployed quadruped locomotion.',
+    'I study how supervision, objectives, and training distributions determine behavior after deployment. The work connects reward and imitation learning, failure-focused robot training, and diagnostics for RL post-training.',
   ],
-  researchAreas: [
+  researchThemes: [
     {
-      title: 'Adaptive training distributions',
-      description:
-        'Curriculum, sampling, and replay methods that shape the learner’s experience using capability, uncertainty, learning progress, and failure risk.',
+      title: 'Robust reinforcement learning',
+      description: 'Methods and evaluation for distribution shift, rare failures, curriculum design, sim-to-real transfer, and policies deployed on physical robots.',
     },
     {
-      title: 'Learning from demonstrations',
-      description:
-        'Imitation, inverse reinforcement learning, and reward inference for problems where desired behaviour is easier to demonstrate than to specify directly.',
+      title: 'Learning from imperfect objectives',
+      description: 'Reward and imitation-learning methods that address distribution matching, misspecification, and behavioral identifiability.',
     },
     {
-      title: 'Robust and risk-sensitive learning',
-      description:
-        'Objectives and evaluation methods for distribution shift, reward misspecification, and low-probability but consequential failures.',
-    },
-    {
-      title: 'Interactive model post-training',
-      description:
-        'Applying reinforcement learning, reward learning, and adaptive experience generation to multimodal models and interactive agents.',
+      title: 'RL post-training and agent learning',
+      description: 'Diagnostics for credit assignment, reward and verifier structure, optimization dynamics, and multimodal or embodied agents.',
     },
   ],
   socials: [
@@ -45,12 +36,12 @@ export const profile = {
     { label: 'Google Scholar', icon: 'scholar', url: 'https://scholar.google.ch/citations?user=m8UKFekAAAAJ&hl=en' },
   ],
   interests: [
-    'Adaptive training distributions',
-    'Learning from demonstrations',
-    'Robust and risk-sensitive learning',
-    'Interactive model post-training',
-    'Simulation and policy evaluation',
-    'Physical AI and sim-to-real learning',
+    'Learning objectives',
+    'Training distributions',
+    'Policy optimization',
+    'Reward learning under distribution shift',
+    'Robot learning and sim-to-real',
+    'Failure-oriented evaluation',
   ],
   education: [
     {
@@ -86,10 +77,10 @@ export const profile = {
       start: '2024-10-01',
       end: null,
       points: [
-        'Develop RL locomotion controllers in Isaac Sim and Isaac Lab for industrial quadrupeds.',
-        'Build GPU-accelerated training and evaluation workflows for fast sim-to-real iteration.',
-        'Led and secured a EuroHPC grant for large-scale robustness and scaling experiments.',
-        'Design safety curricula targeting rare locomotion failure modes.',
+        'Develop and evaluate RL locomotion controllers for quadrupeds deployed in industrial inspection.',
+        'Run end-to-end experiments across GPU simulation, policy training, robustness evaluation, and sim-to-real iteration.',
+        'Design safety curricula, scenario suites, and failure analyses targeting rare locomotion failures.',
+        'Led and secured a EuroHPC grant enabling up to 50,000 H100 GPU-hours for large-scale RL robustness and scaling experiments.',
       ],
     },
     {
@@ -127,17 +118,17 @@ export const profile = {
   ],
   skills: [
     {
-      group: 'Machine learning',
-      items: ['Reinforcement learning', 'Adaptive training', 'Curriculum design', 'Reward learning', 'Imitation learning', 'Risk-sensitive objectives'],
+      group: 'ML / RL',
+      items: ['PyTorch and JAX', 'Reinforcement learning', 'Imitation and reward learning', 'Curriculum design'],
     },
     {
-      group: 'Robotics and simulation',
-      items: ['Quadruped locomotion', 'Sim-to-real', 'Isaac Sim / Isaac Lab', 'MuJoCo', 'ROS', 'Digital twins'],
+      group: 'Robotics',
+      items: ['Isaac Sim / Isaac Lab', 'MuJoCo', 'ROS', 'Sim-to-real experimentation'],
     },
     {
-      group: 'Engineering',
-      items: ['Python', 'PyTorch', 'JAX', 'TensorFlow', 'GPU training pipelines', 'C / C++ / C# / Java'],
+      group: 'Experiment systems',
+      items: ['GPU training', 'Distributed experimentation', 'Reproducible evaluation', 'Slurm / HPC workflows'],
     },
   ],
-  languages: ['English', 'German', 'French', 'Russian', 'Italian', 'Spanish', 'Swedish', 'Chinese'],
+  languages: ['Russian — native', 'English — C2', 'German — C2', 'French — C1', 'Italian — B2'],
 } as const;

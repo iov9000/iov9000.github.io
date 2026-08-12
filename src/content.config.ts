@@ -17,7 +17,6 @@ const publications = defineCollection({
     title: z.string(),
     authors: z.array(z.string()).default([]),
     date: z.coerce.date(),
-    publishDate: z.coerce.date().optional(),
     publication_types: z.array(z.string()).default([]),
     publication: z.string().optional(),
     featured: z.boolean().default(false),
@@ -45,6 +44,8 @@ const projects = defineCollection({
   schema: z.object({
     title: z.string(),
     summary: z.string().default(''),
+    status: z.enum(['Published', 'Manuscript', 'Deployed research', 'Ongoing research']).optional(),
+    highlight: z.string().optional(),
     date: z.coerce.date(),
     tags: z.array(z.string()).default([]),
     links: z.array(link).default([]),
@@ -61,10 +62,10 @@ const events = defineCollection({
     summary: z.string().default(''),
     date: z.coerce.date(),
     date_end: z.coerce.date().optional(),
-    publishDate: z.coerce.date().optional(),
     authors: z.array(z.string()).default([]),
     tags: z.array(z.string()).default([]),
     featured: z.boolean().default(false),
+    draft: z.boolean().default(false),
     url_pdf: z.string().optional(),
     slides: z.string().optional(),
     content: z.object({

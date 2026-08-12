@@ -10,7 +10,7 @@ export async function GET() {
     ...posts.filter((entry) => !entry.data.draft).map((entry) => ({ ...entry.data, description: entry.data.summary, url: `/post/${slugFromId(entry.id)}/` })),
     ...projects.filter((entry) => !entry.data.draft).map((entry) => ({ ...entry.data, description: entry.data.summary, url: `/project/${slugFromId(entry.id)}/` })),
     ...publications.map((entry) => ({ ...entry.data, description: entry.data.summary, url: `/publication/${slugFromId(entry.id)}/` })),
-    ...events.map((entry) => ({ ...entry.data, description: entry.data.summary, url: `/event/${slugFromId(entry.id)}/` })),
+    ...events.filter((entry) => !entry.data.draft).map((entry) => ({ ...entry.data, description: entry.data.summary, url: `/event/${slugFromId(entry.id)}/` })),
   ];
   items.sort((a, b) => b.date.valueOf() - a.date.valueOf());
   return rssResponse('Ivan Ovinnikov', 'Research, publications, projects, and notes.', items);

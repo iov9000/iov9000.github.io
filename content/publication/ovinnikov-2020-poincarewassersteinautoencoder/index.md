@@ -1,11 +1,11 @@
 ---
-title: Poincare Wasserstein Autoencoder
+title: Poincaré Wasserstein Autoencoder
 authors:
 - Ivan Ovinnikov
 date: '2019-01-05'
-publishDate: '2025-04-10T20:50:44.074538Z'
 publication_types:
-- manuscript
+- paper-conference
+publication: 'Bayesian Deep Learning Workshop (NeurIPS 2018)'
 featured: true
 summary: ArXiv preprint combining Wasserstein autoencoders with hyperbolic latent geometry for representation learning in non-Euclidean spaces.
 links:
@@ -15,6 +15,6 @@ links:
   url: https://arxiv.org/abs/1901.01427
 ---
 
-**Status:** Preprint.
+**Status:** Workshop paper; arXiv version published in 2019.
 
 **Summary:** Combines Wasserstein autoencoders with hyperbolic latent geometry for representation learning in non-Euclidean spaces.

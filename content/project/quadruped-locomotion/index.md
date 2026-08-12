@@ -1,6 +1,8 @@
 ---
-title: RL-Based Quadruped Locomotion Systems
-summary: Internal deployment work on RL locomotion controllers, sim-to-real training workflows, and safety-critical evaluation for industrial quadrupeds.
+title: Robust RL for Deployed Legged Robots
+summary: End-to-end training and evaluation for locomotion policies under terrain, sensing, and dynamics shift, centered on rare failures and sim-to-real robustness.
+status: Deployed research
+highlight: Physical deployment, failure-oriented evaluation, and large-scale GPU simulation.
 date: 2024-10-01
 tags:
   - Reinforcement Learning
@@ -15,42 +17,38 @@ links:
     url: https://www.anybotics.com/news/superior-robot-mobility-where-ai-meets-the-real-world/
 ---
 
-**Artifact type:** Internal deployment work.
+## Problem
 
-I develop reinforcement-learning-based locomotion controllers in Isaac Sim and Isaac Lab for quadruped robots deployed in industrial inspection. The public links above show the robot platform and the broader learning-based locomotion approach; the description below focuses on my engineering and evaluation scope without exposing product-specific implementation details.
+Locomotion policies deployed in industrial inspection face terrain, sensing, contact, and dynamics conditions that differ from training. Average simulated return can conceal rare failures that dominate real-world reliability.
 
-## The systems problem
+My work at ANYbotics covers reinforcement-learning-based locomotion controllers in Isaac Sim and Isaac Lab, GPU-accelerated experimentation, robustness evaluation, and sim-to-real iteration for quadruped robots deployed in industrial inspection.
 
-A locomotion policy is only one component of a deployment pipeline. The practical system has to connect:
+## Claim
 
-1. **Objective design:** rewards and curricula that elicit useful motion without creating shortcuts or unsafe edge-case behavior.
-2. **Parallel simulation:** GPU-accelerated environment generation and rollouts for fast policy iteration.
-3. **Policy optimization:** reproducible training workflows with controlled comparisons across configurations.
-4. **Robustness evaluation:** scenario suites that vary terrain, contacts, commands, disturbances, and model parameters.
-5. **Sim-to-real iteration:** structured analysis of failures observed on hardware and targeted reproduction in simulation.
+Failure-oriented evaluation closes the training loop: it identifies weak regions of the deployment distribution, and curricula turn those regions into targeted training scenarios.
 
-My work spans this loop rather than treating the final training run as the artifact.
+## Method
 
-## Evaluation before deployment
+The workflow connects:
 
-Average return is not a sufficient release criterion for a physical controller. A useful evaluation protocol separates nominal capability from robustness and exposes the tail of the failure distribution.
+1. **objective and curriculum design** for useful motion without unsafe shortcuts;
+2. **parallel simulation** for large policy-training and evaluation batches;
+3. **controlled policy comparisons** with reproducible experiment definitions;
+4. **failure-oriented evaluation** across terrain, commands, disturbances, contacts, sensing, and model parameters;
+5. **sim-to-real iteration** that reproduces hardware observations in simulation where possible.
 
-At a high level, I organize evaluation around:
+Fixed capability slices and safety-event definitions keep policy changes attributable. Failure replay then turns observed weaknesses into regression cases or curriculum scenarios rather than allowing them to disappear inside aggregate return.
 
-- **capability slices:** terrain and command regimes that require qualitatively different behaviors;
-- **controlled shifts:** variation in dynamics, sensing, contacts, latency, and external disturbances;
-- **safety events:** explicit detection of falls, unstable contacts, limit violations, and other undesirable states;
-- **regression testing:** fixed scenario sets and policy-to-policy comparisons that make changes attributable;
-- **failure replay:** turning hardware observations into reproducible simulation cases where possible.
+## Evidence
 
-This structure supports both policy selection and curriculum design: evaluation identifies weak regions, and those regions become targeted training scenarios rather than disappearing inside an aggregate score.
+This is deployed professional research on a physical robot platform, not a public benchmark result. The experimentation stack supports controller selection and deployment through large scenario suites, policy-to-policy comparisons, and structured analysis of hardware failures.
 
-## Scale and reproducibility
+I also led and secured a public EuroHPC grant allocation of up to 50,000 H100 GPU-hours for RL robustness and scaling experiments.
 
-The workflow uses parallel GPU simulation and automated evaluation to compare policies across large scenario sets. Experiment definitions, checkpoints, metrics, and rollout outputs are treated as versioned artifacts so that a promising result can be reproduced and challenged before hardware testing.
+## Limitations
 
-Exact environment counts, compute configurations, product thresholds, and controller details are internal. The transferable engineering principle is public: scaling rollouts matters only when the experiment design preserves causal comparisons and the evaluation suite measures the failures that matter in deployment.
+Product-specific controller details, environment counts, thresholds, and deployment results are confidential. The public links document the robot platform and ANYbotics' broader learning-based locomotion approach; they should not be read as attributing every demonstrated capability to my individual work.
 
-## What transfers beyond robotics
+## Public context
 
-The same failure mode appears in post-training: a policy can improve against its training objective while degrading on the behavior the objective was meant to represent. Robotics makes the mismatch unusually visible because evaluation includes hard physical constraints. The resulting workflow—instrument optimization, probe distribution shift, and promote policies only against a multidimensional evaluation suite—is the part of this work that generalizes most directly.
+See [public ANYmal footage](https://www.anybotics.com/robot-demo/) and ANYbotics' [technical overview of learning-based mobility](https://www.anybotics.com/news/superior-robot-mobility-where-ai-meets-the-real-world/).

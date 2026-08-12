@@ -5,7 +5,6 @@ authors:
 - Eugene Bykovets
 - Joachim M. Buhmann
 date: '2024-09-12'
-publishDate: '2025-04-10T19:46:42.028591Z'
 publication_types:
 - manuscript
 featured: true

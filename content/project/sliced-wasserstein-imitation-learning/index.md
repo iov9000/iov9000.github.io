@@ -1,11 +1,12 @@
 ---
-title: Sliced Wasserstein Imitation Learning
-summary: Turning optimal-transport distances between expert and policy behavior into practical reinforcement-learning rewards.
+title: Distribution-Matching Imitation Learning
+summary: Sliced-Wasserstein occupancy matching becomes a transition-level reward for off-policy imitation learning.
+status: Manuscript
+highlight: Evaluated on five MuJoCo tasks; effective on Ant and Humanoid with as few as 10 expert transitions.
 date: 2023-09-23
 tags:
   - Imitation Learning
   - Optimal Transport
-  - Generative Modeling
   - Occupancy Matching
 links:
   - name: OpenReview
@@ -13,187 +14,53 @@ links:
 math: true
 ---
 
-**Artifact type:** Research manuscript.
+## Problem
 
-
-Imitation learning trains a policy from expert demonstrations without requiring a manually specified reward function.
-
-A common approach is to treat imitation as **distribution matching**: the policy should visit approximately the same states and actions as the expert. In practice, many methods implement this idea using an adversarial discriminator. The discriminator learns to distinguish expert transitions from policy transitions, while the policy learns to fool it.
-
-This works well in many settings, but the resulting optimization can be brittle. The discriminator implicitly estimates a density ratio between two evolving distributions, which becomes difficult when the expert and policy initially visit disjoint regions of the state space.
-
-In **Imitation Learning Using Generalized Sliced Wasserstein Distances**, we investigate an alternative based on optimal transport. The central contribution is a method for converting a sliced Wasserstein distance between expert and policy behavior into a per-transition reward that can be optimized using standard reinforcement learning.
-
-## Imitation as occupancy matching
-
-Consider a discounted Markov decision process
+A policy $\pi$ and expert demonstrations induce occupancy measures $\rho_\pi$ and $\rho_E$. Distribution-matching imitation seeks
 
 $$
-\mathcal M
-=
-(\mathcal S,\mathcal A,T,\mu_0,\gamma),
+\min_\pi d(\rho_\pi,\rho_E).
 $$
 
-where $\mathcal S$ is the state space, $\mathcal A$ is the action space, $T$ is the transition model, $\mu_0$ is the initial-state distribution, and $\gamma\in(0,1)$ is the discount factor.
+Adversarial methods usually learn a discriminator between these evolving distributions. That density-ratio problem can be brittle when expert and policy trajectories have little support overlap. Wasserstein distances remain informative in that regime, but full optimal transport is expensive in high-dimensional state–action spaces.
 
-A policy $\pi(a\mid s)$ induces an occupancy measure $\rho_\pi$, describing how frequently the policy visits different state–action pairs. Expert demonstrations similarly define an empirical occupancy measure $\hat\rho_E$.
+## Claim
 
-Imitation learning can therefore be formulated as
+We convert sliced-Wasserstein occupancy discrepancies into per-transition rewards suitable for ordinary off-policy reinforcement learning.
 
-$$
-\min_\pi d(\rho_\pi,\hat\rho_E),
-$$
+## Method
 
-where $d$ measures the discrepancy between the policy and expert distributions.
-
-Wasserstein distances are attractive for this purpose because they quantify how much probability mass must be transported to transform one distribution into another. Unlike common statistical divergences, they remain meaningful even when the distributions have little or no overlapping support.
-
-The obstacle is computational. Solving a full optimal-transport problem in a high-dimensional state–action space is generally expensive.
-
-## Reducing optimal transport to sorting
-
-Sliced Wasserstein distances replace one high-dimensional transport problem with many one-dimensional problems.
-
-Let
-
-$$
-U=\{u_1,\ldots,u_K\},
-\qquad
-u_m\in\mathbb S^{d-1},
-$$
-
-be a collection of unit projection directions. Each state–action vector $x\in\mathbb R^d$ is projected onto the scalar
-
-$$
-z_m=\langle u_m,x\rangle.
-$$
-
-The finite-slice squared Wasserstein objective is
+Sliced Wasserstein distance replaces one high-dimensional transport problem with one-dimensional problems along projections $u_1,\ldots,u_K$:
 
 $$
 \operatorname{SW}_{U}^{2}(\rho_\pi,\rho_E)
 =
-\frac{1}{K}
-\sum_{m=1}^{K}
-W_2^2
-\left(
-(u_m)_\#\rho_\pi,
-(u_m)_\#\rho_E
-\right),
+\frac{1}{K}\sum_{m=1}^{K}
+W_2^2\!\left((u_m)_\#\rho_\pi,(u_m)_\#\rho_E\right).
 $$
 
-where $(u_m)_\#\rho$ denotes the distribution obtained by projecting samples from $\rho$ along $u_m$.
+Each projected problem is solved by sorting and rank-matching samples, giving approximately $O(KN\log N)$ computation for $N$ samples.
 
-One-dimensional optimal transport is particularly simple: samples from both distributions are sorted and matched according to rank. For $N$ samples and $K$ projections, the sliced objective can be computed in approximately
-
-$$
-O(KN\log N)
-$$
-
-time.
-
-This makes optimal-transport-based imitation practical without constructing a full transport plan in the original space.
-
-## Turning distance reduction into reward
-
-Directly optimizing the occupancy distance would require differentiating through the environment dynamics. Instead, we construct a local reward that estimates how an individual transition changes the distributional objective.
-
-Let $x_t$ be a transition generated by the current policy. Define
+The distinctive step is to turn the global discrepancy into a local learning signal. For a policy transition $x_t$, define
 
 $$
-r_d(x_t)
+r(x_t)
 =
 d(\hat\rho_E,\hat\rho_\pi)
 -
-d\!\left(
-\hat\rho_E,
-\operatorname{rpl}(\hat\rho_\pi,x_t)
-\right),
+d\!\left(\hat\rho_E,
+\operatorname{rpl}(\hat\rho_\pi,x_t)\right),
 $$
 
-where $\operatorname{rpl}(\hat\rho_\pi,x_t)$ replaces one atom of the empirical policy occupancy measure with $x_t$.
+where $\operatorname{rpl}(\hat\rho_\pi,x_t)$ replaces one atom of the empirical policy occupancy measure by $x_t$. The reward is positive when inserting the transition moves the policy distribution closer to the expert distribution.
 
-The reward is positive when inserting $x_t$ moves the policy distribution closer to the expert distribution. It is negative when the transition increases the discrepancy.
+With fixed projections, the same construction can be expressed through one-dimensional transport residuals. Its expected reward equals the negative sliced Wasserstein discrepancy, so maximizing reward corresponds to minimizing the occupancy distance while the transport maps are held fixed. We also learn nonlinear projections that expose discrepancies random directions may miss, then optimize the resulting rewards with Soft Actor-Critic.
 
-This can be interpreted as a discrete directional derivative of the occupancy-matching objective. The reward does not merely ask whether a transition looks individually expert-like. It asks whether that transition improves the policy distribution as a whole.
+## Evidence
 
-For fixed slices, the reward can also be written using the one-dimensional optimal transport maps. Let
+We evaluated SWIL on five MuJoCo locomotion tasks using one, four, or ten expert trajectories. With one trajectory, the reported cumulative returns were:
 
-$$
-\mu_m=(u_m)_\#\rho_\pi,
-\qquad
-\nu_m=(u_m)_\#\rho_E,
-$$
-
-and define the monotone transport map
-
-$$
-T_{\mu_m\rightarrow\nu_m}(z)
-=
-F_{\nu_m}^{-1}\!\left(F_{\mu_m}(z)\right).
-$$
-
-A transport-residual reward is then
-
-$$
-r_{\mathrm{SR}}(x;\rho_\pi)
-=
--\frac{1}{K}
-\sum_{m=1}^{K}
-\left[
-\langle u_m,x\rangle
--
-T_{\mu_m\rightarrow\nu_m}
-\!\left(\langle u_m,x\rangle\right)
-\right]^2.
-$$
-
-Its expectation satisfies
-
-$$
-\mathbb E_{X\sim\rho_\pi}
-\left[
-r_{\mathrm{SR}}(X;\rho_\pi)
-\right]
-=
--\operatorname{SW}_{U}^{2}(\rho_\pi,\rho_E).
-$$
-
-Thus, when the transport maps are held fixed during a policy update, maximizing expected reward corresponds directly to minimizing the sliced Wasserstein distance.
-
-## Learning informative projections
-
-Random projections are computationally convenient, but many directions may fail to capture the important differences between expert and policy behavior.
-
-We therefore also consider a learned nonlinear projection
-
-$$
-g_\psi:\mathcal X\rightarrow\mathbb R.
-$$
-
-The projection is trained to identify a one-dimensional representation in which the expert and policy distributions are maximally separated:
-
-$$
-\min_\pi
-\max_\psi
-W_2^2
-\left(
-(g_\psi)_\#\rho_\pi,
-(g_\psi)_\#\rho_E
-\right).
-$$
-
-This resembles adversarial imitation learning, but the critic has a different interpretation. It does not estimate an expert-to-policy density ratio. Instead, it searches for a projection that exposes a large transport discrepancy.
-
-The policy is subsequently optimized using rewards derived from changes in this projected Wasserstein distance. Because the reward can be consumed by an ordinary reinforcement-learning algorithm, the method can be combined with off-policy algorithms such as Soft Actor-Critic.
-
-## Experimental results
-
-We evaluated **Sliced Wasserstein Imitation Learning**, or **SWIL**, on five MuJoCo locomotion environments using one, four, or ten expert trajectories.
-
-With a single expert trajectory, SWIL obtained cumulative rewards of approximately:
-
-| Environment | SWIL reward | Expert reward |
+| Environment | SWIL | Expert |
 |---|---:|---:|
 | Ant | 4,339 | 5,160 |
 | HalfCheetah | 7,482 | 8,901 |
@@ -201,20 +68,14 @@ With a single expert trajectory, SWIL obtained cumulative rewards of approximate
 | Humanoid | 5,952 | 6,250 |
 | Walker2d | 3,936 | 4,064 |
 
-Across these tasks, SWIL was competitive with or stronger than the evaluated behavioral cloning, GAIL, AIRL, DAC, PWIL, and IQ-Learn baselines. The largest differences appeared on difficult environments such as Humanoid and one-demonstration HalfCheetah, where several adversarial baselines failed to learn useful policies.
+Across these tasks, SWIL was competitive with the evaluated behavioral-cloning, GAIL, AIRL, DAC, PWIL, and IQ-Learn baselines. It remained effective on Ant and Humanoid after retaining only every twentieth or hundredth expert transition, corresponding to datasets of 50 or 10 transitions.
 
-SWIL also degraded comparatively gracefully when expert trajectories were heavily subsampled. On Ant and Humanoid, it remained effective when only every twentieth or hundredth transition was retained—corresponding to demonstration datasets containing only 50 or 10 transitions.
+## Failure modes
 
-The results were not uniform. SWIL approached expert performance on an Adroit door-opening task, but performed poorly and with high variance on FrankaKitchen. Performance also depended substantially on the underlying reinforcement-learning algorithm, with Soft Actor-Critic working better than the tested PPO and TD3 variants.
+The results were not uniform. SWIL approached expert performance on Adroit door opening but was poor and high-variance on FrankaKitchen. It also depended strongly on the downstream RL algorithm: Soft Actor-Critic outperformed the tested PPO and TD3 variants.
 
-## The broader lesson
+The reward changes with the policy occupancy, and learned projections reintroduce a min–max problem. The result is therefore narrower than a general solution to distribution-matching imitation: sliced transport makes an occupancy discrepancy computationally practical and exposes it as a transition-level reward.
 
-SWIL does not remove every difficulty associated with distribution-matching imitation learning. Its reward changes as the policy occupancy changes, and learned projections introduce their own min–max optimization problem.
+## Paper
 
-The main result is narrower but useful: optimal transport can be converted into a practical local reward without solving a full high-dimensional transport problem.
-
-Instead of asking a discriminator whether each transition looks like it came from the expert, SWIL asks:
-
-> Would adding this transition move the policy’s behavior closer to the expert’s behavior?
-
-Slicing makes that question computationally tractable. Reinforcement learning turns the answer into a policy.
+[Imitation Learning using Generalized Sliced Wasserstein Distances](https://openreview.net/forum?id=8rN439jpkT), Ovinnikov, Terenin, and Buhmann.

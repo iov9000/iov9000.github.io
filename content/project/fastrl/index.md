@@ -1,13 +1,14 @@
 ---
 title: "FASTRL: Reinforcement Learning in Surgical Digital Twins"
 summary: Peer-reviewed work on reinforcement-learning benchmarks and assistance policies in surgical digital-twin environments.
+status: Published
+highlight: Peer-reviewed benchmark and assistance-policy study in surgical digital twins.
 date: 2024-04-29
 tags:
   - Reinforcement Learning
   - Inverse Reinforcement Learning
   - Digital Twins
   - Surgical Robotics
-  - Simulation
   - Skill Assessment
 links:
   - name: Project
@@ -19,152 +20,33 @@ links:
 math: true
 ---
 
-**Artifact type:** Peer-reviewed publication and benchmark.
+## Problem
 
-Surgical simulators allow trainees to practise procedures without consuming operating-room time or exposing patients to risk. Their assessment systems, however, often reduce performance to coarse metrics such as completion time, instrument path length, or manually designed error penalties.
+Surgical simulators often score trainees with coarse aggregate metrics such as completion time, path length, or manually weighted errors. These scores do not identify where performance deteriorated, predict whether recovery is likely, or demonstrate a corrective action.
 
-These metrics are useful but incomplete. A short trajectory is not necessarily controlled, safe, or technically correct. A single score also provides little information about **where performance deteriorated** or **how the trainee should recover**.
+## Claim
 
-In [Fundamentals of Arthroscopic Surgery Training and Beyond](https://link.springer.com/article/10.1007/s11548-024-03116-z), we introduce **FASTRL**, a reinforcement-learning framework for studying virtual agents and learned performance models in simulated surgical training.
+Representing a simulator exercise as a sequential decision process allows policies, learned rewards, and value functions to provide complementary models of procedural performance rather than a single retrospective score.
 
-The central idea is to represent a surgical exercise as a sequential decision-making problem. This provides three complementary tools:
+## Method
 
-1. a policy that can demonstrate task execution;
-2. a reward function that scores local behaviour;
-3. a value function that estimates the expected quality of the remaining procedure.
+FASTRL adapts three Fundamentals of Arthroscopic Surgery Training exercises—ImageCentring, Periscoping, and TraceLines—to reinforcement learning. Policies are trained with handcrafted objectives, while GAIL- and AIRL-based formulations learn from demonstrations.
 
-## Surgical training as a decision process
-
-We model interaction with the simulator as a Markov decision process
+For a learned reward $r_\psi$, the value function
 
 $$
-\mathcal M
-=
-(\mathcal S,\mathcal A,T,\mu_0,R),
-$$
-
-where:
-
-- $\mathcal S$ is the simulator state space;
-- $\mathcal A$ contains the available instrument controls;
-- $T(s'\mid s,a)$ describes the simulator dynamics;
-- $\mu_0$ is the initial-state distribution;
-- $R(s,a)$ evaluates the quality of an action in a given state.
-
-A policy
-
-$$
-\pi(a\mid s)
-$$
-
-maps the current simulator state to a distribution over instrument commands.
-
-The benchmark adapts three exercises from the Fundamentals of Arthroscopic Surgery Training programme:
-
-- **ImageCentring**, which trains arthroscope alignment and monocular depth estimation;
-- **Periscoping**, which trains the use of angled optics;
-- **TraceLines**, which trains steady and controlled instrument motion.
-
-The simulator state represents quantities such as instrument pose, target pose, motion, and relative alignment. Policies can be trained using either continuous acceleration commands or a lower-dimensional discrete control interface.
-
-## Handcrafted and learned performance objectives
-
-FASTRL supports two ways of defining procedural quality.
-
-### Forward reinforcement learning
-
-In the first setting, the reward is specified manually:
-
-$$
-r_{\mathrm{heur}}(s)
-=
-w^\top\phi(s),
-$$
-
-where $\phi(s)\in\mathbb R^d$ is a vector of task features and $w\in\mathbb R^d$ contains their weights.
-
-The features can encode properties such as image centring, target alignment, motion smoothness, or task completion. A policy is trained to maximize expected discounted return:
-
-$$
-J(\pi)
-=
-\mathbb E_{\tau\sim\pi}
-\left[
-\sum_{t=0}^{T}
-\gamma^t r_{\mathrm{heur}}(s_t)
-\right],
-$$
-
-where $\tau$ is a trajectory and $\gamma\in(0,1)$ is the discount factor.
-
-This approach is interpretable, but it requires the relevant dimensions of skill to be specified in advance. Designing such a reward becomes increasingly difficult as the procedure grows more complex.
-
-### Inverse reinforcement learning
-
-The second setting learns a reward from demonstrations:
-
-$$
-r_\psi(s,a),
-$$
-
-where $\psi$ denotes the reward-model parameters.
-
-Given expert trajectories
-
-$$
-\mathcal D_E
-=
-\{\tau_1,\ldots,\tau_K\},
-$$
-
-adversarial imitation-learning methods compare transitions produced by the learning policy with transitions from the expert dataset.
-
-The study evaluates formulations based on GAIL and AIRL. These methods jointly train a policy and a discriminator-like model. In AIRL, the learned model can also be interpreted as an explicit reward function for evaluating previously unseen trajectories.
-
-## From one score to sequential feedback
-
-The learned components support different forms of feedback.
-
-The reward
-
-$$
-r_\psi(s_t,a_t)
-$$
-
-provides a local assessment of the trainee’s current action.
-
-The value function
-
-$$
-V_\phi(s_t)
-\approx
-\mathbb E
-\left[
-\sum_{k=0}^{T-t}
-\gamma^k r_\psi(s_{t+k},a_{t+k})
+V_\phi(s_t)\approx
+\mathbb E\!\left[
+\sum_{k=0}^{T-t}\gamma^k r_\psi(s_{t+k},a_{t+k})
 \mid s_t
 \right]
 $$
 
-estimates the expected quality of the procedure from the current state onward.
+estimates expected remaining procedural quality. The reward supplies local feedback, the value function tracks how a trajectory is unfolding, and the policy can generate a possible continuation.
 
-Finally, the policy
+## Evidence
 
-$$
-\pi(a\mid s_t)
-$$
-
-can generate a possible continuation from the trainee’s current state.
-
-Together, these quantities could support an assistant that identifies problematic trajectory segments, estimates whether the procedure is likely to succeed, and demonstrates corrective actions.
-
-The work establishes this as a simulation-based feasibility study—not as a clinically validated assistance system.
-
-## Evaluating human trajectories
-
-The learned reward and value functions were applied to recordings from users with different levels of experience.
-
-On the **Periscoping** exercise, both learned scores reproduced the ordering obtained from the simulator’s handcrafted metrics. Two expert users were ranked above three novices, while the trained virtual agent received the highest score.
+On Periscoping, learned reward and value scores reproduced the reference ordering: the virtual agent ranked above two experts, who ranked above three novices.
 
 | Agent | Learned reward | Learned value |
 |---|---:|---:|
@@ -175,42 +57,14 @@ On the **Periscoping** exercise, both learned scores reproduced the ordering obt
 | Novice 2 | 0.518 | 0.521 |
 | Novice 3 | 0.374 | 0.339 |
 
-Applying the value function at every point in a trajectory also produced a spatial performance map. Expert trajectories remained in consistently higher-value regions, while novice trajectories showed larger deviations from the virtual-agent reference.
+On TraceLines, learned values separated expert, intermediate, and poor trajectories with approximate scores of $0.91$, $0.64$, and $0.33$.
 
-On **TraceLines**, the learned value similarly separated trajectories labelled as expert, intermediate, and poor, with approximate scores of $0.91$, $0.64$, and $0.33$.
+In a simulated laparoscopic diagnostic tour, models trained from ten highly rated demonstrations were evaluated on one hundred procedures. Learned scores correlated strongly with path length (Spearman magnitudes of approximately $0.73$–$0.82$) but only weakly with the simulator's safety metric ($0.24$–$0.25$).
 
-## Moving toward realistic procedures
+## Limitations
 
-The framework was additionally evaluated on a simulated laparoscopic diagnostic tour. Participants had to visualize anatomical landmarks around the liver and falciform ligament using a virtual endoscope.
+This is a simulation-based feasibility study, not a clinically validated assistance system. Only three FAST exercises were implemented; the models relied primarily on simulator state and kinematics; and the scores were not independently validated with standardized expert-assessment protocols. The weak safety correlation also shows that movement economy is not a proxy for complete surgical competence.
 
-Reward and value models were trained from ten highly rated demonstrations and evaluated on one hundred recorded procedures. Their predictions were compared with two conventional measures:
+## Paper and project
 
-$$
-d_{\mathrm{path}},
-$$
-
-the total distance travelled by the endoscope, and
-
-$$
-d_{\mathrm{safety}},
-$$
-
-a metric based on proximity to anatomical structures.
-
-The learned scores correlated strongly with path length, with reported Spearman correlation magnitudes between approximately $0.73$ and $0.82$. Correlations with the safety metric were substantially weaker, around $0.24$ to $0.25$.
-
-This distinction is important. The learned models captured a significant component of movement economy, but the experiment does not establish that they measure complete surgical competence or clinically meaningful safety.
-
-## What the study establishes
-
-FASTRL demonstrates that simulated surgical training can be formulated as a reinforcement-learning problem in which virtual agents, reward models, and value functions share a common representation of procedural performance.
-
-The contribution is not autonomous surgery. It is a framework for moving beyond a single retrospective score:
-
-> Evaluate each stage of a procedure, predict how the remaining trajectory may unfold, and provide a model-generated example of improved behaviour.
-
-The current evidence remains preliminary. Only three FAST exercises were implemented, the models relied primarily on simulator-state and kinematic data, and the learned scores were not independently validated using standardized expert-assessment protocols.
-
-External clinical validation and richer visual or multimodal representations are therefore necessary before such models can support real training decisions.
-
-Within those limits, the work provides a concrete bridge between reinforcement learning and simulation-based surgical education: virtual agents become not only task solvers, but models of **how procedural skill develops over time**.
+[Fundamentals of Arthroscopic Surgery Training and beyond](https://link.springer.com/article/10.1007/s11548-024-03116-z), Ovinnikov et al., *International Journal of Computer Assisted Radiology and Surgery*, 2024. The [FASTRL project site](https://fastrl.ethz.ch/) contains the public benchmark material.

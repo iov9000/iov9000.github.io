@@ -5,7 +5,6 @@ authors:
 - Ivan Ovinnikov
 - Eugene Bykovets
 date: '2020-11-18'
-publishDate: '2025-04-10T19:46:42.019382Z'
 publication_types:
 - manuscript
 summary: Preprint studying inverse reinforcement learning through matching optimality profiles instead of directly imitating trajectories.

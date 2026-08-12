@@ -4,9 +4,9 @@ authors:
 - Ivan Ovinnikov
 - Joachim M. Buhmann
 date: '2023-08-17'
-publishDate: '2025-04-10T20:50:44.083587Z'
 publication_types:
-- manuscript
+- paper-conference
+publication: 'ICML 2023 Workshop on Spurious Correlations, Invariance, and Stability'
 featured: true
 summary: Preprint studying causal-invariance regularization for adversarial imitation learning under environment variation.
 links:
@@ -16,6 +16,6 @@ links:
   url: https://arxiv.org/abs/2308.09189
 ---
 
-**Status:** Preprint.
+**Status:** Workshop paper.
 
 **Summary:** Studies causal-invariance regularization for adversarial imitation learning under environment variation.

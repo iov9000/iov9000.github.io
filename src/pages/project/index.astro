@@ -2,16 +2,29 @@
 import { getCollection } from 'astro:content';
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
-import { sortNewest } from '../../lib/content';
+import { slugFromId, sortNewest } from '../../lib/content';
 
 const projects = sortNewest((await getCollection('projects')).filter((entry) => !entry.data.draft));
+const projectPriority = [
+  'quadruped-locomotion',
+  'causally-invariant-reward-learning',
+  'sliced-wasserstein-imitation-learning',
+  'viq-simplevla-rl',
+  'fastrl',
+];
+const orderedProjects = [...projects].sort((left, right) => {
+  const leftRank = projectPriority.indexOf(slugFromId(left.id));
+  const rightRank = projectPriority.indexOf(slugFromId(right.id));
+  return (leftRank < 0 ? projectPriority.length : leftRank)
+    - (rightRank < 0 ? projectPriority.length : rightRank);
+});
 ---
 
 <BaseLayout title="Selected work" description="Selected research and applied machine-learning work by Ivan Ovinnikov.">
   <section class="page-hero container">
     <p class="eyebrow">Research and deployment</p>
     <h1 class="page-title">Selected work</h1>
-    <p class="page-lead">Projects spanning deployed robot locomotion, simulation infrastructure, reward learning, and optimal transport.</p>
+    <p class="page-lead">Deployed, published, and ongoing work on robust reinforcement learning, imperfect objectives, and policy optimization under distribution shift.</p>
   </section>
-  <section class="container"><div class="card-grid">{projects.map((project) => <ProjectCard entry={project} />)}</div></section>
+  <section class="container"><div class="card-grid">{orderedProjects.map((project) => <ProjectCard entry={project} />)}</div></section>
 </BaseLayout>

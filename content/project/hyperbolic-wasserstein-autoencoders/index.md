@@ -1,7 +1,8 @@
 ---
 title: Hyperbolic Wasserstein Autoencoders
-summary: ArXiv preprint on generative modeling with Wasserstein autoencoders in hyperbolic latent spaces.
-date: 2020-01-01
+summary: Generative modeling with Wasserstein autoencoders in hyperbolic latent spaces.
+status: Manuscript
+date: 2019-01-05
 tags:
   - Generative Modeling
   - Optimal Transport
@@ -12,93 +13,46 @@ links:
 math: true
 ---
 
-**Artifact type:** Preprint.
+## Problem
 
-Most generative models assume that their latent variables live in ordinary Euclidean space. This is mathematically convenient, but it is not always a neutral choice: the geometry of the latent space determines which relationships a model can represent efficiently.
+Euclidean latent spaces encode hierarchical data inefficiently: the number of nodes in a tree grows exponentially with depth, while Euclidean volume grows polynomially. Hyperbolic space has exponential volume growth and can therefore represent branching structure with lower distortion.
 
-Many real datasets are approximately hierarchical. Concepts form taxonomies, graph nodes form branching communities, and visual categories may contain nested subcategories. A flat latent space can encode these structures, but often only by using additional dimensions or accepting substantial geometric distortion.
+## Claim
 
-The **Poincaré Wasserstein Autoencoder** explores a different premise: when the data is hierarchical, the latent space should itself have a geometry adapted to hierarchies.
+A Wasserstein autoencoder whose prior, posterior, distance, and optimization respect the Poincaré-ball geometry should provide a useful inductive bias for hierarchical data.
 
-## Why hyperbolic geometry?
+## Method
 
-The model uses the $d$-dimensional Poincaré ball
-
-$$
-\mathbb{B}^{d}
-=
-\left\{
-z\in\mathbb{R}^{d}:\lVert z\rVert_2<1
-\right\}.
-$$
-
-Although the ball is represented using ordinary coordinates, distances are measured using the hyperbolic metric:
-
-$$
-d_{\mathbb H}(x,y)
-=
-\operatorname{arcosh}
-\left(
-1+
-2\frac{\lVert x-y\rVert_2^2}
-{(1-\lVert x\rVert_2^2)(1-\lVert y\rVert_2^2)}
-\right).
-$$
-
-Here, $x,y\in\mathbb B^d$, and $\lVert\cdot\rVert_2$ denotes the Euclidean norm.
-
-The crucial property is not simply that the space is curved. In hyperbolic space, the available volume grows exponentially with distance from the origin. This resembles the growth of a tree: the number of nodes typically increases exponentially with depth. Consequently, a low-dimensional hyperbolic space can embed branching structures with less distortion than an equivalently sized Euclidean space.
-
-The radial coordinate also provides a natural hierarchy. Points near the origin can represent general or high-level concepts, while increasingly specific concepts are placed closer to the boundary.
-
-## A generative model on the Poincaré ball
-
-The work reformulates the Wasserstein autoencoder framework using a hyperbolic latent distribution. Both prior and approximate posterior samples lie on the Poincaré ball, rather than being treated as Euclidean Gaussian vectors.
-
-The training objective can be written schematically as
+The model replaces the Euclidean latent space with the Poincaré ball $\mathbb B^d$ and optimizes
 
 $$
 \mathcal L(\theta,\phi)
 =
 \mathbb E_{x\sim p_{\mathrm{data}}}
 \mathbb E_{z\sim q_\phi(z\mid x)}
-\left[
-c\!\left(x,g_\theta(z)\right)
-\right]
+\left[c\!\left(x,g_\theta(z)\right)\right]
 +
-\beta\,
-\operatorname{MMD}_k
-\left(
-q_\phi(z),p(z)
-\right).
+\beta\operatorname{MMD}_k\!\left(q_\phi(z),p(z)\right).
 $$
 
-Here:
-
-- $q_\phi(z\mid x)$ is the encoder distribution;
-- $g_\theta(z)$ is the decoder;
-- $c(x,g_\theta(z))$ is the reconstruction cost;
-- $q_\phi(z)$ is the aggregated posterior;
-- $p(z)$ is a hyperbolic prior;
-- $\operatorname{MMD}_k$ is the maximum mean discrepancy under a kernel $k$;
-- $\beta>0$ controls latent-distribution regularization.
-
-A geodesic Laplacian kernel,
+Here $q_\phi$ is the encoder distribution, $g_\theta$ the decoder, $p$ a hyperbolic prior, and $\operatorname{MMD}_k$ an aggregated-posterior penalty. A geodesic Laplacian kernel
 
 $$
-k(x,y)=\exp\!\left[-\lambda d_{\mathbb H}(x,y)\right],
+k(x,y)=\exp[-\lambda d_{\mathbb H}(x,y)]
 $$
 
-allows the prior and aggregated posterior to be compared using the intrinsic manifold distance. Riemannian optimization, exponential maps and hyperbolic sampling procedures are then used to keep the relevant variables on the manifold.
+compares samples using the intrinsic hyperbolic distance; exponential maps, manifold sampling, and Riemannian optimization keep the relevant variables on the geometry.
 
-## What did it show?
+## Evidence
 
-On a synthetic noisy-tree dataset, the two-dimensional hyperbolic model produced an average embedding distortion of $0.49$, compared with $0.82$ for the Euclidean variational autoencoder and $0.73$ for t-SNE. This was the clearest result: when the assumed geometry matched the data-generating structure, the representation became substantially more compact.
+On a synthetic noisy-tree dataset, the two-dimensional hyperbolic model achieved average embedding distortion of $0.49$, compared with $0.82$ for a Euclidean variational autoencoder and $0.73$ for t-SNE.
 
-On citation-network link prediction, the model improved over the Euclidean graph autoencoder on Cora and Citeseer while using a smaller latent dimension, but did not outperform all alternative geometries or win consistently across datasets.
+On citation-network link prediction, it improved over the Euclidean graph autoencoder on Cora and Citeseer with a smaller latent dimension, but did not outperform every alternative geometry. MNIST experiments were diagnostic and exposed sensitivity to dimension, prior–posterior matching, and numerical stability.
 
-The MNIST experiments were primarily diagnostic. They illustrated how latent samples spread toward the boundary of the Poincaré disk and also exposed practical difficulties involving dimensionality, prior–posterior matching and numerical stability.
+## Limitations
 
-The result is therefore best understood as a proof of principle rather than a universal argument for hyperbolic neural networks. Geometry is an inductive bias: it helps when it reflects the structure of the problem and can hurt when that assumption is wrong.
+Geometry is an inductive bias, not a universal improvement. Benefits depend on the data having hierarchical structure, while manifold optimization and boundary behavior introduce additional numerical difficulty. The results are best read as a proof of principle.
 
-The broader lesson remains relevant beyond this particular architecture. Latent spaces are not empty containers. Their topology, curvature and metric determine which relationships the model treats as simple. Selecting these structures deliberately can be as important as changing the network itself.
+## Paper
+
+[Poincaré Wasserstein Autoencoder](https://arxiv.org/abs/1901.01427), Ovinnikov, Bayesian Deep Learning Workshop at NeurIPS 2018; arXiv version published in 2019.

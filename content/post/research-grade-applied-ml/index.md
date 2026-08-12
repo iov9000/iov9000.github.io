@@ -1,6 +1,6 @@
 ---
-title: Research-grade applied ML for embodied agents
-summary: A short technical note on connecting reward learning, simulation-based training, and safety-critical evaluation for physical AI systems.
+title: Objectives, training distributions, and deployment shift
+summary: A short technical note on connecting reward learning, simulation-based policy optimization, and failure-oriented evaluation.
 date: 2026-06-09
 authors:
   - Ivan Ovinnikov
@@ -10,6 +10,7 @@ tags:
   - Reward Learning
   - Physical AI
 math: true
+draft: true
 ---
 
 Embodied reinforcement learning sits between two requirements that are often treated separately: the objective must encode the right behavior, and the trained policy must survive the deployment distribution.

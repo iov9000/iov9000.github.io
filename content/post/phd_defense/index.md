@@ -8,6 +8,7 @@ tags:
   - PhD
   - Exam
   - Thesis
+draft: true
 ---
 
 I'm happy to announce that I have successfully defended my PhD thesis titled

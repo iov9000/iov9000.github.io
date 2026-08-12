@@ -9,6 +9,7 @@ authors:
   - Ivan Ovinnikov
 tags: []
 featured: false
+draft: true
 content:
   button:
     text: Thesis

@@ -5,7 +5,6 @@ authors:
 - Alexander Terenin
 - Joachim M. Buhmann
 date: '2023-09-23'
-publishDate: '2025-04-10T20:50:44.000000Z'
 publication_types:
 - manuscript
 publication: 'Research manuscript'

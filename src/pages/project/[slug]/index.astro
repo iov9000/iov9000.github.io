@@ -17,6 +17,7 @@ const { Content } = await render(project);
   summary={project.data.summary}
   date={project.data.date}
   links={project.data.links}
+  facts={project.data.status ? [{ label: 'Status', value: project.data.status }] : []}
   tags={project.data.tags}
   backUrl="/project/"
   backLabel="All selected work"
