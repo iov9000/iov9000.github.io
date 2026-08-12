@@ -71,7 +71,7 @@ export const profile = {
   ],
   work: [
     {
-      position: 'ML Engineer, Reinforcement Learning',
+      position: 'Reinforcement Learning Engineer',
       company: 'ANYbotics AG',
       url: 'https://www.anybotics.com/',
       start: '2024-10-01',
@@ -90,7 +90,7 @@ export const profile = {
       start: '2019-02-01',
       end: '2024-07-31',
       points: [
-        'Developed inverse and imitation-learning methods for skill assessment and robust reward learning.',
+        'Developed inverse RL and imitation-learning methods for skill assessment and robust reward learning.',
         'Built reinforcement-learning benchmarks and assistance policies in surgical digital twins.',
         'Studied causal invariance and Wasserstein objectives under environment shift.',
         'Supported teaching in advanced machine learning, learning theory, and game theory.',

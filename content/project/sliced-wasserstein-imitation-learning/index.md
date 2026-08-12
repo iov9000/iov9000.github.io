@@ -2,7 +2,7 @@
 title: Distribution-Matching Imitation Learning
 summary: Sliced-Wasserstein occupancy matching becomes a transition-level reward for off-policy imitation learning.
 status: Manuscript
-highlight: Evaluated on five MuJoCo tasks; effective on Ant and Humanoid with as few as 10 expert transitions.
+highlight: Remained effective under up to 100× demonstration subsampling on Ant and Humanoid.
 date: 2023-09-23
 tags:
   - Imitation Learning

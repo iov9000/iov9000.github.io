@@ -67,6 +67,15 @@ In a controlled gridworld, conventional maximum-entropy IRL learned the path mos
 
 We then learned rewards on five MuJoCo locomotion tasks and trained new policies after changing body mass, joint limits, actuator strength, and contact friction. Invariant regularization improved transfer across maximum-entropy IRL, AIRL, and GAIL variants, with the largest gains where the baseline reward had overfit the original dynamics.
 
+<figure class="research-figure">
+  <a href="/img/projects/ci-irl-dynamics-transfer.png" target="_blank">
+    <img src="/img/projects/ci-irl-dynamics-transfer.png" alt="Five plots compare causal-invariance, unregularized, and Lipschitz-regularized reward learning as body-mass perturbation increases across MuJoCo tasks." loading="lazy" />
+  </a>
+  <figcaption>Ground-truth return as body-mass perturbation increases. CI improves transfer on three of five tasks without a performance penalty on the other two. Figure 4 from the paper; open for full resolution.</figcaption>
+</figure>
+
+For a body-mass perturbation of $\epsilon=0.2$, the AIRL+CI reward produced mean ground-truth returns of $4{,}163$ on Walker2d and $5{,}108$ on Humanoid after one million SAC steps. The corresponding unregularized AIRL rewards produced $-3$ and $4{,}452$; the Lipschitz-regularized rewards produced $3{,}388$ and $1{,}789$. Results are averaged over five training seeds and ten evaluation rollouts.
+
 The experiment separates two questions that held-out reward prediction can conflate: whether a reward fits demonstrations, and whether optimizing that reward still produces the intended behavior after a shift.
 
 ## Failure modes

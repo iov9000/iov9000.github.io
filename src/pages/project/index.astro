@@ -4,12 +4,13 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectCard from '../../components/ProjectCard.astro';
 import { slugFromId, sortNewest } from '../../lib/content';
 
-const projects = sortNewest((await getCollection('projects')).filter((entry) => !entry.data.draft));
+const projects = sortNewest((await getCollection('projects')).filter((entry) =>
+  !entry.data.draft && slugFromId(entry.id) !== 'viq-simplevla-rl'
+));
 const projectPriority = [
   'quadruped-locomotion',
   'causally-invariant-reward-learning',
   'sliced-wasserstein-imitation-learning',
-  'viq-simplevla-rl',
   'fastrl',
 ];
 const orderedProjects = [...projects].sort((left, right) => {

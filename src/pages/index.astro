@@ -14,7 +14,6 @@ const projectPriority = [
   'quadruped-locomotion',
   'causally-invariant-reward-learning',
   'sliced-wasserstein-imitation-learning',
-  'viq-simplevla-rl',
 ];
 const selectedProjects = projects.filter((entry) => projectPriority.includes(slugFromId(entry.id))).sort((left, right) => {
   const leftRank = projectPriority.indexOf(slugFromId(left.id));
@@ -24,8 +23,6 @@ const selectedProjects = projects.filter((entry) => projectPriority.includes(slu
 });
 const publications = sortNewest(await getCollection('publications'));
 const featuredPublications = publications.filter((entry) => entry.data.featured);
-const primaryProjects = selectedProjects.filter((entry) => slugFromId(entry.id) !== 'viq-simplevla-rl');
-const ongoingProject = selectedProjects.find((entry) => slugFromId(entry.id) === 'viq-simplevla-rl');
 const social = Object.fromEntries(profile.socials.map((entry) => [entry.label, entry]));
 const heroLinks = [social['Google Scholar'], social.GitHub, { label: 'CV', url: '/uploads/resume.pdf' }, social.LinkedIn, social.Email];
 
@@ -70,18 +67,8 @@ const personJsonLd = {
         <h2 class="section-title">Selected research</h2>
       </header>
       <div class="card-grid">
-        {primaryProjects.map((project) => <ProjectCard entry={project} />)}
+        {selectedProjects.map((project) => <ProjectCard entry={project} />)}
       </div>
-      {ongoingProject && (
-        <a class="ongoing-research" href={`/project/${slugFromId(ongoingProject.id)}/`}>
-          <span class="card-meta">{ongoingProject.data.status}</span>
-          <span>
-            <strong>{ongoingProject.data.title}</strong>
-            <span>{ongoingProject.data.summary}</span>
-          </span>
-          <span aria-hidden="true">→</span>
-        </a>
-      )}
     </div>
   </section>
 
