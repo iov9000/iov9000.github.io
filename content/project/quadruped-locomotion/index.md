@@ -4,6 +4,7 @@ summary: End-to-end training and evaluation for locomotion policies under terrai
 status: Deployed research
 highlight: Physical deployment, failure-oriented evaluation, and large-scale GPU simulation.
 date: 2024-10-01
+period: 2024–present
 tags:
   - Reinforcement Learning
   - Robotics
@@ -25,7 +26,7 @@ My work at ANYbotics covers reinforcement-learning-based locomotion controllers 
 
 ## Claim
 
-Failure-oriented evaluation can close the training loop by identifying weak regions of the deployment distribution and turning them into targeted evaluation or curriculum scenarios.
+Failure-oriented evaluation can close the training loop by identifying weak regions of the deployment distribution and turning them into targeted regression or curriculum scenarios.
 
 ## Method
 

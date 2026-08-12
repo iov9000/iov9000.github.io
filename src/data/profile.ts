@@ -13,7 +13,7 @@ export const profile = {
   summary:
     'Research on reinforcement learning, robust policy learning, reward and imitation learning, distribution shift, robotics, and model post-training.',
   about: [
-    'I study how supervision, objectives, and training distributions determine behavior after deployment. The work connects reward and imitation learning, failure-focused robot training, and diagnostics for RL post-training.',
+    'I study how supervision, objectives, and training distributions determine behavior under deployment shift. The work connects reward and imitation learning, failure-focused robot training, and diagnostics for RL post-training.',
   ],
   researchThemes: [
     {

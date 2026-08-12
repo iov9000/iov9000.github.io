@@ -1,7 +1,7 @@
 ---
 title: Learning Rewards That Survive Distribution Shift
 summary: Invariant reward learning uses variation across demonstrators to identify features that remain stable under dynamics and nuisance shifts.
-status: Manuscript
+status: Preprint
 highlight: Improved reward transfer across five MuJoCo tasks under dynamics interventions.
 date: 2024-09-12
 tags:

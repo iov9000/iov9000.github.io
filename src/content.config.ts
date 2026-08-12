@@ -44,9 +44,10 @@ const projects = defineCollection({
   schema: z.object({
     title: z.string(),
     summary: z.string().default(''),
-    status: z.enum(['Published', 'Manuscript', 'Deployed research', 'Ongoing research']).optional(),
+    status: z.enum(['Published', 'Preprint', 'Research manuscript', 'Manuscript', 'Deployed research', 'Ongoing research']).optional(),
     highlight: z.string().optional(),
     date: z.coerce.date(),
+    period: z.string().optional(),
     tags: z.array(z.string()).default([]),
     links: z.array(link).default([]),
     math: z.boolean().default(false),

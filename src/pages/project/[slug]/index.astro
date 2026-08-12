@@ -16,6 +16,7 @@ const { Content } = await render(project);
   title={project.data.title}
   summary={project.data.summary}
   date={project.data.date}
+  dateLabel={project.data.period}
   links={project.data.links}
   facts={project.data.status ? [{ label: 'Status', value: project.data.status }] : []}
   tags={project.data.tags}
