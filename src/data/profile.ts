@@ -5,7 +5,7 @@ export const profile = {
   role: 'Reinforcement Learning Engineer',
   headline: 'Learning and intervention design for sequential decision-making',
   subtitle:
-    'I study how structural assumptions and the design of training distributions and objectives determine policy learning and behavioral generalization in sequential decision-making systems.',
+    'I study how structural assumptions and the design of training distributions and objectives constrain policy learning and behavioral generalization in sequential decision-making systems.',
   credentials: 'Reinforcement Learning Engineer, ANYbotics · ETH Zürich PhD',
   company: 'ANYbotics',
   location: 'Zürich, Switzerland',
@@ -13,7 +13,7 @@ export const profile = {
   summary:
     'Research on reinforcement learning, imitation learning, adaptive environment design, and robust sequential decision-making.',
   about: [
-    'Across these projects, I am interested in a common problem: how limited training information should constrain a sequential decision-making system. When data are fixed, this motivates structural priors and invariances; when the data-generating process can be controlled, it motivates adapting environments, tasks, or experiments to the current learner.',
+    'Across these projects, I study how limited training information constrains what a sequential decision-making system can learn, and how additional structure or actively selected experience can resolve the remaining ambiguity. When data are fixed, this motivates structural priors and invariances; when the data-generating process can be controlled, it motivates adapting environments, tasks, or experiments to the current learner.',
   ],
   researchDirection: [
     {
