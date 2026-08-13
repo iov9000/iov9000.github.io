@@ -14,13 +14,13 @@ interface Props {
 
 const {
   title,
-  description = 'Research on reinforcement learning, robust policy learning, reward and imitation learning, distribution shift, robotics, and model post-training.',
+  description = 'Research on reinforcement learning, imitation learning, adaptive environment design, and robust sequential decision-making.',
   image = '/img/og-card.png',
   type = 'website',
   publishedTime,
   noindex = false,
 } = Astro.props;
-const pageTitle = title ? `${title} · Ivan Ovinnikov` : 'Ivan Ovinnikov — Reinforcement Learning Research';
+const pageTitle = title ? `${title} · Ivan Ovinnikov` : 'Ivan Ovinnikov — Reinforcement Learning & Sequential Decision-Making';
 const canonical = new URL(Astro.url.pathname, Astro.site);
 const socialImage = new URL(image, Astro.site);
 ---
@@ -43,7 +43,7 @@ const socialImage = new URL(image, Astro.site);
     <meta property="og:image" content={socialImage} />
     <meta property="og:image:width" content="1200" />
     <meta property="og:image:height" content="630" />
-    <meta property="og:image:alt" content="Ivan Ovinnikov — reinforcement learning for reliable agents" />
+    <meta property="og:image:alt" content="Ivan Ovinnikov — reinforcement learning and sequential decision-making" />
     <meta name="twitter:card" content="summary_large_image" />
     <meta name="twitter:title" content={pageTitle} />
     <meta name="twitter:description" content={description} />

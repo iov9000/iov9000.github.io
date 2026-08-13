@@ -3,30 +3,41 @@ export const profile = {
   firstName: 'Ivan',
   lastName: 'Ovinnikov',
   role: 'Reinforcement Learning Engineer',
-  headline: 'Reinforcement learning for reliable agents',
+  headline: 'Learning and intervention design for sequential decision-making',
   subtitle:
-    'I develop reinforcement-learning methods for robust behavior under imperfect objectives and distribution shift—from deployed robotics to foundation-model post-training.',
+    'I study how structural assumptions and the design of training distributions and objectives determine policy learning and behavioral generalization in sequential decision-making systems.',
   credentials: 'Reinforcement Learning Engineer, ANYbotics · ETH Zürich PhD',
   company: 'ANYbotics',
   location: 'Zürich, Switzerland',
   email: 'mailto:ivan.ovinnikov@gmail.com',
   summary:
-    'Research on reinforcement learning, robust policy learning, reward and imitation learning, distribution shift, robotics, and model post-training.',
+    'Research on reinforcement learning, imitation learning, adaptive environment design, and robust sequential decision-making.',
   about: [
-    'I study how supervision, objectives, and training distributions determine behavior under deployment shift. The work connects reward and imitation learning, failure-focused robot training, and diagnostics for RL post-training.',
+    'Across these projects, I am interested in a common problem: how limited training information should constrain a sequential decision-making system. When data are fixed, this motivates structural priors and invariances; when the data-generating process can be controlled, it motivates adapting environments, tasks, or experiments to the current learner.',
   ],
-  researchThemes: [
+  researchDirection: [
     {
-      title: 'Robust reinforcement learning',
-      description: 'Methods and evaluation for distribution shift, rare failures, curriculum design, sim-to-real transfer, and policies deployed on physical robots.',
+      step: '01',
+      title: 'Structure from limited data',
+      question: 'What structure should learning assume?',
+      description: 'Learning policies or objectives from demonstrations is underdetermined. My PhD work studied causal invariance and distributional geometry as inductive structure for learning rewards and policies that remain useful under distribution shift.',
+      tags: ['Imitation learning', 'Inverse RL', 'Causal invariance', 'Optimal transport'],
     },
     {
-      title: 'Learning from imperfect objectives',
-      description: 'Reward and imitation-learning methods that address distribution matching, misspecification, and behavioral identifiability.',
+      step: '02',
+      title: 'Adaptive training environments',
+      question: 'Where should the learner train next?',
+      description: 'In deployed robot learning, the environment distribution becomes a controllable part of training. I use policy performance and failure signals to identify weak regions and direct training effort toward behavior that matters under terrain, sensing, and dynamics shift.',
+      tags: ['Reinforcement learning', 'Curriculum learning', 'Environment design', 'Sim-to-real'],
     },
     {
-      title: 'RL post-training and agent learning',
-      description: 'Diagnostics for credit assignment, reward and verifier structure, optimization dynamics, and multimodal or embodied agents.',
+      step: '03',
+      label: 'Emerging direction',
+      title: 'Adaptive intervention design',
+      question: 'What intervention should the system run next?',
+      description: 'A broader direction I am exploring is how to select the next environment, task, or experiment based on what is currently uncertain and what matters for downstream decisions. This connects curriculum and environment design in RL with active data acquisition and goal-oriented experimental design.',
+      application: 'I am exploring how ideas from adaptive environment design transfer to task distributions, generated environments, and verifier-guided learning.',
+      tags: ['Adaptive acquisition', 'Task selection', 'Experimental design'],
     },
   ],
   socials: [

@@ -1,6 +1,6 @@
 ---
 title: Distribution-Matching Imitation Learning
-summary: Sliced-Wasserstein occupancy matching becomes a transition-level reward for off-policy imitation learning.
+summary: Uses transport geometry to turn distribution-level imitation objectives into transition-level learning signals.
 status: Research manuscript
 highlight: Remained effective under up to 100× demonstration subsampling on Ant and Humanoid.
 date: 2023-09-23

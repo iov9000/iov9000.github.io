@@ -72,20 +72,31 @@ const personJsonLd = {
     </div>
   </section>
 
-  <section class="section" id="themes">
+  <section class="section" id="direction">
     <div class="container">
-      <header class="section-header themes-intro">
-        <p class="eyebrow">Research themes</p>
+      <header class="section-header direction-intro">
+        <h2 class="section-title">Research direction</h2>
         <p class="research-statement">{profile.about[0]}</p>
       </header>
-      <div class="research-theme-grid">
-        {profile.researchThemes.map((theme) => (
-          <article class="research-theme">
-            <h2>{theme.title}</h2>
-            <p>{theme.description}</p>
-          </article>
+      <ol class="research-progression" aria-label="Research progression from structural priors to adaptive intervention design">
+        {profile.researchDirection.map((stage) => (
+          <li class="direction-stage">
+            <div class="direction-marker" aria-hidden="true">{stage.step}</div>
+            <article>
+              <div class="direction-heading">
+                <h3>{stage.title}</h3>
+                {'label' in stage && stage.label && <span class="direction-label">{stage.label}</span>}
+              </div>
+              <p class="direction-question">{stage.question}</p>
+              <p>{stage.description}</p>
+              {'application' in stage && stage.application && <p class="direction-application"><strong>Agent post-training.</strong> {stage.application}</p>}
+              <div class="tags">
+                {stage.tags.map((tag) => <span class="tag">{tag}</span>)}
+              </div>
+            </article>
+          </li>
         ))}
-      </div>
+      </ol>
     </div>
   </section>
 
@@ -102,12 +113,13 @@ const personJsonLd = {
   </section>
 
   <section class="section" id="background">
-    <div class="container position-summary">
-      <header>
-        <h2 class="eyebrow">Background</h2>
+    <div class="container">
+      <header class="section-header">
+        <h2 class="section-title">Background</h2>
       </header>
-      <div>
-        <p>At <a href="https://www.anybotics.com/" target="_blank" rel="noreferrer">ANYbotics</a>, I develop and evaluate locomotion policies for industrial quadruped robots. My ETH Zürich PhD focused on reinforcement learning from demonstrations, reward inference, and distribution shift in surgical digital twins.</p>
+      <div class="background-copy">
+        <p>At <a href="https://www.anybotics.com/" target="_blank" rel="noreferrer">ANYbotics</a>, I develop and evaluate reinforcement-learning-based locomotion policies for industrial quadruped robots, with a focus on robustness, failure analysis, and sim-to-real iteration. My ETH Zürich PhD studied reinforcement learning from demonstrations: how reward and policy learning can exploit causal structure and distributional geometry when demonstrations provide incomplete information about the intended behavior.</p>
+        <p>Across both settings, I am increasingly interested in the active version of the same problem: how to choose the environments, tasks, or interventions from which a sequential system should learn next.</p>
         <p>I build experiments with PyTorch, JAX, GPU simulation, reproducible evaluation, and HPC workflows.</p>
         <p><a class="text-link" href="/experience/">Experience and education <Icon name="arrow-right" size={16} /></a></p>
       </div>

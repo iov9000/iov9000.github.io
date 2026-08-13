@@ -1,6 +1,6 @@
 ---
 title: Robust RL for Deployed Legged Robots
-summary: End-to-end training and evaluation for locomotion policies under terrain, sensing, and dynamics shift, centered on rare failures and sim-to-real robustness.
+summary: Training and evaluation for locomotion policies under terrain, sensing, and dynamics shift, with failure-oriented evaluation feeding weak deployment regions back into training.
 status: Deployed research
 highlight: Physical deployment, failure-oriented evaluation, and large-scale GPU simulation.
 date: 2024-10-01
