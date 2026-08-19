@@ -13,7 +13,7 @@ export const profile = {
   summary:
     'Research on reinforcement learning, learning from demonstrations, curriculum learning, and robust robot learning under distribution shift.',
   about: [
-    'My research spans imitation and reward learning, curriculum learning and environment design, and robust robot learning. I am also interested in active task selection and experimental design as tools for choosing informative training experience.',
+    'My research spans imitation and reward learning, curriculum learning and environment design, and robust robot learning. I am also interested in active task selection and experimental design as tools for selecting informative training tasks and environments.',
   ],
   researchInterests: [
     {

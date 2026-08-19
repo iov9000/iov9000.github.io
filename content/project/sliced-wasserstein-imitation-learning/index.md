@@ -1,6 +1,6 @@
 ---
 title: Distribution-Matching Imitation Learning
-summary: Uses sliced Wasserstein distances to derive transition-level rewards for occupancy-matching imitation learning.
+summary: Develops distribution-matching formulations of imitation learning, including sliced-Wasserstein objectives for occupancy matching.
 status: Research manuscript
 highlight: Remained effective under up to 100× demonstration subsampling on Ant and Humanoid.
 date: 2023-09-23
