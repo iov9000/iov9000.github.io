@@ -1,8 +1,8 @@
 ---
-title: Robust RL for Deployed Legged Robots
-summary: Training and evaluation for locomotion policies under terrain, sensing, and dynamics shift, with failure-oriented evaluation feeding weak deployment regions back into training.
+title: Reinforcement Learning for Robust Legged Locomotion
+summary: Training and robustness evaluation for locomotion policies under terrain, sensing, and dynamics shift, using identified failure modes to define targeted evaluation and curriculum scenarios.
 status: Deployed research
-highlight: Physical deployment, failure-oriented evaluation, and large-scale GPU simulation.
+highlight: Physical deployment, robustness evaluation and failure analysis, and large-scale GPU simulation.
 date: 2024-10-01
 period: 2024–present
 tags:
@@ -26,7 +26,7 @@ My work at ANYbotics covers reinforcement-learning-based locomotion controllers 
 
 ## Claim
 
-Failure-oriented evaluation can close the training loop by identifying weak regions of the deployment distribution and turning them into targeted regression or curriculum scenarios.
+Robustness evaluation can identify failure modes that inform targeted regression tests and curriculum scenarios.
 
 ## Method
 
@@ -35,10 +35,10 @@ The workflow connects:
 1. **objective and curriculum design** for useful motion without unsafe shortcuts;
 2. **parallel simulation** for large policy-training and evaluation batches;
 3. **controlled policy comparisons** with reproducible experiment definitions;
-4. **failure-oriented evaluation** across terrain, commands, disturbances, contacts, sensing, and model parameters;
+4. **robustness evaluation and failure analysis** across terrain, commands, disturbances, contacts, sensing, and model parameters;
 5. **sim-to-real iteration** that reproduces hardware observations in simulation where possible.
 
-Fixed capability slices and safety-event definitions keep policy changes attributable. Failure replay then turns observed weaknesses into regression cases or curriculum scenarios rather than allowing them to disappear inside aggregate return.
+Fixed capability slices and safety-event definitions keep policy changes attributable. Replaying observed failures then turns them into regression cases or curriculum scenarios rather than allowing them to disappear inside aggregate return.
 
 ## Evidence
 

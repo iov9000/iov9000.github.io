@@ -1,6 +1,6 @@
 ---
 title: Distribution-Matching Imitation Learning
-summary: Uses transport geometry to turn distribution-level imitation objectives into transition-level learning signals.
+summary: Uses sliced Wasserstein distances to derive transition-level rewards for occupancy-matching imitation learning.
 status: Research manuscript
 highlight: Remained effective under up to 100× demonstration subsampling on Ant and Humanoid.
 date: 2023-09-23

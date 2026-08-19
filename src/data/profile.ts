@@ -3,41 +3,40 @@ export const profile = {
   firstName: 'Ivan',
   lastName: 'Ovinnikov',
   role: 'Reinforcement Learning Engineer',
-  headline: 'Learning and intervention design for sequential decision-making',
+  headline: 'Reinforcement learning and learning from demonstrations under distribution shift',
   subtitle:
-    'I study how structural assumptions and the design of training distributions and objectives constrain policy learning and behavioral generalization in sequential decision-making systems.',
+    'I work on reinforcement learning and learning from demonstrations, with a focus on distribution shift, reward learning, and curriculum learning.',
   credentials: 'Reinforcement Learning Engineer, ANYbotics · ETH Zürich PhD',
   company: 'ANYbotics',
   location: 'Zürich, Switzerland',
   email: 'mailto:ivan.ovinnikov@gmail.com',
   summary:
-    'Research on reinforcement learning, imitation learning, adaptive environment design, and robust sequential decision-making.',
+    'Research on reinforcement learning, learning from demonstrations, curriculum learning, and robust robot learning under distribution shift.',
   about: [
-    'Across these projects, I study how limited training information constrains what a sequential decision-making system can learn, and how additional structure or actively selected experience can resolve the remaining ambiguity. When data are fixed, this motivates structural priors and invariances; when the data-generating process can be controlled, it motivates adapting environments, tasks, or experiments to the current learner.',
+    'My research spans imitation and reward learning, curriculum learning and environment design, and robust robot learning. I am also interested in active task selection and experimental design as tools for choosing informative training experience.',
   ],
-  researchDirection: [
+  researchInterests: [
     {
       step: '01',
-      title: 'Structure from limited data',
-      question: 'What structure should learning assume?',
-      description: 'Learning policies or objectives from demonstrations is underdetermined. My PhD work studied causal invariance and distributional geometry as inductive structure for learning rewards and policies that remain useful under distribution shift.',
+      title: 'Imitation and reward learning',
+      question: 'How can demonstrations specify useful policies and objectives?',
+      description: 'My PhD work studied causal invariance and optimal-transport objectives for learning rewards and policies from limited demonstrations under distribution shift.',
       tags: ['Imitation learning', 'Inverse RL', 'Causal invariance', 'Optimal transport'],
     },
     {
       step: '02',
-      title: 'Adaptive training environments',
+      title: 'Curriculum learning and environment design',
       question: 'Where should the learner train next?',
-      description: 'In deployed robot learning, the environment distribution becomes a controllable part of training. I use policy performance and failure signals to identify weak regions and direct training effort toward behavior that matters under terrain, sensing, and dynamics shift.',
-      tags: ['Reinforcement learning', 'Curriculum learning', 'Environment design', 'Sim-to-real'],
+      description: 'I use policy performance and observed failure modes to define targeted evaluation and curriculum scenarios across terrain, sensing, and dynamics shifts.',
+      tags: ['Curriculum learning', 'Environment design', 'Reinforcement learning'],
     },
     {
       step: '03',
       label: 'Emerging direction',
-      title: 'Adaptive intervention design',
-      question: 'What intervention should the system run next?',
-      description: 'A broader direction I am exploring is how to select the next environment, task, or experiment based on what is currently uncertain and what matters for downstream decisions. This connects curriculum and environment design in RL with active data acquisition and goal-oriented experimental design.',
-      application: 'I am exploring how ideas from adaptive environment design transfer to task distributions, generated environments, and verifier-guided learning.',
-      tags: ['Adaptive acquisition', 'Task selection', 'Experimental design'],
+      title: 'Active task selection and experimental design',
+      question: 'What task or experiment should the learner encounter next?',
+      description: 'I am exploring how active learning and sequential experimental design can select informative tasks and environments based on current uncertainty and downstream goals.',
+      tags: ['Active learning', 'Task selection', 'Experimental design'],
     },
   ],
   socials: [
@@ -49,10 +48,10 @@ export const profile = {
   interests: [
     'Learning objectives',
     'Training distributions',
-    'Policy optimization',
+    'Reinforcement learning',
     'Reward learning under distribution shift',
     'Robot learning and sim-to-real',
-    'Failure-oriented evaluation',
+    'Robustness evaluation and failure analysis',
   ],
   education: [
     {
@@ -90,7 +89,7 @@ export const profile = {
       points: [
         'Develop and evaluate RL locomotion controllers for quadrupeds deployed in industrial inspection.',
         'Run end-to-end experiments across GPU simulation, policy training, robustness evaluation, and sim-to-real iteration.',
-        'Design safety curricula, scenario suites, and failure analyses targeting rare locomotion failures.',
+        'Design curricula and scenario suites targeting rare locomotion failures.',
         'Led and secured a EuroHPC grant enabling up to 50,000 H100 GPU-hours for large-scale RL robustness and scaling experiments.',
       ],
     },

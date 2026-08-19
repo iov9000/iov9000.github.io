@@ -1,6 +1,6 @@
 ---
 title: Objectives, training distributions, and deployment shift
-summary: A short technical note on connecting reward learning, simulation-based policy optimization, and failure-oriented evaluation.
+summary: A short technical note on connecting reward learning, simulation-based policy optimization, and robustness evaluation.
 date: 2026-06-09
 authors:
   - Ivan Ovinnikov
@@ -23,4 +23,4 @@ $$
 
 The policy $\pi_\theta$ is the controller, the reward or evaluation model $r_\phi$ defines the learning signal, and $\mathcal{E}$ is the evaluation protocol that exposes distribution shift between training and deployment.
 
-My research and applied work focus on this interface: inverse RL and imitation learning for objective design, simulation workflows for scalable policy optimization, and robustness experiments that deliberately search for rare failure modes rather than only reporting average-case task performance.
+My research and applied work focus on this interface: inverse RL and imitation learning for objective design, simulation workflows for scalable policy optimization, and robustness evaluation that deliberately searches for rare failure modes rather than only reporting average-case task performance.
