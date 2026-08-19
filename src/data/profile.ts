@@ -5,7 +5,7 @@ export const profile = {
   role: 'Reinforcement Learning Engineer',
   headline: 'Reinforcement learning and learning from demonstrations under distribution shift',
   subtitle:
-    'I work on reinforcement learning and learning from demonstrations, with a focus on distribution shift, reward learning, and curriculum learning.',
+    'I work on reinforcement learning and learning from demonstrations, with a focus on robustness under distribution shift, reward learning, and curriculum learning.',
   credentials: 'Reinforcement Learning Engineer, ANYbotics · ETH Zürich PhD',
   company: 'ANYbotics',
   location: 'Zürich, Switzerland',
