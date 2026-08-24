@@ -6,10 +6,37 @@
 %%%%%%%%% CUSTOMIZATION %%%%%%%%%%%%%%
 
 \documentclass[11pt, a4paper]{awesome-cv}
-% --- Use Roboto everywhere (body + headers) ---
-\setmainfont{Roboto}
-\setsansfont{Roboto}
-\renewcommand{\familydefault}{\sfdefault} % optional: enforce sans as default
+% --- Use the bundled Roboto files everywhere (body + headers) ---
+\setmainfont{Roboto}[
+  Path=fonts/,
+  Extension=.ttf,
+  UprightFont=*-Regular,
+  ItalicFont=*-Italic,
+  BoldFont=*-Bold,
+  BoldItalicFont=*-BoldItalic,
+  FontFace={l}{n}{Font=*-Light},
+  FontFace={l}{it}{Font=*-LightItalic},
+  FontFace={l}{sl}{Font=*-LightItalic},
+]
+\setsansfont{Roboto}[
+  Path=fonts/,
+  Extension=.ttf,
+  UprightFont=*-Regular,
+  ItalicFont=*-Italic,
+  BoldFont=*-Bold,
+  BoldItalicFont=*-BoldItalic,
+  FontFace={l}{n}{Font=*-Light},
+  FontFace={l}{it}{Font=*-LightItalic},
+  FontFace={l}{sl}{Font=*-LightItalic},
+]
+\renewcommand{\familydefault}{\sfdefault}
+\renewcommand*{\headerfont}{\sffamily}
+\renewcommand*{\headerfontlight}{\sffamily\fontseries{l}\selectfont}
+
+% Roboto has no small-caps face, so render those styles as uppercase.
+\renewcommand*{\headerpositionstyle}[1]{{\fontsize{7.6pt}{1em}\bodyfont\color{awesome}#1}}
+\renewcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\color{lighttext}\MakeUppercase{#1}}}
+\renewcommand*{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\color{graytext}\MakeUppercase{#1}}}
 
 % --- ALL CAPS for CV section titles ---
 \renewcommand*{\sectionstyleface}[1]{%
@@ -55,7 +82,7 @@
 %-------------------------------------------------------------------------------
 % \photo[circle,noedge,left]{mugg} % optional
 \name{Ivan}{Ovinnikov}
-\position{Research Engineer {\enskip\cdotp\enskip} Reinforcement \& Imitation Learning {\enskip\cdotp\enskip} Physical AI}
+\position{RESEARCH ENGINEER {\enskip\cdotp\enskip} REINFORCEMENT \& IMITATION LEARNING {\enskip\cdotp\enskip} PHYSICAL AI}
 \address{Zürich, Switzerland}
 
 % Fill what you want to show (remove unused lines)
