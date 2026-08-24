@@ -15,13 +15,42 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  build:
+  compile-cv:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
     - name: Checkout
       uses: actions/checkout@v4
       with:
         fetch-depth: 1
+    - name: Compile CV
+      uses: xu-cheng/latex-action@v4
+      with:
+        root_file: resume.tex
+        working_directory: src/tex
+        latexmk_use_xelatex: true
+    - name: Upload compiled CV
+      uses: actions/upload-artifact@v7
+      with:
+        name: compiled-cv
+        path: src/tex/resume.pdf
+        if-no-files-found: error
+        retention-days: 1
+
+  build:
+    runs-on: ubuntu-latest
+    needs: compile-cv
+    steps:
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 1
+    - name: Download compiled CV
+      uses: actions/download-artifact@v8
+      with:
+        name: compiled-cv
+        path: static/uploads
     - name: Setup Node
       uses: actions/setup-node@v4
       with:

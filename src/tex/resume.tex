@@ -1,0 +1,100 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for CV/Resume
+% https://github.com/posquit0/Awesome-CV
+
+%%%%%%%%% CUSTOMIZATION %%%%%%%%%%%%%%
+
+\documentclass[11pt, a4paper]{awesome-cv}
+% --- Use Roboto everywhere (body + headers) ---
+\setmainfont{Roboto}
+\setsansfont{Roboto}
+\renewcommand{\familydefault}{\sfdefault} % optional: enforce sans as default
+
+% --- ALL CAPS for CV section titles ---
+\renewcommand*{\sectionstyleface}[1]{%
+  {\fontsize{13pt}{1em}\bodyfont\bfseries\MakeUppercase{#1}}%
+}
+\AddToNoCaseChangeList{\color}
+\usepackage[
+  backend=biber,
+  style=authoryear,
+  sorting=ydnt,
+  maxbibnames=99
+]{biblatex}
+\ExecuteBibliographyOptions{giveninits=true}
+\DeclareNameAlias{author}{given-family}
+
+\addbibresource{sample.bib}
+
+% Make bib font match Awesome-CV body style (same as \descriptionstyle)
+\renewcommand*{\bibfont}{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text}}
+
+% Tighten spacing a bit
+\setlength{\bibitemsep}{0.15\baselineskip}
+\setlength{\bibhang}{0pt}
+
+%%%%%%%%%  END CUSTOMIZATION %%%%%%%%%%%%%
+
+% Page margins
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+
+% Fonts directory (Awesome-CV expects fonts/ to exist)
+\fontdir[fonts/]
+
+% Color theme
+%\colorlet{awesome}{awesome-concrete}
+\definecolor{DarkBlue}{HTML}{140097}
+\colorlet{awesome}{DarkBlue}
+
+\setbool{acvSectionColorHighlight}{true}
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+%-------------------------------------------------------------------------------
+% PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+% \photo[circle,noedge,left]{mugg} % optional
+\name{Ivan}{Ovinnikov}
+\position{Research Engineer {\enskip\cdotp\enskip} Reinforcement \& Imitation Learning {\enskip\cdotp\enskip} Physical AI}
+\address{Zürich, Switzerland}
+
+% Fill what you want to show (remove unused lines)
+% \mobile{(+41) XX XXX XX XX}
+\email{ivan.ovinnikov@gmail.com}
+\homepage{ovinnikov.com}
+\linkedin{ivan-ovinnikov-0b227593}
+\googlescholar{m8UKFekAAAAJ}{Google Scholar}
+% \github{your-github-handle}
+
+%\quote{``Build systems that remain reliable in the long tail.''}
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makecvheader[C]
+
+\makecvfooter
+  {\today}
+  {Ivan Ovinnikov~~~·~~~Résumé}
+  {\thepage}
+
+%-------------------------------------------------------------------------------
+% CONTENT
+%-------------------------------------------------------------------------------
+\vspace{-3mm}
+\input{resume/summary.tex}
+\vspace{-3mm}
+\input{resume/experience.tex}
+\vspace{-3mm}
+\input{resume/education.tex}
+\vspace{-3mm}
+\input{resume/skills.tex}
+\vspace{-2mm}
+\input{resume/writing.tex}        % independent directions
+\vspace{-3mm}
+\input{resume/presentation.tex}   % publications / talks (lightweight)
+% \input{resume/honors.tex}
+% \input{resume/committees.tex}
+% \input{resume/extracurricular.tex}
+
+\end{document}

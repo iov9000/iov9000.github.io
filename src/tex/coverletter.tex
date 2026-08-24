@@ -1,0 +1,96 @@
+%!TEX TS-program = xelatex
+%!TEX encoding = UTF-8 Unicode
+% Awesome CV LaTeX Template for Cover Letter
+% https://github.com/posquit0/Awesome-CV
+
+%-------------------------------------------------------------------------------
+% CONFIGURATIONS
+%-------------------------------------------------------------------------------
+\documentclass[11pt, a4paper]{awesome-cv}
+
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+\fontdir[fonts/]
+% --- Use Roboto everywhere (body + headers) ---
+\setmainfont{Roboto}
+\setsansfont{Roboto}
+\renewcommand{\familydefault}{\sfdefault} % optional: enforce sans as default
+
+% --- ALL CAPS for CV section titles ---
+\renewcommand*{\sectionstyleface}[1]{%
+  {\fontsize{13pt}{1em}\bodyfont\bfseries\MakeUppercase{#1}}%
+}
+% Color theme
+\definecolor{DarkBlue}{HTML}{140097}
+\colorlet{awesome}{DarkBlue}
+%\colorlet{awesome}{awesome-red}
+\setbool{acvSectionColorHighlight}{true}
+\renewcommand{\acvHeaderSocialSep}{\quad\textbar\quad}
+
+%-------------------------------------------------------------------------------
+% PERSONAL INFORMATION
+%-------------------------------------------------------------------------------
+% Photo is optional; comment out if you don't want it
+% \photo[circle,noedge,left]{profile}
+
+\name{Ivan}{Ovinnikov}
+\position{Research Engineer{\enskip\cdotp\enskip}Robust ML (RL, Post-Training, Simulation)}
+\address{Zürich, Switzerland}
+
+% Fill these with your actual details (or comment out)
+\mobile{(+41) 76 470 89 34}
+\email{ivan.ovinnikov@gmail.com}
+\homepage{ovinnikov.com}
+\github{iov9000}        % e.g. iovinnikov
+\linkedin{linkedin-ivan-ovinnikov-0b227593}    % e.g. ivan-ovinnikov
+% \googlescholar{scholar-id}{Google Scholar}
+
+%\quote{``Build systems that remain reliable in the long tail."}
+
+%-------------------------------------------------------------------------------
+% LETTER INFORMATION
+%-------------------------------------------------------------------------------
+\recipient
+  {Hiring Manager}
+  {Google Deepmind}
+\letterdate{\today}
+\lettertitle{Application for Research Engineer (Visual Design Intelligence)}
+\letteropening{Dear Hiring Manager,}
+\letterclosing{Sincerely,}
+\letterenclosure[Attached]{Curriculum Vitae}
+
+%-------------------------------------------------------------------------------
+\begin{document}
+
+\makecvheader[R]
+
+\makecvfooter
+  {\today}
+  {Ivan Ovinnikov~~~·~~~Cover Letter}
+  {}
+\makelettertitle
+
+%-------------------------------------------------------------------------------
+% LETTER CONTENT
+%-------------------------------------------------------------------------------
+\begin{cvletter}
+
+I am applying for the Research Engineer role on the Gemini Visual Design Intelligence team. Building a ``visual designer'' requires models that generate editable structure under layout constraints and behave predictably under iterative edits such as reflow, resizing, and element replacement. This is as much a reliability problem as a generative modeling problem: outputs must preserve structure, satisfy constraints, and remain editable under transformation.
+
+My work has focused on closing this capability-to-reliability gap, from safety-critical learning systems at ANYbotics to structured generative modeling at Disney Research.
+
+At ANYbotics, I develop parts of the reinforcement learning stack for quadruped locomotion, including large-scale GPU training with IsaacLab. My focus is reducing the sim-to-real gap through structured curriculum learning: designing environment distributions and domain randomization schemes that expand coverage of contact regimes, terrain variation, and rare failure modes. In parallel, I build and maintain evaluation suites that measure policy consistency across diverse test scenarios and track regressions under controlled distribution shifts rather than optimizing only average-case returns.
+
+During my PhD at ETH Zürich, I built inverse reinforcement learning frameworks for surgical simulation for assistance and skill evaluation. A central challenge was learning expert behavior from sparse demonstrations and inferring intent well enough for a learned policy to act as a training assistant (guidance, feedback, skill assessment). Methodologically, I worked with causal-invariance regularization and optimal-transport--style distribution matching to stabilize learning under shifts in users, tasks, and simulator conditions.
+
+At Disney Research, I worked on generative sequence modeling with structured latent variables, focusing on controllability and structural consistency, which shaped how I think about making generative models predictable and composable.
+
+I am comfortable owning modeling improvements end-to-end, from hypothesis formulation and experiment design to implementation, documentation, and reproducible evaluation. I am also used to working across research, engineering, and product stakeholders, and have experience mentoring and supporting others through teaching and supervision.
+
+Thank you for considering my application. I would be glad to discuss the role further.
+
+
+\end{cvletter}
+
+\makeletterclosing
+
+\end{document}
