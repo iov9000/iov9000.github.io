@@ -35,6 +35,8 @@
 
 % Roboto has no small-caps face, so render those styles as uppercase.
 \renewcommand*{\headerpositionstyle}[1]{{\fontsize{7.6pt}{1em}\bodyfont\color{awesome}#1}}
+\renewcommand*{\headerfirstnamestyle}[1]{{\fontsize{29pt}{1em}\headerfontlight\color{graytext}#1}}
+\renewcommand*{\headerlastnamestyle}[1]{{\fontsize{29pt}{1em}\headerfont\bfseries\color{text}#1}}
 \renewcommand*{\footerstyle}[1]{{\fontsize{8pt}{1em}\footerfont\color{lighttext}\MakeUppercase{#1}}}
 \renewcommand*{\entrypositionstyle}[1]{{\fontsize{8pt}{1em}\bodyfont\color{graytext}\MakeUppercase{#1}}}
 
@@ -43,28 +45,12 @@
   {\fontsize{13pt}{1em}\bodyfont\bfseries\MakeUppercase{#1}}%
 }
 \AddToNoCaseChangeList{\color}
-\usepackage[
-  backend=biber,
-  style=authoryear,
-  sorting=ydnt,
-  maxbibnames=99
-]{biblatex}
-\ExecuteBibliographyOptions{giveninits=true}
-\DeclareNameAlias{author}{given-family}
-
-\addbibresource{sample.bib}
-
-% Make bib font match Awesome-CV body style (same as \descriptionstyle)
-\renewcommand*{\bibfont}{\fontsize{9pt}{1em}\bodyfontlight\upshape\color{text}}
-
-% Tighten spacing a bit
-\setlength{\bibitemsep}{0.15\baselineskip}
-\setlength{\bibhang}{0pt}
-
+% Keep vertical rhythm stable across TeX Live/parskip versions.
+\setlength{\parskip}{0pt}
 %%%%%%%%%  END CUSTOMIZATION %%%%%%%%%%%%%
 
 % Page margins
-\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.8cm, footskip=.5cm}
+\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.2cm}
 
 % Fonts directory (Awesome-CV expects fonts/ to exist)
 \fontdir[fonts/]
@@ -100,11 +86,6 @@
 
 \makecvheader[C]
 
-\makecvfooter
-  {\today}
-  {Ivan Ovinnikov~~~·~~~Résumé}
-  {\thepage}
-
 %-------------------------------------------------------------------------------
 % CONTENT
 %-------------------------------------------------------------------------------
@@ -118,7 +99,7 @@
 \input{resume/skills.tex}
 \vspace{-2mm}
 \input{resume/writing.tex}        % independent directions
-\vspace{-3mm}
+\vspace{-2mm}
 \input{resume/presentation.tex}   % publications / talks (lightweight)
 % \input{resume/honors.tex}
 % \input{resume/committees.tex}

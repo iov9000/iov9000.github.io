@@ -75,8 +75,14 @@
 \defaultfontfeatures{Ligatures=TeX}
 % Needed to manage math fonts
 \RequirePackage{unicode-math}
-% Needed to use icons from font-awesome
-\RequirePackage{fontawesome6}
+% Needed to use icons from Font Awesome. TeX Live 2023 ships version 5,
+% while newer distributions provide version 6.
+\IfFileExists{fontawesome6.sty}{%
+  \RequirePackage{fontawesome6}%
+}{%
+  \RequirePackage{fontawesome5}%
+  \providecommand{\faHouseChimney}{\faHome}%
+}
 \RequirePackage{accsupp}
 \defaultfontfeatures{
   Renderer=HarfBuzz,
