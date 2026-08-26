@@ -42,11 +42,14 @@
 
 % --- ALL CAPS for CV section titles ---
 \renewcommand*{\sectionstyleface}[1]{%
-  {\fontsize{13pt}{1em}\bodyfont\bfseries\MakeUppercase{#1}}%
+  {\fontsize{12pt}{1em}\bodyfont\bfseries\MakeUppercase{#1}}%
 }
 \AddToNoCaseChangeList{\color}
 % Keep vertical rhythm stable across TeX Live/parskip versions.
 \setlength{\parskip}{0pt}
+% Shared title-to-content gap; section files compensate for their container's
+% built-in padding so the rendered gap stays visually consistent.
+\newcommand{\cvtitlecontentspacing}{\vspace{1.5mm}}
 %%%%%%%%%  END CUSTOMIZATION %%%%%%%%%%%%%
 
 % Page margins
@@ -89,15 +92,15 @@
 %-------------------------------------------------------------------------------
 % CONTENT
 %-------------------------------------------------------------------------------
-\vspace{-3mm}
+\vspace{-1mm}
 \input{resume/summary.tex}
-\vspace{-3mm}
-\input{resume/experience.tex}
-\vspace{-3mm}
-\input{resume/education.tex}
-\vspace{-3mm}
-\input{resume/skills.tex}
 \vspace{-2mm}
+\input{resume/experience.tex}
+\vspace{-2mm}
+\input{resume/education.tex}
+\vspace{-2mm}
+\input{resume/skills.tex}
+\vspace{0mm}
 \input{resume/writing.tex}        % independent directions
 \vspace{-2mm}
 \input{resume/presentation.tex}   % publications / talks (lightweight)
