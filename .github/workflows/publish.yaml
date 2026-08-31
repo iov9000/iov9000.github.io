@@ -30,6 +30,9 @@ jobs:
         root_file: resume.tex
         working_directory: src/tex
         latexmk_use_xelatex: true
+        # Keep CI typography identical to the local TeX Live 2023/Debian build.
+        # The digest prevents package/font metric changes from shifting layout.
+        docker_image: ghcr.io/xu-cheng/texlive-historic-debian@sha256:08c944043a03e4b2575ab806d9602312712048178f35abb6174739a33f2bc956
     - name: Upload compiled CV
       uses: actions/upload-artifact@v7
       with:
