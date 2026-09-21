@@ -43,6 +43,7 @@
 \newcommand{\CVPublicationFive}{\PSCPublication}
 \newcommand{\CVResearchSectionTitle}{Selected Publications}
 \newcommand{\CVPublicationParskip}{2.5pt}
+\newcommand{\CVProgrammingLabel}{Programming}
 \newcommand{\CVProgrammingSkills}{Python, C++, C\#, Java, C, MATLAB}
 \newcommand{\CVBottomMargin}{1.2cm}
 \newcommand{\CVInterSectionSpace}{-2mm}
@@ -133,30 +134,31 @@
 % Current main CV. Role forks may apply this projection first and then make
 % narrowly scoped overrides so the public default remains the source of truth.
 \newcommand{\cvmainbase}{%
-  \renewcommand{\CVHeadline}{RESEARCH SCIENTIST {\enskip\cdotp\enskip} REINFORCEMENT LEARNING {\enskip\cdotp\enskip} ROBOT LEARNING {\enskip\cdotp\enskip} SEQUENTIAL DECISION-MAKING}
-  \renewcommand{\CVSummary}{Research scientist in reinforcement, imitation, and reward learning, studying curriculum learning, adaptive data and task selection, and generalization under distribution shift in sequential decision-making. My work focuses on how the allocation and structure of training experience affect learned behavior, spanning learning from demonstrations, robust policy learning across heterogeneous environments and dynamics, and rare or safety-critical conditions. I combine algorithm development with large-scale GPU experimentation, systematic empirical evaluation, and deployment on physical robotic systems.}
+  \renewcommand{\CVHeadline}{RESEARCH SCIENTIST {\enskip\cdotp\enskip} REINFORCEMENT LEARNING {\enskip\cdotp\enskip} SEQUENTIAL DECISION-MAKING {\enskip\cdotp\enskip} ROBOT LEARNING}
+  \renewcommand{\CVSummary}{Research scientist in reinforcement, imitation, and reward learning, studying curriculum learning, adaptive data and task selection, and generalization under distribution shift in sequential decision-making. My work focuses on how the allocation and structure of training experience affect learned behavior, from learning from demonstrations to robust policy learning across heterogeneous environments and dynamics, including rare or safety-critical conditions. I combine algorithm development with large-scale GPU experimentation, systematic empirical evaluation, and deployment on physical robotic systems.}
 
-  \renewcommand{\CVAnyOne}{Originated and led \PSCShortName{}, a method for reallocating training experience toward rare, safety-critical conditions using learned predictions of future safety cost; carried the project from research formulation through large-scale experimentation to production deployment and hardware validation.}
+  \renewcommand{\CVAnyOne}{Originated and led \PSCShortName{}, which uses a distributional safety critic to predict tail risk and adaptively reallocate training experience toward rare, safety-critical conditions; carried the project from research formulation through large-scale experimentation to production deployment and hardware validation.}
   \renewcommand{\CVAnyTwo}{Developed and deployed reinforcement-learning locomotion policies for industrial quadruped robots using Isaac Sim/IsaacLab, including sim-to-real evaluation across difficult terrain, observation perturbations, and hardware-relevant failure modes.}
-  \renewcommand{\CVAnyThree}{PSC improved robustness across controlled simulation studies and reduced hardware shank-contact failures by \PSCRelativeResult{} on repeated ANYmal-D evaluations.}
-  \renewcommand{\CVAnyFour}{Built GPU-scale training and evaluation infrastructure for thousands of parallel simulated environments, supporting multi-seed ablations, robustness studies, and reproducible policy comparisons.}
-  \renewcommand{\CVAnyFive}{Secured and led a EuroHPC allocation of \EuroHPCAllocation{} for large-scale experiments on RL robustness, curriculum learning, and adaptive training distributions.}
+  \renewcommand{\CVAnyThree}{PSC improved robustness across controlled simulation studies and reduced undesired shank-contact incidence by 63\% relative to the production learning-progress baseline in repeated ANYmal-D hardware evaluations.}
+  \renewcommand{\CVAnyFour}{Built RL training and evaluation pipelines for parallel simulation, multi-seed ablations, robustness studies, and reproducible policy comparisons.}
+  \renewcommand{\CVAnyFive}{Secured and led a EuroHPC allocation of \EuroHPCAllocation{} for large-scale experiments on RL robustness, curriculum learning, and adaptive experience allocation.}
 
   \renewcommand{\CVETHDisplayTitle}{Doctoral Researcher, Computer Science}
-  \renewcommand{\CVETHOne}{Developed imitation and inverse reinforcement learning methods for learning from heterogeneous demonstrations, including reward objectives designed to generalize across dynamics and environment shifts.}
-  \renewcommand{\CVETHTwo}{Developed distribution-matching objectives based on generalized sliced Wasserstein distances for imitation learning in continuous-control settings.}
-  \renewcommand{\CVETHThree}{Built an RL benchmark for arthroscopic surgical training and applied inverse reinforcement learning to trainee evaluation and skill assessment.}
+  \renewcommand{\CVETHOne}{Developed inverse-reinforcement-learning methods for learning causally invariant reward functions from heterogeneous demonstrations, targeting generalization across environment and dynamics shifts.}
+  \renewcommand{\CVETHTwo}{Developed generalized sliced-Wasserstein distribution-matching objectives for imitation learning in continuous-control settings under dynamics variation.}
+  \renewcommand{\CVETHThree}{Built an RL benchmark for autonomous arthroscopic navigation and manipulation in simulation, spanning environment design, policy training, and systematic evaluation.}
 
   \renewcommand{\CVDisneyOrganization}{Disney Research Zürich}
   \renewcommand{\CVDisneyOne}{Extended sequence-to-sequence models with structured variational inference for latent structure and uncertainty modeling.}
   \renewcommand{\CVDisneyTwo}{Investigated hyperbolic geometry for Wasserstein autoencoders to learn hierarchical representations.}
 
   \renewcommand{\CVSkillOneLabel}{Research}
-  \renewcommand{\CVSkillOne}{Reinforcement learning \;\textbar\; imitation learning \;\textbar\; reward learning \;\textbar\; curriculum learning \;\textbar\; adaptive data & task selection \;\textbar\; robust learning under distribution shift}
-  \renewcommand{\CVSkillTwoLabel}{Generative \& sequential models}
-  \renewcommand{\CVSkillTwo}{Diffusion and flow matching \;\textbar\; representation learning \;\textbar\; sequential generative modeling}
-  \renewcommand{\CVSkillThreeLabel}{Systems \& simulation}
-  \renewcommand{\CVSkillThree}{PyTorch, JAX \;\textbar\; distributed/GPU training \;\textbar\; Isaac Sim/IsaacLab, MuJoCo, ROS/ROS 2}
+  \renewcommand{\CVSkillOne}{Reinforcement learning \;\textbar\; imitation learning \;\textbar\; reward learning \;\textbar\; curriculum learning \;\textbar\; adaptive data \& task selection \;\textbar\; robust learning under distribution shift}
+  \renewcommand{\CVSkillTwoLabel}{Generative \& representation learning}
+  \renewcommand{\CVSkillTwo}{Diffusion \;\textbar\; flow matching \;\textbar\; VAEs \;\textbar\; GANs \;\textbar\; contrastive learning}
+  \renewcommand{\CVSkillThreeLabel}{ML \& robotics}
+  \renewcommand{\CVSkillThree}{PyTorch, JAX \;\textbar\; distributed/GPU training \;\textbar\; Isaac Sim/IsaacLab, ROS/ROS 2, MuJoCo \;\textbar\; sim-to-real validation \& deployment}
+  \renewcommand{\CVProgrammingLabel}{Programming}
   \renewcommand{\CVProgrammingSkills}{Python \;\textbar\; C++ \;\textbar\; Linux \;\textbar\; Git}
 
   \renewcommand{\CVPublicationOne}{\PSCPublication}
@@ -165,11 +167,13 @@
   \renewcommand{\CVPublicationFour}{I. Ovinnikov, A. Terenin, and J. M. Buhmann. ``Imitation Learning using Generalized Sliced Wasserstein Distances.'' \textit{TMLR, under review}.}
   \renewcommand{\CVPublicationFive}{\WAEPublication}
   \renewcommand{\CVPublicationParskip}{1pt}
+  \renewcommand{\CVResearchSectionTitle}{Selected Research}
   \renewcommand{\CVBottomMargin}{.9cm}
   \renewcommand{\CVAfterExperienceSpace}{-6mm}
   \renewcommand{\CVBeforeResearchSpace}{0mm}
 
   \CVIncludeThemesfalse
+  \CVIncludeLanguagestrue
   \CVSkillsBeforeResearchtrue
 }
 
@@ -262,9 +266,4 @@
 % Meta Reality Labs RL Research: a minimal fork of the current main CV. Keep
 % the algorithmic research identity; expose only the deployment evidence that
 % is already supported by the main record.
-\cvapplyvariant{meta_rl_research}{\cvmainbase
-  \renewcommand{\CVHeadline}{RESEARCH SCIENTIST {\enskip\cdotp\enskip} REINFORCEMENT LEARNING {\enskip\cdotp\enskip} ROBOT LEARNING {\enskip\cdotp\enskip} SEQUENTIAL DECISION-MAKING}
-  \renewcommand{\CVSummary}{Research scientist in reinforcement, imitation, and reward learning, studying curriculum learning, adaptive data and task selection, and generalization under distribution shift in sequential decision-making. My work focuses on how the allocation and structure of training experience affect learned behavior, spanning learning from demonstrations, robust policy learning across heterogeneous environments and dynamics, and rare or safety-critical conditions. I combine algorithm development with large-scale GPU experimentation, systematic empirical evaluation, and deployment on physical robotic systems.}
-  \renewcommand{\CVSkillThreeLabel}{Robotics \& systems}
-  \renewcommand{\CVSkillThree}{PyTorch, JAX \;\textbar\; distributed/GPU training \;\textbar\; Isaac Sim/IsaacLab, MuJoCo, ROS/ROS 2 \;\textbar\; sim-to-real and real-robot policy deployment}
-}
+\cvapplyvariant{meta_rl_research}{\cvmainbase}
