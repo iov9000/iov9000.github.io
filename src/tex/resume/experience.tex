@@ -4,42 +4,47 @@
 \begin{cventries}
 
   \cventry
-    {Machine Learning Engineer (Reinforcement Learning)}
+    {\CVAnyTitle}
     {ANYbotics AG}
     {Zürich, Switzerland}
-    {Oct 2024 -- Present}
+    {\AnyDates}
     {
       \begin{cvitems}
-        \item {Designed and deployed curriculum-learning methods targeting rare, hardware-relevant locomotion failures, from algorithm design through real-robot evaluation.}
-        \item {Led and secured a EuroHPC allocation of up to 50,000 H100 GPU-hours for large-scale RL robustness and scaling experiments.}
-        \item {Developed and deployed RL locomotion policies using IsaacSim/IsaacLab for quadruped control in industrial environments.}
-        \item {Built GPU-accelerated training and robustness-evaluation workflows supporting rapid sim-to-real experimentation.}
+        \item {\CVAnyOne}
+        \item {\CVAnyTwo}
+        \item {\CVAnyThree}
+        \item {\CVAnyFour}
+        \ifdefempty{\CVAnyFive}{}{\item {\CVAnyFive}}
+        \ifdefempty{\CVAnySix}{}{\item {\CVAnySix}}
       \end{cvitems}
     }
 
   \cventry
-    {Doctoral Candidate (Dr. Sc. in Computer Science)}
+    {\CVETHDisplayTitle}
     {ETH Zürich}
     {Zürich, Switzerland}
-    {Feb 2019 -- Jun 2024}
+    {\ETHDoctoralDates}
     {
       \begin{cvitems}
-        \item {Developed imitation and inverse reinforcement learning methods for learning from heterogeneous demonstrations, including reward objectives designed to generalize across dynamics and environment shifts.}
-        \item {Developed distribution-matching objectives based on sliced Wasserstein distances for imitation learning in continuous-control settings.}
-        \item {Built an RL benchmark for arthroscopic surgical training and applied inverse reinforcement learning to trainee evaluation and skill assessment.}
+        \item {\CVETHOne}
+        \item {\CVETHTwo}
+        \item {\CVETHThree}
+        \ifdefempty{\CVETHFour}{}{\item {\CVETHFour}}
         % \item {Teaching Assistant for Advanced ML, Statistical Learning Theory and Algorithmic Game Theory}
       \end{cvitems}
     }
 
-  \cventry
-    {Research Assistant}
-    {Disney Research}
-    {Zürich, Switzerland}
-    {Nov 2016 -- Dec 2018}
-    {
-      \begin{cvitems}
-        \item {Extended sequence-to-sequence NLP models with structured variational inference for latent structure and uncertainty modeling.}
-        \item {Investigated hyperbolic geometry for Wasserstein autoencoders to learn hierarchical representations for large-scale NLP.}
-      \end{cvitems}
-    }
+  \ifCVIncludeDisney
+    \cventry
+      {\CVDisneyDisplayTitle}
+      {\CVDisneyOrganization}
+      {Zürich, Switzerland}
+      {\DisneyDates}
+      {
+        \begin{cvitems}
+          \item {\CVDisneyOne}
+          \item {\CVDisneyTwo}
+        \end{cvitems}
+      }
+  \fi
 \end{cventries}

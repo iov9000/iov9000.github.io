@@ -27,7 +27,9 @@ jobs:
     - name: Compile CV
       uses: xu-cheng/latex-action@v4
       with:
-        root_file: resume.tex
+        root_file: |
+          resume.tex
+          cv_openai_data_understanding.tex
         working_directory: src/tex
         latexmk_use_xelatex: true
         # Keep CI typography identical to the local TeX Live 2023/Debian build.
@@ -40,6 +42,17 @@ jobs:
         path: src/tex/resume.pdf
         if-no-files-found: error
         retention-days: 1
+    - name: Stage role-specific CV outside the public site
+      run: |
+        mkdir -p artifacts/cv
+        cp src/tex/cv_openai_data_understanding.pdf artifacts/cv/
+    - name: Upload OpenAI Data Understanding CV
+      uses: actions/upload-artifact@v7
+      with:
+        name: cv-openai-data-understanding
+        path: artifacts/cv/cv_openai_data_understanding.pdf
+        if-no-files-found: error
+        retention-days: 7
 
   build:
     runs-on: ubuntu-latest

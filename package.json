@@ -5,6 +5,12 @@
   "scripts": {
     "dev": "astro dev",
     "dev:poll": "CHOKIDAR_USEPOLLING=1 astro dev",
+    "build:cv": "make cv",
+    "build:cv:default": "make cv-default",
+    "build:cv:targets": "make cv-targets",
+    "build:cv:openai": "make cv-openai",
+    "build:cv:openai-data-understanding": "make cv-openai-data-understanding",
+    "build:cv:meta": "make cv-meta",
     "build": "astro build && pagefind --site dist",
     "preview": "astro preview",
     "check": "astro check"

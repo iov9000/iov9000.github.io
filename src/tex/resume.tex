@@ -3,6 +3,9 @@
 % Awesome CV LaTeX Template for CV/Resume
 % https://github.com/posquit0/Awesome-CV
 
+% Variant entry points may define this before loading the shared document.
+\providecommand{\cvvariant}{default}
+
 %%%%%%%%% CUSTOMIZATION %%%%%%%%%%%%%%
 
 \documentclass[11pt, a4paper]{awesome-cv}
@@ -50,10 +53,27 @@
 % Shared title-to-content gap; section files compensate for their container's
 % built-in padding so the rendered gap stays visually consistent.
 \newcommand{\cvtitlecontentspacing}{\vspace{1.5mm}}
+\input{resume/facts.tex}
+\input{resume/variants.tex}
 %%%%%%%%%  END CUSTOMIZATION %%%%%%%%%%%%%
 
-% Page margins
-\geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=1.2cm}
+% Page geometry and typography. The longer Meta variant uses the same visual
+% system with slightly tighter body rhythm; all existing variants retain their
+% original dimensions.
+\ifCVCompact
+  \geometry{left=1.4cm, top=.7cm, right=1.4cm, bottom=1cm}
+  \renewcommand*{\headerfirstnamestyle}[1]{{\fontsize{27.5pt}{1em}\headerfontlight\color{graytext}#1}}
+  \renewcommand*{\headerlastnamestyle}[1]{{\fontsize{27.5pt}{1em}\headerfont\bfseries\color{text}#1}}
+  \renewcommand{\acvSectionTopSkip}{1.8mm}
+  \renewcommand{\acvSectionContentTopSkip}{1.8mm}
+  \renewcommand{\cvtitlecontentspacing}{\vspace{1mm}}
+  \renewcommand*{\paragraphstyle}{\fontsize{9pt}{1.04em}\bodyfontlight\upshape\color{text}}
+  \renewcommand*{\descriptionstyle}[1]{{\fontsize{9pt}{1.04em}\bodyfontlight\upshape\color{text} #1}}
+  \renewcommand*{\skilltypestyle}[1]{{\fontsize{9.2pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
+  \renewcommand*{\skillsetstyle}[1]{{\fontsize{9pt}{1.04em}\bodyfontlight\color{text} #1}}
+\else
+  \geometry{left=1.4cm, top=.8cm, right=1.4cm, bottom=\CVBottomMargin}
+\fi
 
 % Fonts directory (Awesome-CV expects fonts/ to exist)
 \fontdir[fonts/]
@@ -70,8 +90,8 @@
 % PERSONAL INFORMATION
 %-------------------------------------------------------------------------------
 % \photo[circle,noedge,left]{mugg} % optional
-\name{Ivan}{Ovinnikov}
-\position{APPLIED SCIENTIST {\enskip\cdotp\enskip} REINFORCEMENT \& IMITATION LEARNING {\enskip\cdotp\enskip} PHYSICAL AI}
+\name{\CVFirstName}{\CVLastName}
+\position{\CVHeadline}
 \address{Zürich, Switzerland}
 
 % Fill what you want to show (remove unused lines)
@@ -94,16 +114,35 @@
 %-------------------------------------------------------------------------------
 \vspace{-1mm}
 \input{resume/summary.tex}
-\vspace{-2mm}
+\vspace{\CVInterSectionSpace}
 \input{resume/experience.tex}
-\vspace{-2mm}
+\vspace{\CVAfterExperienceSpace}
 \input{resume/education.tex}
-\vspace{-2mm}
-\input{resume/skills.tex}
-\vspace{0mm}
-\input{resume/writing.tex}        % independent directions
-\vspace{-2mm}
-\input{resume/presentation.tex}   % publications / talks (lightweight)
+\ifCVLegacyOrder
+  \vspace{-2mm}
+  \input{resume/skills.tex}
+  \vspace{0mm}
+  \input{resume/writing.tex}
+  \vspace{-2mm}
+  \input{resume/presentation.tex}
+\else
+  \ifCVSkillsBeforeResearch
+    \vspace{\CVInterSectionSpace}
+    \input{resume/skills.tex}
+    \vspace{\CVBeforeResearchSpace}
+    \input{resume/presentation.tex}
+  \else
+    \vspace{\CVInterSectionSpace}
+    \input{resume/presentation.tex}
+    \ifCVIncludeThemes
+      \vspace{\CVInterSectionSpace}
+      \input{resume/writing.tex}
+    \fi
+    \vspace{\CVInterSectionSpace}
+    \vspace{2mm}
+    \input{resume/skills.tex}
+  \fi
+\fi
 % \input{resume/honors.tex}
 % \input{resume/committees.tex}
 % \input{resume/extracurricular.tex}
