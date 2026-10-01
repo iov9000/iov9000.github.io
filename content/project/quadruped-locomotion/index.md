@@ -1,8 +1,9 @@
 ---
 title: Predictive Safety Curricula for Robust Legged Locomotion
 summary: Predictive Safety Curricula (PSC) is an adaptive curriculum-learning method for reinforcement learning that reallocates training experience using predictions of future safety cost.
+status: Preprint
 highlight: 63% lower shank-collision incidence on ANYmal-D hardware across three matched training seeds.
-date: 2024-10-01
+date: 2026-09-29
 tags:
   - Reinforcement Learning
   - Curriculum Learning

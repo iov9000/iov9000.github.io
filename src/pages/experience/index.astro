@@ -39,6 +39,16 @@ const date = (value: string) => formatMonth(new Date(`${value}T00:00:00`));
             <div class="timeline-company">{item.institution}</div>
             <div class="timeline-date">{date(item.start)} — {date(item.end)}</div>
             <p style="color: var(--muted)">{item.summary}</p>
+            {(item.details.length > 0 || item.thesisPaper) && (
+              <ul>
+                {item.details.map((detail) => <li>{detail}</li>)}
+                {item.thesisPaper && (
+                  <li>
+                    Thesis-related paper ({item.thesisPaper.year}): <a href={item.thesisPaper.url}>{item.thesisPaper.title} (PDF)</a>, with {item.thesisPaper.coauthors}.
+                  </li>
+                )}
+              </ul>
+            )}
           </article>
         ))}
       </div>
