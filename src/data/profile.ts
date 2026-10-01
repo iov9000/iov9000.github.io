@@ -73,7 +73,7 @@ export const profile = {
       institution: 'ETH Zürich · Department of Information Technology and Electrical Engineering',
       start: '2013-09-01',
       end: '2015-09-01',
-      summary: 'Master’s thesis (31 August 2015): “Canonically correlated convolutional neural networks.”',
+      summary: 'Master thesis: “Semi-Supervised Learning using Canonically Correlated Convolutional Networks.”',
       details: [
         'Studied multiview semi-supervised learning in convolutional networks using canonical correlations from unlabeled data.',
       ],
