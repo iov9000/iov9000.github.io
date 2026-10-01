@@ -64,6 +64,7 @@ export const profile = {
         'Developed methods for causally invariant reward learning and imitation learning from heterogeneous demonstrations.',
         'Built reinforcement learning environments and evaluation methods for arthroscopic surgical training.',
       ],
+      thesisUrl: '/uploads/PhD_Thesis_IO.pdf',
       thesisPaper: null,
       url: 'https://www.research-collection.ethz.ch/handle/20.500.11850/708755',
     },
