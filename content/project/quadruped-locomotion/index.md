@@ -51,13 +51,15 @@ Controlled simulation experiments matched policy architecture, reward, and inter
 
 In the ANYmal-D benchmark, PSC achieved the highest mean success in each of six terrain and observation-noise conditions, evaluated over six training seeds. Under the clean-observation condition with terrain occupancy weighted toward harder levels (v2), failure decreased from 6.19% to 4.81% relative to learning-progress sampling, a 22.3% relative reduction.
 
-### Controlled hardware evaluation
+<section class="psc-result" aria-labelledby="psc-controlled-hardware">
+  <h3 id="psc-controlled-hardware">Controlled hardware evaluation</h3>
+  <p>On ANYmal-D, crossings with shank collisions decreased from <strong>29.0 to 10.7 per 100 crossings</strong>, a 63% reduction relative to the learning-progress curriculum. Values are means across three matched training seeds, with 100 crossings per seed and method. Incidence was lower with PSC in all three seed pairs.</p>
+</section>
 
-On ANYmal-D, crossings with shank collisions decreased from 29.0 to 10.7 per 100 crossings, a 63% reduction relative to the learning-progress curriculum. Values are means across three matched training seeds, with 100 crossings per seed and method. Incidence was lower with PSC in all three seed pairs.
-
-### Production stair-climbing hardware evaluation
-
-Policies were evaluated over 50 ascent–descent pairs per method. Shank collisions occurred in 33 baseline trials and zero PSC trials, at comparable observed mean traversal speeds.
+<section class="psc-result" aria-labelledby="psc-production-validation">
+  <h3 id="psc-production-validation">Production stair-climbing hardware evaluation</h3>
+  <p>Policies were evaluated over 50 ascent–descent pairs per method. Shank collisions occurred in <strong>33 baseline trials and zero PSC trials</strong>, at comparable observed mean traversal speeds.</p>
+</section>
 
 PSC also improved mean success in the production stair-climbing training stack. The [experiments section](https://arxiv.org/html/2609.37070v1#S3) reports the evaluation protocols, per-condition results, and ablations.
 
