@@ -335,13 +335,6 @@ button, input { font: inherit; }
 .prose a { color: var(--accent-strong); text-decoration: underline; text-underline-offset: .2em; }
 .prose strong { color: var(--text); }
 .prose blockquote { padding-left: 1rem; border-left: 3px solid var(--accent); }
-.psc-results { display: grid; gap: 1rem; margin: 1.5rem 0; }
-.psc-result { padding: clamp(1rem, 3vw, 1.5rem); border: 1px solid var(--border); border-radius: .75rem; background: var(--surface); }
-.psc-result-primary { border-color: var(--accent); background: var(--accent-soft); }
-.psc-result h3 { margin: 0 0 .7rem; font-size: 1rem; }
-.psc-result .psc-result-metric { margin: 0 0 .8rem; color: var(--text); font-size: clamp(1.4rem, 4vw, 2rem); font-weight: 750; line-height: 1.2; letter-spacing: -.025em; }
-.psc-result-primary .psc-result-metric { color: var(--accent-strong); }
-.psc-result > :last-child { margin-bottom: 0; }
 .research-figure { margin: 1.75rem 0; }
 .research-figure > a { display: block; }
 .research-figure img { width: 100%; border: 1px solid var(--border); border-radius: .65rem; background: #fff; }

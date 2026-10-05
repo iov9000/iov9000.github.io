@@ -22,7 +22,7 @@ links:
     url: https://www.anybotics.com/news/superior-robot-mobility-where-ai-meets-the-real-world/
 ---
 
-PSC studies **the allocation of training experience under a fixed interaction budget**. In locomotion, this means selecting the terrain, commands, and randomized environmental conditions that generate subsequent policy rollouts. Predictions of future safety cost provide an allocation signal for addressing rare but consequential failures.
+PSC studies the allocation of training experience under a fixed interaction budget. In locomotion, this means selecting the terrain, commands, and randomized environmental conditions that generate subsequent policy rollouts. Predictions of future safety cost provide an allocation signal for addressing rare but consequential failures.
 
 The method treats the training distribution as an adaptive component of reinforcement learning, with experience allocation changing alongside the policy.
 
@@ -30,7 +30,7 @@ The method treats the training distribution as an adaptive component of reinforc
 
 Consider two stair configurations with similar completion rates. On one, the robot walks cleanly; on the other, it occasionally strikes its lower leg against a step. The configurations have similar task performance but different contact outcomes. Additional practice with the second configuration exposes the policy to the geometry associated with these collisions.
 
-This motivates **treating the allocation of training experience as a research variable**: which situations the robot encounters, how frequently they are sampled, and how their relevance changes during learning. PSC uses a learned safety model to concentrate experience on conditions associated with elevated predicted risk.
+This motivates treating the allocation of training experience as a research variable: which situations the robot encounters, how frequently they are sampled, and how their relevance changes during learning. PSC uses a learned safety model to concentrate experience on conditions associated with elevated predicted risk.
 
 ## Method
 
@@ -49,20 +49,15 @@ The sampling distribution combines risk-based priorities with uniform exploratio
 
 Controlled simulation experiments matched policy architecture, reward, and interaction and optimization budgets across curricula.
 
-In the ANYmal-D benchmark, PSC achieved the highest mean success in each of six terrain and observation-noise conditions, evaluated over six training seeds. Under the clean-observation condition with terrain occupancy weighted toward harder levels (v2), failure decreased from **6.19% to 4.81%** relative to learning-progress sampling, a **22.3% relative reduction**.
+In the ANYmal-D benchmark, PSC achieved the highest mean success in each of six terrain and observation-noise conditions, evaluated over six training seeds. Under the clean-observation condition with terrain occupancy weighted toward harder levels (v2), failure decreased from 6.19% to 4.81% relative to learning-progress sampling, a 22.3% relative reduction.
 
-<div class="psc-results">
-  <section class="psc-result psc-result-primary" aria-labelledby="psc-controlled-hardware">
-    <h3 id="psc-controlled-hardware">Controlled hardware evaluation</h3>
-    <p class="psc-result-metric">29.0 → 10.7 crossings with shank collisions per 100 crossings</p>
-    <p>On ANYmal-D, PSC reduced shank-collision incidence by <strong>63%</strong> relative to the learning-progress curriculum. Values are means across <strong>three matched training seeds, with 100 crossings per seed and method</strong>. Incidence was lower with PSC in all three seed pairs.</p>
-  </section>
-  <section class="psc-result" aria-labelledby="psc-production-validation">
-    <h3 id="psc-production-validation">Production stair-climbing hardware evaluation</h3>
-    <p class="psc-result-metric">33/50 → 0/50 trials with shank collisions</p>
-    <p>Policies were evaluated over <strong>50 ascent–descent pairs per method</strong>. Shank collisions occurred in 33 baseline trials and zero PSC trials, at comparable observed mean traversal speeds.</p>
-  </section>
-</div>
+### Controlled hardware evaluation
+
+On ANYmal-D, crossings with shank collisions decreased from 29.0 to 10.7 per 100 crossings, a 63% reduction relative to the learning-progress curriculum. Values are means across three matched training seeds, with 100 crossings per seed and method. Incidence was lower with PSC in all three seed pairs.
+
+### Production stair-climbing hardware evaluation
+
+Policies were evaluated over 50 ascent–descent pairs per method. Shank collisions occurred in 33 baseline trials and zero PSC trials, at comparable observed mean traversal speeds.
 
 PSC also improved mean success in the production stair-climbing training stack. The [experiments section](https://arxiv.org/html/2609.37070v1#S3) reports the evaluation protocols, per-condition results, and ablations.
 

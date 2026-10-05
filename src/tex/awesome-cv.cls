@@ -322,8 +322,11 @@
 \newcommand*{\dateofbirth}[1]{\def\@dateofbirth{#1}}
 
 % Defines writer's homepage (optional)
-% Usage: \homepage{<url>}
-\newcommand*{\homepage}[1]{\def\@homepage{#1}}
+% Usage: \homepage[<display text>]{<url>}
+\newcommand*{\homepage}[2][]{%
+  \def\@homepagetarget{#2}%
+  \ifstrempty{#1}{\def\@homepage{#2}}{\def\@homepage{#1}}%
+}
 
 % Defines writer's github (optional)
 % Usage: \github{<github-nick>}
@@ -555,7 +558,7 @@
         {}%
         {%
           \ifbool{isstart}{\setbool{isstart}{false}}{\acvHeaderSocialSep}%
-          \href{\@homepage}{\faAlt{homepage: \@homepage}{\faHouseChimney}{\@homepage}}%
+          \href{\@homepagetarget}{\faAlt{homepage: \@homepage}{\faHouseChimney}{\@homepage}}%
         }%
       \ifthenelse{\isundefined{\@github}}%
         {}%

@@ -50,12 +50,14 @@ npm run build:cv:default
 npm run build:cv:targets
 npm run build:cv:openai
 npm run build:cv:meta
+npm run build:cv:odyssey
 ```
 
 The Makefile also exposes one deterministic target per role: `cv-openai`,
 `cv-apple-posttraining`, `cv-apple-posttraining-rs`, `cv-anthropic`,
-`cv-odyssey-diffusion-robotics`, `cv-odyssey-applied`, `cv-odyssey-research`,
-`cv-odyssey-foundation-models`, `cv-normal`, and `cv-meta`. The previous public
+`cv-odyssey`, `cv-normal`, and `cv-meta`. Odyssey uses one consolidated CV at
+`artifacts/cv/Ivan_Ovinnikov_CV_Odyssey.pdf`; the four former Odyssey commands
+are compatibility aliases for that same artifact. The previous public
 default remains reproducible with `cv-default-legacy`.
 
 Run the repeatable one-page and ATS text-extraction checks with:

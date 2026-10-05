@@ -11,6 +11,7 @@
     "build:cv:openai": "make cv-openai",
     "build:cv:openai-data-understanding": "make cv-openai-data-understanding",
     "build:cv:meta": "make cv-meta",
+    "build:cv:odyssey": "make cv-odyssey",
     "build": "astro build && pagefind --site dist",
     "preview": "astro preview",
     "check": "astro check"
