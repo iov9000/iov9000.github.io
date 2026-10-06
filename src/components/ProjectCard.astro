@@ -2,7 +2,7 @@
 import Icon from './Icon.astro';
 import { slugFromId } from '../lib/content';
 
-const { entry, showHighlight = true } = Astro.props;
+const { entry } = Astro.props;
 const slug = slugFromId(entry.id);
 ---
 
@@ -10,7 +10,7 @@ const slug = slugFromId(entry.id);
   {entry.data.status && <span class="card-meta">{entry.data.status}</span>}
   <h3>{entry.data.cardTitle ?? entry.data.title}</h3>
   <p>{entry.data.cardSummary ?? entry.data.summary}</p>
-  {showHighlight && entry.data.highlight && <p class="project-highlight">{entry.data.highlight}</p>}
+  {entry.data.highlight && <p class="project-highlight">{entry.data.highlight}</p>}
   {entry.data.tags.length > 0 && (
     <div class="tags">
       {entry.data.tags.slice(0, 3).map((tag: string) => <span class="tag">{tag}</span>)}
