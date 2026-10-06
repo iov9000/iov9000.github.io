@@ -335,8 +335,8 @@ button, input { font: inherit; }
 .prose a { color: var(--accent-strong); text-decoration: underline; text-underline-offset: .2em; }
 .prose strong { color: var(--text); }
 .prose blockquote { padding-left: 1rem; border-left: 3px solid var(--accent); }
-.psc-result { margin: 1.5rem 0; padding-left: 1rem; border-left: 2px solid var(--border); }
-.psc-result h3 { margin: 0 0 .5rem; font-size: 1rem; font-weight: 600; }
+.psc-result { margin: 1.5rem 0; padding-left: .85rem; border-left: 1px solid var(--border); }
+.psc-result h3 { margin: 0 0 .5rem; font-size: .95rem; font-weight: 600; }
 .psc-result p { margin: 0; }
 .psc-result strong { font-weight: 600; }
 .research-figure { margin: 1.75rem 0; }

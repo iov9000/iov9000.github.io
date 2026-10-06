@@ -6,14 +6,14 @@ export const profile = {
   headline: 'Reinforcement learning and learning from demonstrations under distribution shift',
   subtitle:
     'I work on reinforcement learning and learning from demonstrations, with a focus on robustness under distribution shift, reward learning, and curriculum learning.',
-  credentials: 'Reinforcement Learning Engineer, ANYbotics · ETH Zürich PhD',
+  credentials: 'ETH Zürich PhD · Reinforcement learning and sequential decision-making',
   company: 'ANYbotics',
   location: 'Zürich, Switzerland',
   email: 'mailto:ivan.ovinnikov@gmail.com',
   summary:
-    'Research on reinforcement learning, learning from demonstrations, curriculum learning, and robust robot learning under distribution shift.',
+    'Research on reinforcement learning, learning from demonstrations, curriculum learning, and robust learning under distribution shift.',
   about: [
-    'My research spans imitation and reward learning, curriculum learning and environment design, and robust robot learning. I am also interested in active task selection and experimental design as tools for selecting informative training tasks and environments.',
+    'My research spans imitation and reward learning, curriculum learning, environment design, and robust learning under distribution shift. I am also interested in active task selection and experimental design as tools for selecting informative training tasks and environments.',
   ],
   researchInterests: [
     {
@@ -104,7 +104,7 @@ export const profile = {
       start: '2024-10-01',
       end: null,
       points: [
-        'Led the development of Predictive Safety Curricula (PSC; arXiv preprint, 2026), using a distributional safety critic to allocate locomotion training toward conditions with elevated predicted risk.',
+        'Led the development of Predictive Safety Curricula (PSC; arXiv preprint, 2026), using a distributional safety critic to adaptively allocate reinforcement-learning training experience toward conditions with elevated predicted risk.',
         'Evaluated PSC across controlled simulation, production training stacks, and physical robots; reduced shank-collision incidence by 63% relative to a learning-progress curriculum across three matched ANYmal-D training seeds.',
         'Developed and deployed reinforcement-learning locomotion policies for industrial quadrupeds, with GPU-scale simulation, multi-seed robustness studies, and sim-to-real evaluation.',
         'Secured and led a EuroHPC allocation of up to 50,000 H100 GPU-hours for RL robustness and curriculum-learning experiments.',

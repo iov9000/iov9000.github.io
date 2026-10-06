@@ -1,5 +1,7 @@
 ---
 title: Predictive Safety Curricula for Robust Legged Locomotion
+cardTitle: Predictive Safety Curricula
+cardSummary: Adaptive allocation of RL training experience using predictions of future safety cost. Evaluated in controlled simulation and physical-system deployment.
 summary: Predictive Safety Curricula (PSC) is an adaptive curriculum-learning method for reinforcement learning that reallocates training experience using predictions of future safety cost.
 status: Preprint
 highlight: 63% lower shank-collision incidence on ANYmal-D hardware across three matched training seeds.
@@ -7,10 +9,10 @@ date: 2026-09-29
 tags:
   - Reinforcement Learning
   - Curriculum Learning
+  - Evaluation
   - Robotics
   - Sim-to-Real
   - Locomotion
-  - Evaluation
 links:
   - name: Paper
     url: https://arxiv.org/abs/2609.37070
@@ -53,12 +55,12 @@ In the ANYmal-D benchmark, PSC achieved the highest mean success in each of six 
 
 <section class="psc-result" aria-labelledby="psc-controlled-hardware">
   <h3 id="psc-controlled-hardware">Controlled hardware evaluation</h3>
-  <p>On ANYmal-D, crossings with shank collisions decreased from <strong>29.0 to 10.7 per 100 crossings</strong>, a 63% reduction relative to the learning-progress curriculum. Values are means across three matched training seeds, with 100 crossings per seed and method. Incidence was lower with PSC in all three seed pairs.</p>
+  <p>On ANYmal-D, crossings with shank collisions decreased from <strong>29.0</strong> to <strong>10.7</strong> per 100 crossings, a 63% reduction relative to the learning-progress curriculum. Values are means across three matched training seeds, with 100 crossings per seed and method. Incidence was lower with PSC in all three seed pairs.</p>
 </section>
 
 <section class="psc-result" aria-labelledby="psc-production-validation">
   <h3 id="psc-production-validation">Production stair-climbing hardware evaluation</h3>
-  <p>Policies were evaluated over 50 ascent–descent pairs per method. Shank collisions occurred in <strong>33 baseline trials and zero PSC trials</strong>, at comparable observed mean traversal speeds.</p>
+  <p>Policies were evaluated over 50 ascent–descent pairs per method. Shank collisions occurred in <strong>33</strong> baseline trials and <strong>zero</strong> PSC trials, at comparable observed mean traversal speeds.</p>
 </section>
 
 PSC also improved mean success in the production stair-climbing training stack. The [experiments section](https://arxiv.org/html/2609.37070v1#S3) reports the evaluation protocols, per-condition results, and ablations.

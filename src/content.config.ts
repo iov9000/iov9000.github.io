@@ -43,6 +43,8 @@ const projects = defineCollection({
   loader: glob({ pattern: '**/index.md', base: './content/project' }),
   schema: z.object({
     title: z.string(),
+    cardTitle: z.string().optional(),
+    cardSummary: z.string().optional(),
     summary: z.string().default(''),
     status: z.enum(['Published', 'Preprint', 'Research manuscript', 'Manuscript', 'Deployed research', 'Ongoing research']).optional(),
     highlight: z.string().optional(),

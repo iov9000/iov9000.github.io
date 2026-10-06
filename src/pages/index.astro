@@ -67,7 +67,7 @@ const personJsonLd = {
         <h2 class="section-title">Selected research</h2>
       </header>
       <div class="card-grid">
-        {selectedProjects.map((project) => <ProjectCard entry={project} />)}
+        {selectedProjects.map((project) => <ProjectCard entry={project} showHighlight={slugFromId(project.id) !== 'quadruped-locomotion'} />)}
       </div>
     </div>
   </section>
@@ -117,7 +117,7 @@ const personJsonLd = {
         <h2 class="section-title">Background</h2>
       </header>
       <div class="background-copy">
-        <p>At <a href="https://www.anybotics.com/" target="_blank" rel="noreferrer">ANYbotics</a>, I develop reinforcement-learning-based locomotion systems for industrial quadruped robots, spanning policy training, robustness and failure analysis, and sim-to-real deployment.</p>
+        <p>At <a href="https://www.anybotics.com/" target="_blank" rel="noreferrer">ANYbotics</a>, my recent research has focused on how training experience should be allocated in reinforcement learning, leading to Predictive Safety Curricula. I evaluate these methods at scale in simulation and on physical robotic systems. This work is developed and validated in industrial quadruped locomotion, spanning robustness and failure analysis, production training, and sim-to-real deployment.</p>
         <p>My ETH Zürich PhD focused on reinforcement learning from demonstrations, including causal invariance for reward learning and optimal-transport objectives for occupancy-matching imitation learning.</p>
         <p>More broadly, I am interested in <strong>how learning systems acquire robust behavior under limited or imperfect supervision</strong>—particularly through active task selection, curriculum design, and experimental design: choosing the environments, tasks, and interventions that are most informative for improving a learner.</p>
         <p>My work combines reinforcement learning, imitation and reward learning with large-scale experimentation using PyTorch, JAX, GPU simulation, and HPC infrastructure.</p>
