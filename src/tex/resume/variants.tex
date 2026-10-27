@@ -5,7 +5,7 @@
 \newcommand{\CVSummary}{Applied scientist working on reinforcement and imitation learning for physical systems, with a focus on robustness, adaptive training distributions, and sequential decision-making under distribution shift. Experience spans algorithm design, large-scale simulation, sim-to-real evaluation, and deployment on physical robots.}
 \newcommand{\CVFirstName}{Ivan}
 \newcommand{\CVLastName}{Ovinnikov}
-\newcommand{\CVHomepageURL}{ovinnikov.com}
+\newcommand{\CVHomepageURL}{https://ovinnikov.com}
 \newcommand{\CVAnyTitle}{\AnyTitle}
 \newcommand{\CVETHDisplayTitle}{\ETHDoctoralTitle}
 \newcommand{\CVDisneyDisplayTitle}{\DisneyTitle}
@@ -178,18 +178,42 @@
 % The pre-PSC default remains reproducible through the default_legacy variant.
 \cvapplyvariant{default}{\cvmainbase}
 
-\cvapplyvariant{openai_foundations}{\cvtrainingbase
-  \renewcommand{\CVHeadline}{RESEARCH SCIENTIST {\enskip\textbar\enskip} REINFORCEMENT LEARNING {\enskip\textbar\enskip} TRAINING DISTRIBUTIONS {\enskip\textbar\enskip} FOUNDATIONS}
-  \renewcommand{\CVSummary}{Research Scientist investigating how interventions on training distributions, heterogeneous experience, and learning signals affect learning, generalization, and downstream behavior across sequential learning systems. Work spans adaptive experience allocation, causally invariant reward learning, distribution-matching imitation, controlled evaluation, and GPU-scale empirical research under deployment shift.}
-  \renewcommand{\CVThemeOne}{\textbf{Training-distribution interventions:} controlled changes to sampling and curricula to test effects on robustness and downstream behavior.}
-  \renewcommand{\CVSkillTwo}{Training-distribution interventions \;\textbar\; representation learning \;\textbar\; controlled sampling \;\textbar\; distribution shift and generalization}
+% OpenAI Data Understanding: targeted edits to the current public default.
+% Both entry points use the same projection, including the compatibility build.
+\newcommand{\cvopenaibase}{%
+  \cvmainbase
+  \renewcommand{\CVHomepageURL}{https://ovinnikov.com}
+  \renewcommand{\CVHeadline}{RESEARCH SCIENTIST {\enskip\cdotp\enskip} REINFORCEMENT LEARNING {\enskip\cdotp\enskip} ADAPTIVE TRAINING DISTRIBUTIONS {\enskip\cdotp\enskip} GENERALIZATION}
+  \renewcommand{\CVSummary}{Research scientist with a PhD from ETH Zürich, studying how training distributions and learning signals affect generalization. Research spans adaptive task selection, imitation learning, and reward learning under distribution shift. Experience developing algorithms, conducting controlled GPU-scale experiments, and validating learned policies on physical systems.}
+  \renewcommand{\CVAnyOne}{Originated and led \PSCShortName{}, an adaptive training method that uses a distributional safety critic to prioritize high-risk experience, from research formulation to production deployment.}
+  \renewcommand{\CVAnyTwo}{Validated PSC through controlled experiments and hardware evaluation, reducing ANYmal-D shank collisions by 63\% relative to a learning-progress curriculum across three matched training seeds.}
+  \renewcommand{\CVAnyThree}{Developed and deployed reinforcement-learning locomotion policies for industrial quadruped robots, with systematic sim-to-real evaluation and hardware validation.}
+  \renewcommand{\CVAnyFour}{Built RL training and evaluation pipelines for parallel simulation, multi-seed ablations, robustness studies, and reproducible policy comparisons.}
+  \renewcommand{\CVAnyFive}{Secured and led a EuroHPC allocation of \EuroHPCAllocation{} for large-scale experiments on RL robustness, curriculum learning, and adaptive experience allocation.}
+  % Retain supported representation methods; omit unverified implementation skills.
+  \renewcommand{\CVSkillTwo}{VAEs \;\textbar\; GANs \;\textbar\; contrastive learning}
+  \renewcommand{\CVSkillThree}{PyTorch, JAX \;\textbar\; GPU-parallel simulation \& HPC experimentation \;\textbar\; Isaac Sim/IsaacLab, ROS/ROS 2, MuJoCo \;\textbar\; sim-to-real validation \& deployment}
 }
 
-\cvapplyvariant{openai_data_understanding}{\cvtrainingbase
-  \renewcommand{\CVHeadline}{RESEARCH SCIENTIST {\enskip\textbar\enskip} REINFORCEMENT LEARNING {\enskip\textbar\enskip} TRAINING DISTRIBUTIONS {\enskip\textbar\enskip} FOUNDATIONS}
-  \renewcommand{\CVSummary}{Research Scientist investigating how interventions on training distributions, heterogeneous experience, and learning signals affect learning, generalization, and downstream behavior across sequential learning systems. Work spans adaptive experience allocation, causally invariant reward learning, distribution-matching imitation, controlled evaluation, and GPU-scale empirical research under deployment shift.}
-  \renewcommand{\CVThemeOne}{\textbf{Training-distribution interventions:} controlled changes to sampling and curricula to test effects on robustness and downstream behavior.}
-  \renewcommand{\CVSkillTwo}{Training-distribution interventions \;\textbar\; representation learning \;\textbar\; controlled sampling \;\textbar\; distribution shift and generalization}
+\cvapplyvariant{openai_foundations}{\cvopenaibase}
+\cvapplyvariant{openai_data_understanding}{\cvopenaibase}
+
+% Minimal Data Understanding delta: preserve the default PSC bullet and record.
+\cvapplyvariant{openai_data_understanding_minimal}{\cvmainbase
+  \renewcommand{\CVHomepageURL}{https://ovinnikov.com}
+  \renewcommand{\CVHeadline}{RESEARCH SCIENTIST {\enskip\cdotp\enskip} REINFORCEMENT LEARNING {\enskip\cdotp\enskip} ADAPTIVE DATA \& TASK SELECTION}
+  \renewcommand{\CVSummary}{Research scientist studying how training distributions, data and task selection, and learned objectives affect generalization under distribution shift. Research spans adaptive curriculum learning, reward inference, and distribution-matching imitation learning. Experience originating ML methods, conducting controlled GPU-scale experiments, and evaluating downstream policy behavior in simulation and on physical systems.}
+  \renewcommand{\CVAnyThree}{Built GPU-scale training and evaluation pipelines to study the effects of training-distribution interventions through controlled ablations, robustness studies, and reproducible policy comparisons.}
+  % Parallel simulation/HPC evidence supports experimentation, not distributed optimization.
+  \renewcommand{\CVSkillThree}{PyTorch, JAX \;\textbar\; GPU-scale experimentation \;\textbar\; Isaac Sim/IsaacLab, ROS/ROS 2, MuJoCo \;\textbar\; sim-to-real validation \& deployment}
+}
+
+% Minimal Rapidata delta: three text edits and an HTTPS homepage target.
+\cvapplyvariant{rapidata_minimal}{\cvmainbase
+  \renewcommand{\CVHomepageURL}{https://ovinnikov.com}
+  \renewcommand{\CVHeadline}{RESEARCH SCIENTIST {\enskip\cdotp\enskip} REWARD LEARNING {\enskip\cdotp\enskip} REINFORCEMENT LEARNING}
+  \renewcommand{\CVSummary}{Research scientist in reinforcement, imitation, and reward learning, studying the inference of reward functions from demonstrations and their generalization across environment and dynamics shifts. My work also includes learned risk estimation for adaptive training-condition selection and systematic evaluation of downstream policy performance. I combine algorithm development with large-scale GPU experimentation, systematic empirical evaluation, and deployment on physical robotic systems.}
+  \renewcommand{\CVSkillOne}{Reward learning \;\textbar\; inverse reinforcement learning \;\textbar\; reinforcement learning \;\textbar\; imitation learning \;\textbar\; adaptive task selection \;\textbar\; robustness under distribution shift}
 }
 
 \cvapplyvariant{apple_posttraining}{\cvtrainingbase
