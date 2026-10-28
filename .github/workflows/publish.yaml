@@ -45,12 +45,15 @@ jobs:
     - name: Setup Pages
       id: pages
       uses: actions/configure-pages@v4
+      with:
+        enablement: true
     - name: Build with Hugo
       env:
         HUGO_ENVIRONMENT: production
       run: |
         echo "Hugo Cache Dir: $(hugo config | grep cachedir)"
         hugo --minify --baseURL "${{ steps.pages.outputs.base_url }}/"
+        cp CNAME public/CNAME
     - name: Generate Pagefind search index
       run: npx pagefind --site "public"
     - name: Upload artifact
