@@ -20,7 +20,7 @@
 
 \newcommand{\CVETHOne}{Developed imitation and inverse reinforcement learning methods for learning from heterogeneous demonstrations, including reward objectives designed to generalize across dynamics and environment shifts.}
 \newcommand{\CVETHTwo}{Developed distribution-matching objectives based on sliced Wasserstein distances for imitation learning in continuous-control settings.}
-\newcommand{\CVETHThree}{Built an RL benchmark for arthroscopic surgical training and applied inverse reinforcement learning to trainee evaluation and skill assessment.}
+\newcommand{\CVETHThree}{Built a simulation benchmark for autonomous arthroscopic navigation and manipulation, spanning environment design, forward RL, inverse RL from human demonstrations, and systematic evaluation.}
 \newcommand{\CVETHFour}{}
 
 \newcommand{\CVDisneyOne}{Extended sequence-to-sequence NLP models with structured variational inference for latent structure and uncertainty modeling.}
@@ -101,7 +101,6 @@
   \renewcommand{\CVAnyTwo}{Developed and deployed closed-loop RL locomotion policies for industrial quadrupeds, with systematic sim-to-real evaluation, simulation robustness studies across terrain, dynamics, and observation noise, and hardware validation.}%
   \renewcommand{\CVAnyThree}{Built large-scale GPU training and evaluation pipelines for thousands of parallel simulated environments, multi-seed ablations, robustness studies, adaptive experience allocation, and reproducible comparisons across policies and environment distributions.}%
   \renewcommand{\CVETHOne}{Developed source-wise causal-invariance regularization for inverse RL, including GAIL/AIRL adversarial reward learning; evaluated reward transfer across five MuJoCo tasks under changes to body mass, joint limits, actuator strength, and friction.}%
-  \renewcommand{\CVETHThree}{Built an interactive simulation benchmark for autonomous arthroscopic navigation and manipulation, spanning environment design, learned policies, and systematic evaluation.}%
   \renewcommand{\CVDisneyOne}{Extended sequence-to-sequence models with structured variational inference, studying latent structure and uncertainty in generative sequence modeling.}%
   \renewcommand{\CVSkillOneLabel}{Learning \& control}%
   \renewcommand{\CVSkillOne}{Reinforcement learning \;\textbar\; imitation learning \;\textbar\; reward learning \;\textbar\; adaptive data \& task selection}%
@@ -113,7 +112,7 @@
   \renewcommand{\CVSkillFour}{Isaac Sim/IsaacLab, MuJoCo, ROS/ROS 2 \;\textbar\; sim-to-real validation \& deployment}%
 }
 
-% Exact content projection of the public default backed up on 2026-09-21.
+% Legacy layout and role framing, with shared experience wording kept current.
 \cvapplyvariant{default_legacy}{
   \renewcommand{\CVETHDisplayTitle}{Doctoral Candidate (Dr. Sc. in Computer Science)}
   \renewcommand{\CVThemeOne}{\textbf{Learning from behavior:} robust policy and reward learning from heterogeneous demonstrations and experience.}
@@ -143,7 +142,6 @@
   \renewcommand{\CVETHDisplayTitle}{Doctoral Researcher, Computer Science}
   \renewcommand{\CVETHOne}{Developed inverse-reinforcement-learning methods for learning causally invariant reward functions from heterogeneous demonstrations, targeting generalization across environment and dynamics shifts.}
   \renewcommand{\CVETHTwo}{Developed generalized sliced-Wasserstein distribution-matching objectives for imitation learning in continuous-control settings under dynamics variation.}
-  \renewcommand{\CVETHThree}{Built an RL benchmark for autonomous arthroscopic navigation and manipulation in simulation, spanning environment design, policy training, and systematic evaluation.}
 
   \renewcommand{\CVDisneyOrganization}{Disney Research Zürich}
   \renewcommand{\CVDisneyOne}{Extended sequence-to-sequence models with structured variational inference for latent structure and uncertainty modeling.}
@@ -177,6 +175,13 @@
 % Public default: broad research identity with the current PSC evidence.
 % The pre-PSC default remains reproducible through the default_legacy variant.
 \cvapplyvariant{default}{\cvmainbase}
+
+% RIVR: targeted headline, summary, and locomotion-policy experience overrides.
+\cvapplyvariant{rivr}{\cvmainbase
+  \renewcommand{\CVHeadline}{REINFORCEMENT LEARNING {\enskip\cdotp\enskip} IMITATION LEARNING {\enskip\cdotp\enskip} ROBOT LEARNING {\enskip\cdotp\enskip} SIM-TO-REAL}
+  \renewcommand{\CVSummary}{PhD computer scientist specializing in reinforcement learning, imitation learning, and robust policy optimization. Developed methods for learning from demonstrations, distribution matching, and adaptive allocation of training experience under environment and dynamics shifts. Experienced in large-scale GPU policy training, sim-to-real transfer, and deployment of learned control policies on physical robots, combining algorithm development with systematic evaluation and hardware validation.}
+  \renewcommand{\CVAnyTwo}{Trained and deployed PPO-based locomotion policies using Isaac Lab, including teacher–student policy distillation, with systematic sim-to-real evaluation and hardware validation.}
+}
 
 % OpenAI Data Understanding: targeted edits to the current public default.
 % Both entry points use the same projection, including the compatibility build.
