@@ -135,7 +135,7 @@
   \renewcommand{\CVSummary}{Research scientist in reinforcement, imitation, and reward learning, studying curriculum learning, adaptive data and task selection, and generalization under distribution shift in sequential decision-making. My work focuses on how the allocation and structure of training experience affect learned behavior, from learning from demonstrations to robust policy learning across heterogeneous environments and dynamics, including rare or safety-critical conditions. I combine algorithm development with large-scale GPU experimentation, systematic empirical evaluation, and deployment on physical robotic systems.}
 
   \renewcommand{\CVAnyOne}{Originated and led \PSCShortName{}, which uses a distributional safety critic to predict tail risk and adaptively reallocate training experience toward rare, safety-critical conditions; carried the project from research formulation through large-scale experimentation to production deployment and hardware validation. PSC improved robustness across controlled simulation studies and reduced undesired shank-contact incidence by 63\% relative to the production learning-progress baseline in repeated ANYmal-D hardware evaluations.}
-  \renewcommand{\CVAnyTwo}{Developed and deployed reinforcement-learning locomotion policies for industrial quadruped robots, with systematic sim-to-real evaluation and hardware validation.}
+  \renewcommand{\CVAnyTwo}{Developed and deployed reinforcement-learning locomotion policies for industrial quadruped robots, including privileged teacher–student policy distillation, sim-to-real evaluation, and hardware validation.}
   \renewcommand{\CVAnyThree}{Built RL training and evaluation pipelines for parallel simulation, multi-seed ablations, robustness studies, and reproducible policy comparisons.}
   \renewcommand{\CVAnyFour}{Secured and led a EuroHPC allocation of \EuroHPCAllocation{} for large-scale experiments on RL robustness, curriculum learning, and adaptive experience allocation.}
 
@@ -176,11 +176,24 @@
 % The pre-PSC default remains reproducible through the default_legacy variant.
 \cvapplyvariant{default}{\cvmainbase}
 
+% Mistral: current main CV with only the headline changed.
+\cvapplyvariant{mistral}{\cvmainbase
+  \renewcommand{\CVHeadline}{RESEARCH SCIENTIST {\enskip\cdotp\enskip} REINFORCEMENT LEARNING {\enskip\cdotp\enskip} CURRICULUM LEARNING {\enskip\cdotp\enskip} SEQUENTIAL DECISION-MAKING}
+}
+
 % RIVR: targeted headline, summary, and locomotion-policy experience overrides.
 \cvapplyvariant{rivr}{\cvmainbase
   \renewcommand{\CVHeadline}{REINFORCEMENT LEARNING {\enskip\cdotp\enskip} IMITATION LEARNING {\enskip\cdotp\enskip} ROBOT LEARNING {\enskip\cdotp\enskip} SIM-TO-REAL}
   \renewcommand{\CVSummary}{PhD computer scientist specializing in reinforcement learning, imitation learning, and robust policy optimization. Developed methods for learning from demonstrations, distribution matching, and adaptive allocation of training experience under environment and dynamics shifts. Experienced in large-scale GPU policy training, sim-to-real transfer, and deployment of learned control policies on physical robots, combining algorithm development with systematic evaluation and hardware validation.}
   \renewcommand{\CVAnyTwo}{Trained and deployed PPO-based locomotion policies using Isaac Lab, including teacher–student policy distillation, with systematic sim-to-real evaluation and hardware validation.}
+}
+
+% Enact: minimal tailoring of the main CV, reusing the RIVR policy-training record.
+\cvapplyvariant{enact}{\cvmainbase
+  \renewcommand{\CVSummary}{Research scientist working on reinforcement learning, imitation learning, and adaptive experience allocation for robust robot policies. Developed and deployed learning methods in production robotic systems, combining algorithm development, policy training and distillation, GPU-scale experimentation, and physical-robot evaluation. PhD research in reward learning and distribution matching from demonstrations.}
+  \renewcommand{\CVAnyTwo}{Trained and deployed PPO-based locomotion policies using Isaac Lab, including teacher–student policy distillation, with systematic sim-to-real evaluation and hardware validation.}
+  \renewcommand{\CVSkillTwo}{Diffusion \;\textbar\; Flow matching \;\textbar\; VAEs \;\textbar\; GANs \;\textbar\; Contrastive learning}
+  \renewcommand{\CVPublicationOne}{I. Ovinnikov et al. ``\PSCPaperTitle.'' \textit{arXiv preprint}, 2026; submitted to ICRA 2027. \href{\PSCLink}{arXiv:2609.37070}.}
 }
 
 % OpenAI Data Understanding: targeted edits to the current public default.
